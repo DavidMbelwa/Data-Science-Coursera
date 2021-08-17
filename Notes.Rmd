@@ -1,0 +1,107 @@
+---
+title: "Data Science Specialization"
+author: "David Mukajanga"
+date: "8/10/2021"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Introduction
+
+This course is taken as a starting point to learning data science. It is a beginner course and in it we will learn what is data science about, why we should learn it (where we will use it) and start with the basics.  
+
+
+# Module 1. Data Science Tool Box  
+## Contents:  
+1. Meaning of Data Science  
+2. Data Science Process  
+3. Data Science Tools  
+4. Installing R & RStudio  
+5. Version Control: Git & GitHub  
+6. Types of Data Science Questions  
+
+## Introduction:  
+In this module we will look at the tools you need for Data Science. We will define what data science is and explain it's process along the way.  
+
+## Meaning of Data Science  
+The art of using data to answer scientific questions. Data science questions are the type of questions that can be answered by using statistical data analysis tools (A better definition is on the way).
+
+## Data Science Process  
+1. Formulating a scientific question.  
+2. Getting the data that can answer that question.  
+3. Analyzing the data.  
+4. Presenting the findings and sharing them with the relevant audience.  
+5. Referring the people who helped along the way.  
+
+## Data Science Tools  
+1. Platforms for asking help.  
+2. Statistical languages and tools.  
+
+### Platforms For Asking Help
+* Coursera Community  
+* Stack Overflow  
+* Cross Validated  
+
+#### Reasons Why Your Code Might Not Work  
+* 90% of the time you would've made a mistake either in writting the code or choosing the method of analysis.  
+
+#### Guidelines For Getting Help
+1. Read the manuals  
+2. Search the web  
+3. If you are going to ask from a forum, first search the archives of the forum you plan to ask.  
+4. Read the frequently asked questions.  
+5. Ask a skilled fiend: This usually entails your classmates.  
+6. Find an answer by inspection or experimentation.  
+7. If you are an advanced programmer, read the source code.  
+
+#### Guidelines In Asking Questions
+1. Let other people know that you have done all the previous necessary steps.  
+2. Read the documentation :) :), just be patient and read it.
+3. Describe the goal. This is more important than describing steps.  
+4. Be explicit about your question.  
+5. Provide as minimum amount of information as it possibly appropriate.  
+6. Follow-up with the answer if/when you find it.  
+
+## Installing R & RStudio  
+
+### Download Sources:
+  * Both two are free software so just type "R free download for Windows/Mac etc" in google and it should lead you to right places.  
+  * The same goes for RStudio.  
+  
+### Tour of RStudio
+  * The interface has four main quadrants/panels:
+    1. Source = Top Left  
+    2. Console = Bottom Left  
+    3. Environment = Top Right  
+    4. Files = Bottom Right 
+
+  * The work flow is like the following:
+    1. You input the code into the **CONSOLE** quadrant  
+    2. It gets interpreted in the **ENVIRONMENT** quadrant  
+    3. The output is shown in **SOURCE** quadrant, if it is not a plot. If it is a plot it is shown in the **Plots** tab of the FILE quadrant  
+    4. The **FILES** quadrant in the bottom right will show and enable you to access all files int the folder in which you have saved the data you are currently using in the project you are currently working on. The **Packages** tab in the same quadrant will show all the active R packages that are currently running.  
+    
+  * To find the packages for any task you have in mind, there are 2 main ways:-  
+    1. [rdocumentation.org](rdocumentation.org)
+    2. Google that task with "R package" at the end. Eg. "R package for statistical plots"
+    
+  * To install packages from "Bioconductor" (which is the main repository for bioinformatic packages):
+    1. 1^st run this code:- source("https://bioconductor.org/bioclite.R")
+      * This will make the main install function of Bioconductor: bioclite (), availabe to you.
+    2. Then you can install any package from Bioconductor like so:-  
+      * Bioclite ("Package Name Goes Here")  
+      
+  * Rare occasions:-
+    - You might not find the package you are looking for in CRAN or Bioconductor.  
+    - In such a case you'll need to install your package from GitHub. To do this:-  
+      1. Find the package name **AND** the name of the author of the package you want from GitHUb.
+      2. Install the "devtools" package in R and load it.  
+      3. Use the following command to install the package from GitHub:-  
+        * install_github ("author/package")
+    
+    
+
+
