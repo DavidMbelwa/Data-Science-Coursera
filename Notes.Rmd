@@ -5,9 +5,6 @@ date: "8/10/2021"
 output: pdf_document
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
 
 # Introduction
 
@@ -46,7 +43,7 @@ The art of using data to answer scientific questions. Data science questions are
 * Cross Validated  
 
 ##### Reasons Why Your Code Might Not Work  
-* 90% of the time you would've made a mistake either in writting the code or choosing the method of analysis.  
+* 90% of the time you would've made a mistake either in writing the code or choosing the method of analysis.  
 
 ##### Guidelines For Getting Help
 1. Read the manuals  
@@ -68,27 +65,27 @@ The art of using data to answer scientific questions. Data science questions are
 ## Installing R & RStudio  
 
 ### What is R?  
-* It is a both a computer language and a programming program used for statistical analysis and at an advanced stage programming.  
-* It is a derivative of another coding language called "S" which was developed in 1976 originally as an internal statistical analytical tool for a technological company called *Bell Technologies* but later adopted by the computer programming community as both a language for statistical analysis and programming.  
+* It is a both a computer language and a program used for statistical analysis and at an advanced stage programming.  
+* It is a derivative of another coding language called "S" which was developed in 1976. "S" was originally developed as an internal statistical analytical tool for a technological company called *Bell Technologies* but later adopted by the computer programming community as both a language for statistical analysis and programming.  
 * The original goal of the creator of this language was to enable a statistician to be able to carry-out advanced statistical analysis on data without having the need to know any major computer programming language.  
 * The goal is achieved as both "S" and later "R" became popular computer languages for statistical analysis. The syntax between the 2 languages is not different at all but R has got more functioning added onto it that makes it popular in the open source coding community.  
 
 ### What is RStudio
-* It is a platform which makes using R simpler and more interactive, that is, enabling it to display tables, charts, graphs and other things.  
+* It is a platform which makes using R simpler and more interactive. This is by enabling it to display tables, charts, graphs and other things.  
 
 ### How R and RStudio works?
 * First you have to download R. The instructions for doing so are in the next heading.  
 * Then you download RStudio.  
-* Now you can use R without RStudio, just that your workflow will be so technical (just several lines of code) and less interactive (A.K.A Less fun).  
+* You can use R without RStudio, just that your workflow will be a little bit constricted and not pleasing to the eye.  
 * The basic R installation comes with several tools that enable you to carry out statistical analysis right away but it doesn't contain all tools for statistical analysis. These missing tools are called **Packages**. They basically add functionality to R as a program and enable it to do more complicated stuff.  
-* A good example of this is when you install a new operating system in your computer. The operating system might come with native programs for things like text editing and video playback but if you want serious functionality in say text editing, you will still have to download 3^{rd} party programs such as Microsoft Word and VLC Media Player. These third party programs are what Packages are in R.  
-* R Packages are stored in cloud-based online databases called "Repositories". In this particular websites, R Packages can be downloaded and installed at any time free of cost.  
+* For example, when you install a new operating system in your computer, the operating system might come with native programs for things like text editing etc, but if you want serious functionality, you will still have to download 3^{rd}$ party programs such as Microsoft Word and VLC Media Player. These third party programs are what Packages are in R.  
+* R Packages are stored in cloud-based online databases called "Repositories". In these particular websites, R Packages can be downloaded and installed at any time free of cost.  
 * Because R is an open source project, R Packages are developed and updated by an online open source community which means that anybody can create a new package and modify an existing one without any restrictions.  
 * The open-source part of it also allows for problems within packages to be detectable quickly and also solved quickly as anyone with the ability to do so can do so.  
-* The main 3 big repositories for R Packages are [CRAN](https://cran.r-project.org/web/packages/), [BioConductor (For BioInfo statistical packages)](https://bioconductor.org/packages/release/BiocViews.html#___Software), and GitHub (Which is not only specific for R). To know these is just a formality as installing R packages does not require you to visit these sites first.
+* The main 3 big repositories for R Packages are [CRAN (Comprehensive R Archive Network)](https://cran.r-project.org/web/packages/), [BioConductor (For BioInfo statistical packages)](https://bioconductor.org/packages/release/BiocViews.html#___Software), and GitHub (Which is not only specific for R). To know these is just a formality as installing R packages does not require you to visit these sites first.  
 
 ### Download Sources:
-  * Both two are free software so just type "R free download for Windows/Mac etc" in google and it should lead you to right places.  
+  * Both two are free software so just type "R free download for Windows/Mac etc" in Google and it should lead you to right places.  
   * The same goes for RStudio.  
   
 ### Tour of RStudio
@@ -101,7 +98,7 @@ The art of using data to answer scientific questions. Data science questions are
   * The work flow is like the following:
     1. You input the code into the **CONSOLE** quadrant  
     2. It gets interpreted in the **ENVIRONMENT** quadrant  
-    3. If the output not a plot it is shown in **SOURCE** quadrant. If it is a plot it is shown in the **Plots** tab of the **FILE** quadrant  
+    3. If the output is not a plot, it is shown in **SOURCE** quadrant. If it is a plot it is shown in the **Plots** tab of the **FILE** quadrant  
     4. The **FILES** quadrant in the bottom right will show you the folder in which all the files of your current project are saved. The **Packages** tab in the same quadrant will show all R packages that you have installed and will display also which are currently active via a green tick at a check box in the left side of the package name.    
     
   * To find the packages for any task you have in mind, there are 2 main ways:-  
@@ -113,16 +110,26 @@ The art of using data to answer scientific questions. Data science questions are
        * This will make the main install function of Bioconductor: bioclite (), availabe to you.  
     2. Then you can install any package from Bioconductor like so:-
        * Bioclite ("Package Name Goes Here")  
-      
+
   * Rare occasions:-
     - You might not find the package you are looking for in CRAN or Bioconductor.  
     - In such a case you'll need to install your package from GitHub. To do this:-  
-      1. Find the package name **AND** the name of the author of the package you want from GitHUb.  
+      1. Find the package name **AND** the name of the author of the package you want from GitHUb.   
       2. Install the "devtools" package in R and load it.  
       3. Use the following command to install the package from GitHub:-
-        * install_github ("author/package")
+        * install_github ("author/package")  
+        
+        
+  * To load a package, click on the checkbox in the "Packages" tab or type: **library (Package Name)** in the console.  
+  *To get help on how to use a package or the functions it contains:-  
+    - Either go to the **Files** quadrant and select the éHelp" tab.  
+    - OR type:- **help("Package Name")** in the console to get the general description on what the package is about.  
+   * Or type:- **browsevignettes("PackageName")** to access detailed information on how to use the package.  
+  
+  
     
     
+
 
 
 
@@ -144,7 +151,7 @@ The art of using data to answer scientific questions. Data science questions are
 * It is a computer language that allows the user to write text and computer code in one file and be able to display both the text, the code and the output of the code in the final document.  
 * R Markdown is important in the data science community since it enables easier communication from one data scientist to another by enabling them to see both the content of the research study and the steps taken to analyze findings both in the same file. This makes it easy if the other data scientist want to use the same steps to solve a similar problem.  
 * It is also popular for it's ease of revision and editing and the fact that the final output can be printed in PDF, HTML, Web and many other useful formats.  
-* It is also quite simple, with few symbols used for assigning headers, text formatting and specifying titles and codes in the document. The document containing instructions on what symbols are used to do what in R Markdown (A.K.A RMarkdown Cheat Sheet) is found [here](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf).  
+* It is also quite simple, with few symbols used for assigning headers, text formatting and specifying titles and codes in the document. The document containing instructions on what symbols are used to do what in R Markdown (A.K.A RMarkdown Cheat Sheet) is found [here (click on "here")](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf).  
 * To open a new RMarkdown file in RStudio, go to File > New File > R Markdown..  
 * A new window will appear asking you for the name of the document, author, date and whether you want to save it in PDF, HTML or PowerPoint. Choose your settings and a new tab will open in the source quadrant of RStudio with the name of your file and a ".Rmd" file extension. You are good to go.  
 * After writing on your file, you can save the contents by clicking on the saving disk icon at the source panel of your Rstudio session. This will save what you have written so far but will not print the final output in the format you specified e.g. PDF, PowerPoint etc.  
@@ -152,7 +159,7 @@ The art of using data to answer scientific questions. Data science questions are
 
 
 ### Nuts and Bolts of R
-If you are working directly from R without RStudio, the first step is to set a **~~working~~** directory.  
+If you are working directly from R without RStudio, the first step is to set a **~working~** directory.  
 * In windows, go to an open R-GUI and open file > change dir & then choose the location of the folder you want R to read and write from. For Mac users, please search the web :) :).  
 * To know what is your working directory type this command in R console:- getwd()  
 
@@ -184,7 +191,7 @@ If you are working directly from R without RStudio, the first step is to set a *
 
 ### Reading Tabular Data Into R
 
-**N.B** :- Before starting this part, please read [this page (Click on the words "this page")](https://www.rdocumentation.org/packages/utils/versions/3.6.2/topics/read.table), and have it memorized.
+**N.B** :- Before starting this part, please read [this page (click on the words "this page")](https://www.rdocumentation.org/packages/utils/versions/3.6.2/topics/read.table), and have it memorized.
 
 * There are main two functions used to paste tabular data into R:-
   - read.table() : Used primarily for a tables that are on normal text files .i.e. MS Word etc.
@@ -242,4 +249,5 @@ If you are working directly from R without RStudio, the first step is to set a *
 
 
 ### Connections: Interfaces to The Outside World
+
 
