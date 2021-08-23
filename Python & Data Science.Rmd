@@ -1,0 +1,24 @@
+---
+title: "Python For Data Science"
+author: "David Mukajanga"
+date: "8/23/2021"
+output: pdf_document
+---
+
+
+# Introduction
+This course is taken as a second step toward learning data science. The goal here is to get started with the basics of the Python language and how it is used for data analysis. The course book is "Python For Everybody" as written by Charles Severance. Welcome!
+
+
+# Contents:
+  1. Introduction To Programming.  
+  2. 
+
+
+# Module 1: Introduction To Programming.
+
+## What is Programming?
+
+## Why Learn Programming?
+
+## Characteristics of Programming
