@@ -7,18 +7,222 @@ output: pdf_document
 
 
 # Introduction
-This course is taken as a second step toward learning data science. The goal here is to get started with the basics of the Python language and how it is used for data analysis. The course book is "Python For Everybody" as written by Charles Severance. Welcome!
+This course is taken as a second step toward learning data science. The goal here is to get started with the basics of the Python language and how it is used for data analysis. The course book is "Python For Everybody" as written by Dr. Charles Severance. Welcome!
 
-
-# Contents:
-  1. Introduction To Programming.  
-  2. 
 
 
 # Module 1: Introduction To Programming.
 
+## Contents:
+  1. Introduction To Programming.  
+  2. Introduction To Python  
+  
+By the end of this chapter, you are supposed to be conversant with the following terms: 
+  * Constants  
+  * Variables  
+  * Types of variables  
+  * Mnemonic variable names  
+  * Operators  
+  * Operator precedence / Expressions  
+  * Variable type conversion  
+  * Commenting in Python  
+  * Why program in the first place.  
+
 ## What is Programming?
+The art of giving instructions to a computer hardware such that it is capable of executing a particular function.
 
-## Why Learn Programming?
 
-## Characteristics of Programming
+## Why Programming?
+* Most of the time is either you want to create a computerized tool that will enable you to carry out a specific function or you want to analyze a particular set of data.  
+
+* Most of those who use programming as a means to create digital tools aim at becoming software engineers. Some of them do this as their full time job while others like a hobby.  
+
+* Most of those who learn programming without wanting to become professional software developers are people like librarians, lawyers, doctors/academicians and all professionals that deal with data in their process of decision making.  
+* Sometimes they outsource this function but most of the time they learn the art themselves because it gives them a driver's seat in being able to do their jobs as they are supposed to be exactly done.  
+* For this course, the notes will base in data analysis. If you get so much intrigued so that you want to explore more advanced courses in programming, I, the writer of these notes wishes you all the best in your journey of learning.  
+
+## Characteristics of Programming  
+#### 1. Precision  
+ * The difference between instructing a human versus instructing a computer is that a human can correct errors in the instructions as long as they account them.  
+ * A computer on the other hand, will stop and surrender if it encounters anything it doesn't understand. This is commonly known as a "Syntax Error".  
+ * Syntax Errors usually come from either mis-spelling the characters in the code (command), or mis-arrangement of words inside the command.  
+ * For this reason, your code can be failing because of something as simple as putting one spacing instead of 2 in your code.  
+ * So keep in mind to be precise when you are writing your codes.
+ 
+#### 2. Hardware  
+ * The computer hardware is the one responsible for executing all your instructions and make possible for whatever task you had in mind to be executable.  
+ * The next question to ask oneself now is how does it do that? Well the process goes like this:-  
+   1. You write your instruction to the **Secondary** memory. This is what is commonly known as a Hard disk. It includes all readable media such as flash drives, cd etc.
+     - The instructions you write here stay here even if the computer is turned off.
+     - Sometimes the instructions come directly from input devices such as a gamepad. Most of the time the instructions will still go through your secondary memory because the main program lives there.  
+   2. When you switch on your computer, your instructions are uploaded to the **Main** memory. This is what is commonly known as RAM. 
+     - Your instructions are translated from a computer language like Python to a machine language which binary, by using a program called **Compiler**. More on this later.
+     - Once in the **main** memory, they stay there temporary while they are being worked on by the CPU and then they get erased once the program is shut down or the computer is shut down.  
+   3. The **CPU** is ***just*** a very sophisticated hand calculator with the basic task of asking **-"What is Next!"-**. What it does is take your translated instructions, solve them, and return the answer back to the main memory.
+   4. The answer gets outputed back via the output devices such as a screen or speaker.  
+   
+   
+#### 3. Intimidating / Full of Bluffs.  
+ * Your main enemy will be "Syntax Error".  
+ * At some point it will be frustrating but do not get discouraged. The word only means that Python (or any other language of programming you are using) is not understanding what you are saying. Be patient with yourself and do the work bit by bit. In the end you will become fluent in it.  
+
+
+\newpage 
+
+## Introduction to Python  
+#### What is Python?  
+* It is a programming language made in the late 1980's as an attempt to creating a powerful but easy to learn programming language.  
+* It was so because programming languages of that time were very technical and had a steep learning curve.  
+
+So with Python you should be able to hit the ground running in your computer programming journey.  
+
+#### Requirements
+1. No previous programming knowledge needed.  
+2. A computer  
+3. A text editor for programming such as Notepad++, Atom etc. Atom is recommended because it behaves similarly in Windows, Mac and Linux computers. Get it [**here**](https://atom.io/)  
+4. Python itself. You can download it [**here**](https://www.python.org/downloads/).  
+
+
+#### Starting With Python  
+* The important thing to note before we continue is that we will be ***writing*** our code in the text editor, which in this case is Atom, and ***running*** that code through the [*command prompt*](https://en.wikipedia.org/wiki/Command-line_interface) in Windows computers and the [*terminal*](https://en.wikipedia.org/wiki/Terminal_(macOS)) in Macs.  
+* There are ways in which the code can be run directly in the text editor but that is not very helpful for us now because there will be stages in which we will need to read data from different directories and it is good for us if we know how to work with the command prompt.  
+
+
+#### Symbols and Terminologies  
+
+###### 1. Interactive Programming.  
+* This is when you are writing code and executing it in the same time.  
+* You usually do this when for example you are coding directly in the Windows or Mac's terminal.  
+* It is a little bit fun but it is not convenient in writing a huge chunk of coding lines in it since you lack most of the tools from programming text editors that enable you to write your code correctly and in the end your code is not saved.  
+
+###### 2. The Python Interpreter (>>>) A.K.A *The Chevron Script*    
+It is a sign that you can type and execute a python command. If you type this into a programming text editor like Atom, you will switch from writing code to executing it. If this symbol also appears in the Window's Command Prompt or Mac's Terminal, it means that python has been opened and is running in the background. It also means you can program directly from the command prompt or terminal but your code will not be saved.  
+
+
+###### 3. Errors.  
+  1. Syntax Error = You know this by now.  
+  2. ValueError = When you are trying to coerce a value of data to a class of data that it can not be coerced to. Eg, letters to integers.  
+  3. TypeError = When you are giving a mathematical relations between two different types of variables whose class of data don't relate mathematically. Eg. trying to sum a lettered variable and an integer variable.  
+  
+
+###### 4. Reserved Words  
+* These are function specific words that are used in Python to tell it to do a specific task. Under no situation can these words be used to mean something else than what the programming language understand them to be mean. You can find them [***here***](https://drive.google.com/file/d/1qZlNt-hlVj25eKGDK3a3sDwQb0h5FrXN/view?usp=sharing)  
+
+
+###### 5. Sentences / Lines  
+
+* Basically are lines of code  
+* Contains either the Assignment Statement (variable & its value), Assignment with an Expression (variable, its value + a command ) or a function (eg. print(variable name goes here)).  
+
+###### 6. Operators.  
+* These are symbols used to instruct the Programming language like Python to carry out a specific task.  
+
+* The following are common operators:  
+   - Assignment Operator ('=') = Used to assign a specific value to a variable. Eg, Variable1 = 2.  
+   - Addition = ('+')  
+   - Subtraction = ('-')  
+   - Multiplication = ('*')  
+   - Division = ('/')  
+   - Power = ('**')  
+   - Remainder ('%') = This publishes **just** the remainders in the division equation.  
+     Eg, if you input the following code: 
+      >>> x = 9 / 2  
+      >>> print (X)  
+        x = 4.5  
+     But if you input this one:  
+      >>> x = 9 % 2
+      >>> print (x)  
+        x = 5 (Because 5 is the remainder in 4.5)  
+        
+   - Larger than / Smaller than = ">" "<"  
+        
+
+###### 7. Expressions  
+* These are commands in the right side of the assignment operator .i.e. '='.  
+* They should not be confused with constants in such a code as: x = **2**. Here 2 is a constant (also used as "value" in the previous explanations), not an expression.  
+* The following is an example of an expression:-  
+   >>> x = 2  
+   >>> a = **x + 3**  
+   
+
+###### 8. Variables.  
+* A.K.A variable names, these are numbers, letters or string of words which are used to represent something in the programming codes. 
+   - Eg. In this small code "x = 2", x is a variable while 2 is a constant.  
+   
+* The ***type*** of a variable depends on the ***class*** of data in that variable.  
+   * **String variables** are all variables whose data is enclosed by single quotes .i.e. 'data here'. In these type of variables, even if the data inside the quotes is numbers or has numbers, python will still read these as letters.  
+   * **Integers**. These are numbers that are presented only in a round form .i.e. 10 instead of 10.0 or 10.1 etc.  
+   * **Floating numbers (Real Numbers)**. These are the opposite of integers, that is, can be presented in fractions, decimals etc. Covers the whole range of numbers.  
+    **N.B**  
+    - The difference between floating numbers and integers in Python is of great importance since some variables are supposed to only be presented in one class and not the other. Money for example should not be input in terms of floating numbers in python. That's just a rule of thumb.  
+    - There is a way of *coercing* one type of variable to become another one, depending on the suitability of the class of data within that variable.  
+      Eg. 
+      - The '123' in code >>> x = '123' is a string variable and thus will be read as letters within python.  
+      - So if we want to add 1 for example by using the following code, the following error will occur in the execution of our code;
+      >>> x = '123'
+      >>> a = x + 1 
+      >>> print (a)
+      *TypeError: Can't convert 'int' object to str implicitly.*  
+      - To coerce this into an integer, the "**int**(Variable Name)" is used. Eg: 
+      >>> x = '123'
+      >>> y = int(x)
+      >>> a = x + 1
+      >>> print (a)
+      124.  
+      
+    - But not all variable types can be coerced in integers or strings (at least in python. In R it can be done.). In python, by using the **int()** function, there has to be numbers in that string for it to be transformed into an integer variable. Look at the following example: 
+       >>> x = 'Hello Bob'
+       >>> a = int(x)
+       *ValueError: Invalid literal for int() with base 10: 'x'*  
+    - To know the type of your variable, type the following function: type(Variable Name). Eg.
+      >>> x = '123'
+      >>> type(x)
+      <class 'int'>  
+      
+    - Integers can be coerced into floating numbers by using the "float()" function. Eg. 
+      >>> x = 11
+      >>> float(x)
+      11.0  
+   
+
+###### 9. Mnenomic (Nimonik) Variable Names  
+* This is a system of naming variables in programming that makes the code easy to understand for a human being.  
+
+* For Example: The following variable names are completely fine for Python:  
+   - >>> x3ni21 = 2
+   - >>> x3pi21 = 4
+   - >>> x3pi12 = (x3ni21 * x3pi21) / x3pi21  
+   
+* But a human reading this code will have a hard time telling the variables apart. This may lead to grave problems if they confuse one variable with another in debugging or a similar exercise.  
+
+* Instead, if variable names like the following are used, notice how it is now easier to digest the code: 
+   - >>> score = 2
+   - >>> no.courses = 4
+   - >>> gpa = (score * no.courses) / no.courses  
+   
+* So Mnemonic naming is naming variables so that they can be clear, memorable & unconfusable.  
+* An important thing to keep in mind is to not use the 'reserved words'.  
+
+###### 10. Scripts.  
+These are text files containing all of the Python code.
+
+
+###### 11. Patterns / Flow
+1. Sequential:  
+2. Conditional:  
+3. Repeated:  
+
+
+#### Commenting in Python  
+* The symbol '#' is used for commenting in python.  
+* Essentially, everything that comes at the right side of that symbol in a python file is regarded as a comment and will thus be ignored in the execution of the code.  
+* This means that you can put instructions, comments and even reserve code under that symbol and the program will not look at it.  
+* This is useful in situations where you need to share your code to someone else or you are coming to read your own code after a while and don't remember why you did a particular function.  
+* It is therefore advisable to put instructions in the form of comments in your code in major steps so that it should be easy for you in the future.  
+
+\newpage   
+   
+   
+## Writing The First Python Program.
+
+* 
