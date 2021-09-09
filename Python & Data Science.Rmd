@@ -7,38 +7,46 @@ output: pdf_document
 
 
 # Introduction
-This course is taken as a second step toward learning data science. The goal here is to get started with the basics of the Python language and how it is used for data analysis. The course book is "Python For Everybody" as written by Dr. Charles Severance. Welcome!
+This course is taken as a second step toward learning data science. The goal here is to get started with the basics of the Python language and how it is used for data analysis. The course book is "Python For Everybody" as written by Dr. Charles Severance. Welcome!  
 
 
+***  
 
-# Module 1: Introduction To Programming.
 
-## Contents:
-  1. Introduction To Programming.  
-  2. Introduction To Python  
-  
-By the end of this chapter, you are supposed to be conversant with the following terms: 
-  * Constants  
-  * Variables  
-  * Types of variables  
-  * Mnemonic variable names  
-  * Operators  
-  * Operator precedence / Expressions  
-  * Variable type conversion  
-  * Commenting in Python  
-  * Why program in the first place.  
+# Module 1: Introduction To Programming.  
 
-## What is Programming?
+## Contents:  
+
+1. What is Programming.  
+2. Why Learn Programming  
+3. Characteristics of Programming  
+4. Introduction To Python  
+
+By the end of this chapter, you are supposed to be conversant with the following terms:  
+
+* Constants  
+* Variables  
+* Types of variables  
+* Nimonik (Mnemonic) variable names  
+* Operators  
+* Operator precedence / Expressions  
+* Variable type conversion  
+* Commenting in Python  
+* Why program in the first place.  
+
+## What is Programming?  
 The art of giving instructions to a computer hardware such that it is capable of executing a particular function.
 
 
-## Why Programming?
+## Why Learn Programming?  
 * Most of the time is either you want to create a computerized tool that will enable you to carry out a specific function or you want to analyze a particular set of data.  
 
 * Most of those who use programming as a means to create digital tools aim at becoming software engineers. Some of them do this as their full time job while others like a hobby.  
 
 * Most of those who learn programming without wanting to become professional software developers are people like librarians, lawyers, doctors/academicians and all professionals that deal with data in their process of decision making.  
+
 * Sometimes they outsource this function but most of the time they learn the art themselves because it gives them a driver's seat in being able to do their jobs as they are supposed to be exactly done.  
+
 * For this course, the notes will base in data analysis. If you get so much intrigued so that you want to explore more advanced courses in programming, I, the writer of these notes wishes you all the best in your journey of learning.  
 
 ## Characteristics of Programming  
@@ -47,27 +55,26 @@ The art of giving instructions to a computer hardware such that it is capable of
  * A computer on the other hand, will stop and surrender if it encounters anything it doesn't understand. This is commonly known as a "Syntax Error".  
  * Syntax Errors usually come from either mis-spelling the characters in the code (command), or mis-arrangement of words inside the command.  
  * For this reason, your code can be failing because of something as simple as putting one spacing instead of 2 in your code.  
- * So keep in mind to be precise when you are writing your codes.
- 
+ * So keep in mind to be precise when you are writing your codes.  
+
 #### 2. Hardware  
  * The computer hardware is the one responsible for executing all your instructions and make possible for whatever task you had in mind to be executable.  
  * The next question to ask oneself now is how does it do that? Well the process goes like this:-  
-   1. You write your instruction to the **Secondary** memory. This is what is commonly known as a Hard disk. It includes all readable media such as flash drives, cd etc.
-     - The instructions you write here stay here even if the computer is turned off.
-     - Sometimes the instructions come directly from input devices such as a gamepad. Most of the time the instructions will still go through your secondary memory because the main program lives there.  
-   2. When you switch on your computer, your instructions are uploaded to the **Main** memory. This is what is commonly known as RAM. 
-     - Your instructions are translated from a computer language like Python to a machine language which binary, by using a program called **Compiler**. More on this later.
-     - Once in the **main** memory, they stay there temporary while they are being worked on by the CPU and then they get erased once the program is shut down or the computer is shut down.  
-   3. The **CPU** is ***just*** a very sophisticated hand calculator with the basic task of asking **-"What is Next!"-**. What it does is take your translated instructions, solve them, and return the answer back to the main memory.
+   1. You write your instruction to the **Secondary** memory. This is what is commonly known as a Hard disk. It includes all readable media such as flash drives, cd etc.  
+       - The instructions you write here stay here even if the computer is turned off.  
+       - Sometimes the instructions come directly from input devices such as a gamepad. Most of the time the instructions will still go through your secondary memory because the main program lives there.  
+   2. When you switch on your computer, your instructions are uploaded to the **Main** memory. This is what is commonly known as RAM.  
+       - Your instructions are translated from a computer language like Python to a machine language which binary, by using a program called **Compiler**. More on this later.  
+       - Once in the **main** memory, they stay there temporary while they are being worked on by the CPU and then they get erased once the program is shut down or the computer is shut down.  
+   3. The **CPU** is ***just*** a very sophisticated hand calculator with the basic task of asking **-"What is Next!"-**. What it does is take your translated instructions, solve them, and return the answer back to the main memory.  
    4. The answer gets outputed back via the output devices such as a screen or speaker.  
-   
-   
+
+
 #### 3. Intimidating / Full of Bluffs.  
  * Your main enemy will be "Syntax Error".  
  * At some point it will be frustrating but do not get discouraged. The word only means that Python (or any other language of programming you are using) is not understanding what you are saying. Be patient with yourself and do the work bit by bit. In the end you will become fluent in it.  
 
 
-\newpage 
 
 ## Introduction to Python  
 #### What is Python?  
@@ -87,130 +94,140 @@ So with Python you should be able to hit the ground running in your computer pro
 * The important thing to note before we continue is that we will be ***writing*** our code in the text editor, which in this case is Atom, and ***running*** that code through the [*command prompt*](https://en.wikipedia.org/wiki/Command-line_interface) in Windows computers and the [*terminal*](https://en.wikipedia.org/wiki/Terminal_(macOS)) in Macs.  
 * There are ways in which the code can be run directly in the text editor but that is not very helpful for us now because there will be stages in which we will need to read data from different directories and it is good for us if we know how to work with the command prompt.  
 
+#### Important Terminologies.  
 
-#### Symbols and Terminologies  
-
-###### 1. Interactive Programming.  
+##### 1. Interactive Programming.  
 * This is when you are writing code and executing it in the same time.  
 * You usually do this when for example you are coding directly in the Windows or Mac's terminal.  
 * It is a little bit fun but it is not convenient in writing a huge chunk of coding lines in it since you lack most of the tools from programming text editors that enable you to write your code correctly and in the end your code is not saved.  
 
-###### 2. The Python Interpreter (>>>) A.K.A *The Chevron Script*    
-It is a sign that you can type and execute a python command. If you type this into a programming text editor like Atom, you will switch from writing code to executing it. If this symbol also appears in the Window's Command Prompt or Mac's Terminal, it means that python has been opened and is running in the background. It also means you can program directly from the command prompt or terminal but your code will not be saved.  
 
 
-###### 3. Errors.  
+##### 2. The Python Interpreter (*>>>*) A.K.A *The Chevron Script*   
+
+* It is a sign that you can type and execute a python command.
+
+* If this symbol also appears in the Window's Command Prompt or Mac's Terminal, it means that python has been opened and is running in the background.  
+*  It also means you can program directly from the command prompt or terminal but your code will not be saved.  
+
+
+##### 3. Errors.  
   1. Syntax Error = You know this by now.  
   2. ValueError = When you are trying to coerce a value of data to a class of data that it can not be coerced to. Eg, letters to integers.  
   3. TypeError = When you are giving a mathematical relations between two different types of variables whose class of data don't relate mathematically. Eg. trying to sum a lettered variable and an integer variable.  
-  
-
-###### 4. Reserved Words  
-* These are function specific words that are used in Python to tell it to do a specific task. Under no situation can these words be used to mean something else than what the programming language understand them to be mean. You can find them [***here***](https://drive.google.com/file/d/1qZlNt-hlVj25eKGDK3a3sDwQb0h5FrXN/view?usp=sharing)  
 
 
-###### 5. Sentences / Lines  
+##### 4. Reserved Words  
+* These are function specific words that are used in Python to tell it to do a specific task. Under no situation can these words be used to mean something else than what the programming language understand them to be mean. This is the list of them.   
+
+![](C:\Users\David\Desktop\DS\Data-Science-Coursera\Images_Python_Notes\Reserved Words Python.png)  
+
+
+##### 5. Sentences / Lines  
 
 * Basically are lines of code  
 * Contains either the Assignment Statement (variable & its value), Assignment with an Expression (variable, its value + a command ) or a function (eg. print(variable name goes here)).  
 
-###### 6. Operators.  
+##### 6. Operators.  
 * These are symbols used to instruct the Programming language like Python to carry out a specific task.  
 
 * The following are common operators:  
-   - Assignment Operator ('=') = Used to assign a specific value to a variable. Eg, Variable1 = 2.  
-   - Addition = ('+')  
-   - Subtraction = ('-')  
-   - Multiplication = ('*')  
-   - Division = ('/')  
-   - Power = ('**')  
-   - Remainder ('%') = This publishes **just** the remainders in the division equation.  
-     Eg, if you input the following code: 
-      >>> x = 9 / 2  
-      >>> print (X)  
-        x = 4.5  
-     But if you input this one:  
-      >>> x = 9 % 2
-      >>> print (x)  
-        x = 5 (Because 5 is the remainder in 4.5)  
-        
+   * Assignment Operator ('=') = Used to assign a specific value to a variable. Eg, Variable1 = 2.  
+   * Addition = ('+')  
+   * Subtraction = ('-')  
+   * Multiplication = ('*')  
+   * Division = ('/')  
+   * Power = ('**')  
+   * Remainder ('%') = This publishes **just** the remainders in the division equation.  
+     Eg, if you input the following code:  
+          ->>> x = 9 / 2   
+          ->>> print(x)   
+          -x = 4.5  
+
+     But if you input this one:
+          ->>> x = 9 % 2  
+          ->>> print (x)  
+          -x = 5 (Because 5 is the remainder in 4.5)    
+
+
    - Larger than / Smaller than = ">" "<"  
-        
+   - Equal to = "==" (Basically asks the question 'Is...equal to ...?')     
+   - Larger than or Equal to = ">="  
+   - Smaller than or Equal to = "<="  
 
 ###### 7. Expressions  
 * These are commands in the right side of the assignment operator .i.e. '='.  
 * They should not be confused with constants in such a code as: x = **2**. Here 2 is a constant (also used as "value" in the previous explanations), not an expression.  
-* The following is an example of an expression:-  
-   >>> x = 2  
-   >>> a = **x + 3**  
-   
+* The following is an example of an expression:-
+   ->>> VarX = 2 (VarX is assigned a constant)
+   ->>> VarA = VarX + 2 (VarA is an expression here)  
 
-###### 8. Variables.  
-* A.K.A variable names, these are numbers, letters or string of words which are used to represent something in the programming codes. 
+
+##### 8. Variables.  
+* A.K.A variable names, these are numbers, letters or string of words which are used to represent something in the programming codes.
    - Eg. In this small code "x = 2", x is a variable while 2 is a constant.  
-   
+
 * The ***type*** of a variable depends on the ***class*** of data in that variable.  
-   * **String variables** are all variables whose data is enclosed by single quotes .i.e. 'data here'. In these type of variables, even if the data inside the quotes is numbers or has numbers, python will still read these as letters.  
+   * **String variables** are all variables whose data is enclosed by single quotes or double quotes .i.e. 'data here' / "" . In these type of variables, even if the data inside the quotes is numbers or has numbers, python will still read these as letters.  
    * **Integers**. These are numbers that are presented only in a round form .i.e. 10 instead of 10.0 or 10.1 etc.  
    * **Floating numbers (Real Numbers)**. These are the opposite of integers, that is, can be presented in fractions, decimals etc. Covers the whole range of numbers.  
     **N.B**  
     - The difference between floating numbers and integers in Python is of great importance since some variables are supposed to only be presented in one class and not the other. Money for example should not be input in terms of floating numbers in python. That's just a rule of thumb.  
     - There is a way of *coercing* one type of variable to become another one, depending on the suitability of the class of data within that variable.  
-      Eg. 
-      - The '123' in code >>> x = '123' is a string variable and thus will be read as letters within python.  
+      Eg.
+      - The '123' in code > x = '123' is a string variable and thus will be read as letters within python.  
       - So if we want to add 1 for example by using the following code, the following error will occur in the execution of our code;
-      >>> x = '123'
-      >>> a = x + 1 
-      >>> print (a)
-      *TypeError: Can't convert 'int' object to str implicitly.*  
-      - To coerce this into an integer, the "**int**(Variable Name)" is used. Eg: 
-      >>> x = '123'
-      >>> y = int(x)
-      >>> a = x + 1
-      >>> print (a)
-      124.  
-      
-    - But not all variable types can be coerced in integers or strings (at least in python. In R it can be done.). In python, by using the **int()** function, there has to be numbers in that string for it to be transformed into an integer variable. Look at the following example: 
-       >>> x = 'Hello Bob'
-       >>> a = int(x)
-       *ValueError: Invalid literal for int() with base 10: 'x'*  
+      ->>> x = '123'
+      ->>> a = x + 1
+      ->>> print(a)
+      ***TypeError: Can't convert 'int' object to str implicitly.***  
+
+      - To coerce this into an integer, the "**int**(Variable Name)" is used. Eg:  
+        ->>> x = '123'  
+        ->>> y = int(x)  
+        ->>> a = x + 1  
+        ->>> print (a)  
+        124.  
+
+
+
+   - But not all variable types can be coerced in integers or floating numbers (at least in python. In R it can be done.). In python, by using the **int()** or the **float()** function, there has to be numbers in that string for it to be transformed into an integer variable. Look at the following example:
+     > x = 'Hello Bob'  
+     > a = int(x)  
+     ***ValueError: Invalid literal for int() with base 10: 'x'***  
+
     - To know the type of your variable, type the following function: type(Variable Name). Eg.
-      >>> x = '123'
-      >>> type(x)
+      > x = '123'  
+      > type(x)  
       <class 'int'>  
-      
-    - Integers can be coerced into floating numbers by using the "float()" function. Eg. 
-      >>> x = 11
-      >>> float(x)
+
+    - Integers can be coerced into floating numbers by using the "float()" function. Eg.
+      > x = 11  
+      > float(x)  
       11.0  
-   
+
 
 ###### 9. Mnenomic (Nimonik) Variable Names  
 * This is a system of naming variables in programming that makes the code easy to understand for a human being.  
 
 * For Example: The following variable names are completely fine for Python:  
-   - >>> x3ni21 = 2
-   - >>> x3pi21 = 4
-   - >>> x3pi12 = (x3ni21 * x3pi21) / x3pi21  
-   
+     > x3ni21 = 2  
+     > x3pi21 = 4  
+     > x3pi12 = (x3ni21 * x3pi21) / x3pi21  
+
 * But a human reading this code will have a hard time telling the variables apart. This may lead to grave problems if they confuse one variable with another in debugging or a similar exercise.  
 
-* Instead, if variable names like the following are used, notice how it is now easier to digest the code: 
-   - >>> score = 2
-   - >>> no.courses = 4
-   - >>> gpa = (score * no.courses) / no.courses  
-   
+* Instead, if variable names like the following are used, notice how it is now easier to digest the code:
+     > score = 2  
+     > no.courses = 4  
+     > gpa = (score * no.courses) / no.courses  
+
 * So Mnemonic naming is naming variables so that they can be clear, memorable & unconfusable.  
 * An important thing to keep in mind is to not use the 'reserved words'.  
 
+
 ###### 10. Scripts.  
 These are text files containing all of the Python code.
-
-
-###### 11. Patterns / Flow
-1. Sequential:  
-2. Conditional:  
-3. Repeated:  
 
 
 #### Commenting in Python  
@@ -220,9 +237,388 @@ These are text files containing all of the Python code.
 * This is useful in situations where you need to share your code to someone else or you are coming to read your own code after a while and don't remember why you did a particular function.  
 * It is therefore advisable to put instructions in the form of comments in your code in major steps so that it should be easy for you in the future.  
 
-\newpage   
-   
-   
-## Writing The First Python Program.
 
-* 
+\newpage   
+
+
+# Module 2: Writing Basic Programs  
+
+## Content  
+
+By the end of this course, you should have known the following:  
+
+* Likely sources of errors in your code  
+
+* The "Input()" Function.  
+
+* Purpose of the "Print()" Function  
+
+* Indentations and Code Blocks  
+
+* Sequential Codes, Conditional Codes and Repeating/Loop Codes  
+
+
+## Likely Sources of Errors In your Code.  
+
+Before we begin, I am necessiated to bring the following things to your attention, things that made my first codes not work. They are small stuff which you too can make and they can make your brain heat up when you don't notice them as the source of problems in your code.  
+
+### 1. Capitalizing the command words..  
+* Don't capitalize command words such as "if", "elif" etc. Your code simply will not work, the main reason being the capitalized command words will be read as variables instead of as commands.  
+
+* The sign for this is the fact that the command words won't be colored if you are using a programming text editor like Atom. If you notice that the command words are of the same color as the variable names then know that you didn't write them correctly.  
+* Don't even capitalize the first letter. Python wants to read the command statement like an "if" as "if ..." not "If..."  
+
+### Not Coercing Your Input Functions into Integers or Real Numbers When Using Comparison Operators Against Numerical Values.  
+
+* Look at the following example:  
+     > xscr = input("Please Enter Your Score: ")
+     > if xscr > 75:
+            print ("You can enroll to the course")  
+
+* The code above will show a ***TypeError*** in the second line telling you this:  
+    TypeError: '>' not supported between instances of 'str' and 'int'.  
+
+* This is because ,at the second line, we are comparing the original value of the variable 'xscr' which is still read as a string (even if the user inserted a number) to 75 which is a numeric. To solve this, the code should be re-written like so:  
+     > xscr = ***float***(input("Please Enter Your Score: "))
+     > if xscr > 75:
+            print ("You can enroll to the course")  
+
+* Notice now that the value that will be compared to 75 is a floated numerical value of the variable 'xscr' from the first line.  
+
+### Putting an Instruction In Front of the "else" Statement.  
+
+* Look at the following code:  
+    > xscr = float(input("Please Enter Your Score: "))
+    > if  xscr > 75:
+            print ("You can enroll to the course")
+    > elif xscr > 50:
+             print ("You have to take the preparation course)
+    > else xscr < 50:
+             print ("You have to retake the entrance exam")  
+
+* The code will give the following error in the third line, at the 'else' statement:  
+   ***SyntaxError: invalid syntax***  
+
+* This is because, although the programmer had a good intention of giving very specific instructions to python, python already knows that if you use the "else" statement, you already made up your mind that anything else that is different from the 'if' or 'elif' statements you made earlier should be executed by the else statement.  
+
+* So, to avoid this problem, write your else statements like so:  
+   > xscr = float(input("Please Enter Your Score: "))
+   > if Xscr > 75:
+          print("You can enroll to the course")
+   > elif xscr > 50:
+            print ("You have to take the preparation course")
+   > ***else :***
+            print ("You have to repeat the entrance exam")  
+
+### Post your problem in online forums.  
+* Sometimes the only people that can see the problem in your code are anybody else but you :) :).  
+
+* This is usually because they are more experts or experienced than you :) :).  
+
+* Post your code in online developer communities like [***Stack Overflow***](https://stackoverflow.com/), [***Coursera Community***](https://coursera.community/) and [***Cross Validated***](https://stats.stackexchange.com/) to get help.  
+
+* Sometimes the problem might be as complicated as having used different [character codes](https://en.wikipedia.org/wiki/Character_encoding) in your code. The following is the guideline for asking questions in the forums:  
+
+       1. Let other people know that you have done all the previous necessary steps.  
+       2. Read the documentation :) :), just be patient and read it.  
+       3. Describe the goal. This is more important than describing steps.  
+       4. Be explicit about your question.  
+       5. Provide as minimum amount of information as it possibly appropriate.  
+       6. Follow-up with the answer if/when you find it.  
+
+
+## Program 1: Pay Calculator.
+
+### The "input("")" Function  
+* It is a programming function that instruct the program to pause and ask for a user input before using that input to continue executing the written code.  
+* As it can be noticed, the inside of the brackets in the input function has double quotient marks which means that everything that gets entered into that function is a **STRING** data. This includes numbers.  
+* Therefore, in an example like this, let us write a program to prompt a user for hours and rate per hour in order to calculate the gross pay:
+     > hrs = input("Enter Hours:")
+     > rate = input("Enter Rate:")
+     > pay = float(hrs) * float(rate)
+     > print ("Pay:", pay)  
+
+ In this code:  
+   1. The user will be asked to input the number of hours worked through the first line. The words "Enter Hours:" are the ones that will be displayed in her screen. The input from the answer will be regarded as a string regardless of whether the answer is in numbers or text. In order to thus be able to force the answer into numbers, the programmer has to allow only a numerical input in the interface of the user.  
+   2. The second line will get executed and the user will be asked to enter the amount of rate per hour. The same applies here.  
+   3. The third variable is assigned the coerced values of var1 & var2  
+   4. The output of the third variable is displayed to the user with the words "Pay:" preceding the value of the third variable. The output will look like this:
+     - **Pay: 96.25**  
+
+
+### The "print()" Function  
+* This displays the output of the code to the user of the program.  
+* Several ways of using this is covered as we move forward so pay attention to the explanations on how it was used in the coming codes.  
+
+
+## Program 2: The Course Admission Checker  
+
+### The Python Flow  
+* This is the order in which Python executes the written code.  
+
+* This order is largely dependent on **indentation**.  
+
+#### Indentation
+* In python, indentation gives a signal to which code will be run first.  
+
+* Indentation comes as a result of the type of python code/statement written. Because of this, a part of code that has several indented lines in it is called a "Code Block" or "Code Chunk" because it gets executed as one line of code as per instructions written in it.   
+
+* Different from other languages like C++ where indentation will not cause your code not to work, in Python, indentation can be a source of your code not being able to run.  
+
+* The main cause is usually mixing the indentation by using both the 'TAB' key and the 'SPACE' key to make indentation in the same document. The space created by these two keys are interpreted differently in the program, thus creating an error in execution.  
+
+* Indentation made by using the 'SPACE' key is known as **Soft Tab** while the one made by the 'TAB' key is known as the **Hard Tab**.  
+
+* It is a good practice to configure your text editor so that it uses soft tabs even when you press the 'TAB' key.  
+* To do this, in your text editor, go to: File > Setting > Editor > Tab Type. There are usually 3 options there, you should choose soft.  
+* The procedure might differ depending on the text editor you are using so if you are having a hard time finding those setting, searching on Google or YouTube might help.  
+
+
+### Types of Python Statements/Codes  
+
+#### Sequential Statements/Codes
+
+* These are python codes written in such a manner that they are executed in a sequence from the first line to the last.  
+
+* It is the default execution pattern in python. All the other execution flows are embedded in a sequential execution of the code.  
+* The picture of the following chart flow explains this clearly:  
+
+ ![](C:\Users\David\Desktop\DS\Data-Science-Coursera\Images_Python_Notes\image-3.jpg)  
+
+### Conditional Statements  
+
+* These are python codes that will not get executed unless a particular condition specified by the programmer is met.  
+* They are usually made by using an "**if**" statement and further clarified by using the "**elif**" or "**else**" statements.  
+
+##### The "if" Statements
+
+* Consider the following example:  
+    Eg.
+      > x = float(Input("Please Enter Your Score Here: "))
+      > if X > 75:
+           print ('You can enroll in the program,
+           please choose the starting day that is most
+           appropriate for you.')
+      > if x < 75:
+           print ('Please repeat the course')
+      > if x > 75:
+           input("Enter The Date Here: ")
+
+* In this code, if the user's score is above 75, the second line of code with the instructions "Please repeat the course" will not be executed. If the grade is smaller that 75 then the third line of code with the instructions "Enter The Date Here: ") will not be executed.  
+
+##### The "elif" and "else" statements  
+
+* The word "elif" is a combination of "else" and "if".  
+* This statement is used to give more clarification on what should be done if the first condition created by using the "if" statement was not met.  
+* Consider the following example:  
+  > xscr = float(input("Please Enter Your Score: "))
+  > if xscr > 75:
+          print("You can enroll to the course")
+  > elif xscr > 50:
+          print("You have to take the preparation course")
+  > else :
+          print ("You have to repeat the entrance exam")  
+
+* Like it can be observed, we have basically instructed the program to tell our user to take the preparation course if our user enters any value less than 75 but more than 50 by using the ***elif*** statement.  
+* In this example, if our user indeed enters a value less than 75 but more than 50, the first code under the "If" statement will not be executed and the program will move on to the second instruction which is the "elif" statement.  
+* If that doesn't work too it will move to the 'else' statement.  
+* In short, anywhere where the three conditional statements are put together, only one condition will be executed.
+* If, for example, we didn't put any clarification of what should be done if the value entered is less than 75, then the program will not do anything as it won't execute the "If" line and there is nothing else after that.
+
+
+
+### Store and Re-use Statements...  
+* They are used to store a block of code that might later be needed to be executed somewhere else.
+
+* These are made by using the "def" statement. "def" here means 'define'.  
+
+* A 'def' statement is known as a "function" because it is later used as a function to call the execution of the code stored in it.  
+
+* The use of 'def' statement is also known as the use of "Logic". You will encounter this in programming questions where they tell you to use logic to execute a certain problem. When they use this term, they basically say that you should write a piece of code that does a specific function, say calculating wage, give it a specific name (which becomes the function's name), put it in a store by using the 'def' statement, then re-use it everytime you want it by calling that function name. The calling of the function is what is also known as "invoking the 'def' statement".  
+
+* Take the following example:  
+    -> def ***computepay*** (h, r):
+        if h <= 40:
+            print (h * r)
+        elif h > 40 :
+            return ((40*r) + ((h - 40)*(r * 1.5)))
+
+    -> try :
+         h = (float(input("Please Enter Hours: ")))
+         r = (float(input("Please Enter Rate: ")))
+    -> except :
+         print("Please Enter Numeric Values Only")
+         h = (float(input("Please Enter Hours: ")))
+         r = (float(input("Please Enter Rate: ")))
+    -> print ("Pay:", computepay(h, r))  
+
+* In the code above:  
+    1. "computepay()" = *Function Name*  
+    2. (h, r) = *Parameters*  
+
+
+#### Parameters  
+* These are variable names that we put into the 'def' statement to represent user input.  
+
+* They can sometimes be variables that only exist in the 'def' statement. When they are used in this manner, the goal is usually to assign ***arguments*** to them.  
+* They also help us programmers understand what is going on in the 'def' statement. Check the following example:  
+     -> def greeting(***lang***) :  
+                if lang == 'en' :  
+                    print ('Hello!')  
+                elif lang == 'es' :  
+                    print('Hola!')  
+                elif lang == 'sw' :  
+                    print ('Habari!')  
+
+     -> greeting('sw') :  
+            print ('greeting()', Bob)  
+     -> greeting ('es') :  
+            print ('greeting()', Juma)  
+     -> greeting ('en') :  
+            print ('greeting()', Sarah)  
+
+
+* In the code above:  
+    * 'lang' = Parameter  
+    * 'en', 'sw', 'es' = Arguments  
+
+* The thing to note is the following:  
+    * When we first run the program, the whole 'def' block will be skipped. Python will only take note that there is a function called 'greeting' in that block of code and that whenever that function gets mentioned later in the code it should come back and execute the code therein.  
+
+
+
+#### Return statements...  
+* This is a statement used to give an answer to the defined 'def' statement.  
+
+* It is used in a situation where the 'def' function has been given its arguments, has done the computation needed and has to ***return*** a value to be used as the value of the function call in the ***calling expression***.  
+* For example:  
+    -> def greet()
+           return "Hello"
+
+    -> print(greet(), "Glenn")
+    -> print(greet(), "Sally")  
+* Here whenever the *greet()* function has been invoked, the answer that will be returned is "*Hello*"
+           OR  
+
+```python 
+     -> def greet(lang):
+            if lang == 'es':
+               ***return*** 'Hola'
+            elif lang == 'fr':
+               ***return*** 'Bonjour'
+            else:
+               ***return*** 'Hello'  
+     -> print(greet('en'), 'Glenn')
+     Hello Glenn  
+     -> print (greet('es'), 'Sally')
+     Hola Sally  
+     -> print(greet('fr'). 'Michael')
+     Bonjour Michael.
+     
+``` 
+
+* 'def' functions that have to return an answer after it has executed its function is called a *fruitful function*  
+* ***Unfruitful Functions*** are 'def' statements that do not have a return value.  
+* These usually are the 'def' statements which have been ordered to execute a specific task without the need to provide a value in the end.  
+* Eg.  
+
+```python 
+    >>> def end() :
+            print('Thanks to the Almighty you are all well. Have a good time.')  
+            quit()  
+
+    >>> x = input('Hey! Welcome. I am a virtual doctor appointment secretary. Do you need an appointment?: ')  
+    >>> if x == 'Yes'    
+            y = input('Ok. Select your most appropriate date from the list of available dates below: ')
+    >>> elif x == 'No'  
+            end()
+```
+
+* The 'def' statement here just closes the program. It does not return any value.  
+
+
+
+### Repeating/Loop Statements.
+
+* There are made by either using the 'while' statement or the 'for' statement.  
+
+#### 'while' statements     
+* These essentially repeat the same thing until a specific condition is met.  
+* The condition is known as the "iteration statement".  
+* The iteration statement is usually placed in the 'while' statement line and what python essentially does with the statement is asking whether the iteration statement is true or false. If true it execute the instructions in the 'while' block. If not it skips to the next line of code.  
+
+* Consider the following example:  
+
+```python
+>>> x = 5  
+>>> while x > 0 :
+        print (x)
+        x = x - 1  
+
+>>> print('Blast off')  
+```
+
+* In the code above, the iteration statement is "x > 0".  
+* As long as the assigned value of x is greater than zero, python will continue to run the code in the idented portion of the while statement. Only when x == 0 will python exit that code block and continue downwards.  
+* The output of the above code will be as following:  
+![](C:\Users\David\Desktop\DS\Data-Science-Coursera\Images_Python_Notes\Example_Images\Screenshot 2021-09-08 205528.png)  
+
+#### Infinite Loops  
+* These are 'while' statements with either no iteration statement or an iteration statement which always remains true.  
+* Consider the following example :  
+
+```python
+     >>> x = 5  
+     >>> while x > 0 :
+            print (x - 1)  
+
+     >>> print (Blast off!)  
+```  
+
+* In this code, the iteration statement is always true. Python will print number 4 forever the moment this code is run because:  
+    1. Python will see that x has been assigned a value of 5.  
+    2. It will have been assigned that as long as (thus the 'while' statement) the value of x is greater than 0, it is supposed to be printing (x - 1).  
+    3. When it finishes to print (x - 1), it goes back to evaluate the iteration statement in the 'while' statement. The problem is that we have not put any instruction that changes the value of x and thus the value of 'x' in this block will always remain greater than zero and thus the while statement will run without stopping until the computer is shut down.  
+
+* Therefore, it is important to make sure that the iteration statement written in a loop statement has an end.  
+
+#### The 'break' statement.  
+* This is used to put another iteration statement within the 'while' statement.  
+* It basically tells python to "break" repetition and ***exit*** the 'while' statement if that second condition is met.  
+* Consider the following example :  
+
+```python 
+    >>> x = input('Do you need an appointment (y/n): ')  
+    >>> while x == 'y' :  
+            y = input("Please select doctors' office numbers below: ")  
+            if (y == '3') or (y == '5') or (y == '7') :  
+                print('Your appointment has been accepted, please fill out your information')  
+                break  
+            else :  
+                print('This doctor is on a lunch break, please select another number')
+
+    >>> pname = input('Enter your full name please: ')
+quit ()  
+```  
+
+* In the code above, once the patient chooses 3, the 'else' statement won't be executed and instead python will "break" out of the while statement and move on to execute the variable name "pname".  
+
+#### The 'continue' statement.  
+* The 'continue' statement basically tells python to stop where it is at in the 'while' or 'for' statement and start again from the beginning of it.  
+* Like the 'break' statement, it also contains a specific condition that if met, the statement will instruct python to repeat the cycle of iteration by "continuing" to run the 'while' or 'for' statement.  
+* Take the following example:  
+
+```python
+      >>> while True:
+      >>>   line = input ('> ')
+            if line[0] == '#' :
+                continue  
+            if line == 'done'  
+                break  
+            print (line)  
+      >>> print('Done')  
+```
+
+* In the code above, any input that starts with a "#" sign will not be printed and python will stop the iteration from there and start it from above, not executing any statements below the continue statement in the code block.  
+* So for example if we set empty answers in the survey to be "#", that line will be skipped whenever this code is run and instead python will go back up and ask the input as instructed in the variable "*line*"
+*
