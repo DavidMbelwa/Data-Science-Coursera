@@ -140,14 +140,20 @@ So with Python you should be able to hit the ground running in your computer pro
    * Power = ('**')  
    * Remainder ('%') = This publishes **just** the remainders in the division equation.  
      Eg, if you input the following code:  
-          ->>> x = 9 / 2   
-          ->>> print(x)   
-          -x = 4.5  
+     
+     ```python
+          >>> x = 9 / 2   
+          >>> print(x)   
+          x = 4.5
+     ```
 
-     But if you input this one:
+     But if you input this one:  
+     
+     ```python  
           ->>> x = 9 % 2  
           ->>> print (x)  
           -x = 5 (Because 5 is the remainder in 4.5)    
+     ```
 
 
    - Larger than / Smaller than = ">" "<"  
@@ -158,10 +164,11 @@ So with Python you should be able to hit the ground running in your computer pro
 ###### 7. Expressions  
 * These are commands in the right side of the assignment operator .i.e. '='.  
 * They should not be confused with constants in such a code as: x = **2**. Here 2 is a constant (also used as "value" in the previous explanations), not an expression.  
-* The following is an example of an expression:-
-   ->>> VarX = 2 (VarX is assigned a constant)
-   ->>> VarA = VarX + 2 (VarA is an expression here)  
-
+* The following is an example of an expression:-  
+      ```python
+           >>> VarX = 2  #(VarX is assigned a constant)
+           >>> VarA = VarX + 2  #(VarA is an expression here)  
+      ```
 
 ##### 8. Variables.  
 * A.K.A variable names, these are numbers, letters or string of words which are used to represent something in the programming codes.
@@ -176,51 +183,71 @@ So with Python you should be able to hit the ground running in your computer pro
     - There is a way of *coercing* one type of variable to become another one, depending on the suitability of the class of data within that variable.  
       Eg.
       - The '123' in code > x = '123' is a string variable and thus will be read as letters within python.  
-      - So if we want to add 1 for example by using the following code, the following error will occur in the execution of our code;
-      ->>> x = '123'
-      ->>> a = x + 1
-      ->>> print(a)
-      ***TypeError: Can't convert 'int' object to str implicitly.***  
+      - So if we want to add 1 for example by using the following code, the following error will occur in the execution of our code;  
+      
+      ```python 
+      >>> x = '123'
+      >>> a = x + 1
+      >>> print(a)
+      TypeError: Can't convert 'int' object to str implicitly.
+      ```
 
       - To coerce this into an integer, the "**int**(Variable Name)" is used. Eg:  
-        ->>> x = '123'  
-        ->>> y = int(x)  
-        ->>> a = x + 1  
-        ->>> print (a)  
+
+      ```python 
+        >>> x = '123'  
+        >>> y = int(x)  
+        >>> a = x + 1  
+        >>> print (a)  
         124.  
+      ```
 
 
+   - But not all variable types can be coerced in integers or floating numbers (at least in python. In R it can be done.). In python, by using the **int()** or the **float()** function, there has to be numbers in that string for it to be transformed into an integer variable. Look at the following example:  
 
-   - But not all variable types can be coerced in integers or floating numbers (at least in python. In R it can be done.). In python, by using the **int()** or the **float()** function, there has to be numbers in that string for it to be transformed into an integer variable. Look at the following example:
-     > x = 'Hello Bob'  
-     > a = int(x)  
+   ```python 
+     >>> x = 'Hello Bob'  
+     >>> a = int(x)  
      ***ValueError: Invalid literal for int() with base 10: 'x'***  
+   ```
 
-    - To know the type of your variable, type the following function: type(Variable Name). Eg.
-      > x = '123'  
-      > type(x)  
+    - To know the type of your variable, type the following function: type(Variable Name). Eg.  
+
+   ```python 
+      >>> x = '123'  
+      >>> type(x)  
       <class 'int'>  
+   ```
 
-    - Integers can be coerced into floating numbers by using the "float()" function. Eg.
-      > x = 11  
-      > float(x)  
+    - Integers can be coerced into floating numbers by using the "float()" function. Eg.  
+
+   ```python  
+      >>> x = 11  
+      >>> float(x)  
       11.0  
+   ``` 
 
 
 ###### 9. Mnenomic (Nimonik) Variable Names  
 * This is a system of naming variables in programming that makes the code easy to understand for a human being.  
 
 * For Example: The following variable names are completely fine for Python:  
-     > x3ni21 = 2  
-     > x3pi21 = 4  
-     > x3pi12 = (x3ni21 * x3pi21) / x3pi21  
+
+   ```python
+     >>> x3ni21 = 2  
+     >>> x3pi21 = 4  
+     >>> x3pi12 = (x3ni21 * x3pi21) / x3pi21  
+   ```
 
 * But a human reading this code will have a hard time telling the variables apart. This may lead to grave problems if they confuse one variable with another in debugging or a similar exercise.  
 
-* Instead, if variable names like the following are used, notice how it is now easier to digest the code:
-     > score = 2  
-     > no.courses = 4  
-     > gpa = (score * no.courses) / no.courses  
+* Instead, if variable names like the following are used, notice how it is now easier to digest the code:  
+
+   ```python 
+     >>> score = 2  
+     >>> no.courses = 4  
+     >>> gpa = (score * no.courses) / no.courses  
+   ```
 
 * So Mnemonic naming is naming variables so that they can be clear, memorable & unconfusable.  
 * An important thing to keep in mind is to not use the 'reserved words'.  
@@ -268,34 +295,43 @@ Before we begin, I am necessiated to bring the following things to your attentio
 * The sign for this is the fact that the command words won't be colored if you are using a programming text editor like Atom. If you notice that the command words are of the same color as the variable names then know that you didn't write them correctly.  
 * Don't even capitalize the first letter. Python wants to read the command statement like an "if" as "if ..." not "If..."  
 
-### Not Coercing Your Input Functions into Integers or Real Numbers When Using Comparison Operators Against Numerical Values.  
+### 2. Not Coercing Your Input Functions into Integers or Real Numbers When Using Comparison Operators Against Numerical Values.  
 
 * Look at the following example:  
-     > xscr = input("Please Enter Your Score: ")
-     > if xscr > 75:
-            print ("You can enroll to the course")  
+
+      ```python
+         >>> xscr = input("Please Enter Your Score: ")
+         >>> if xscr > 75:
+                print ("You can enroll to the course")  
+      ```
 
 * The code above will show a ***TypeError*** in the second line telling you this:  
     TypeError: '>' not supported between instances of 'str' and 'int'.  
 
 * This is because ,at the second line, we are comparing the original value of the variable 'xscr' which is still read as a string (even if the user inserted a number) to 75 which is a numeric. To solve this, the code should be re-written like so:  
-     > xscr = ***float***(input("Please Enter Your Score: "))
-     > if xscr > 75:
-            print ("You can enroll to the course")  
 
+      ```python
+         >>> xscr = ***float***(input("Please Enter Your Score: "))
+         >>> if xscr > 75:
+                print ("You can enroll to the course")  
+      ``` 
+      
 * Notice now that the value that will be compared to 75 is a floated numerical value of the variable 'xscr' from the first line.  
 
-### Putting an Instruction In Front of the "else" Statement.  
+### 3. Putting an Instruction In Front of the "else" Statement.  
 
 * Look at the following code:  
-    > xscr = float(input("Please Enter Your Score: "))
-    > if  xscr > 75:
-            print ("You can enroll to the course")
-    > elif xscr > 50:
-             print ("You have to take the preparation course)
-    > else xscr < 50:
-             print ("You have to retake the entrance exam")  
 
+      ```python
+         >>> xscr = float(input("Please Enter Your Score: "))
+         >>> if  xscr > 75:
+                print ("You can enroll to the course")
+         >>> elif xscr > 50:
+                print ("You have to take the preparation course)
+         >>> else xscr < 50:
+                print ("You have to retake the entrance exam")  
+      ``` 
+      
 * The code will give the following error in the third line, at the 'else' statement:  
    ***SyntaxError: invalid syntax***  
 
@@ -318,13 +354,12 @@ Before we begin, I am necessiated to bring the following things to your attentio
 * Post your code in online developer communities like [***Stack Overflow***](https://stackoverflow.com/), [***Coursera Community***](https://coursera.community/) and [***Cross Validated***](https://stats.stackexchange.com/) to get help.  
 
 * Sometimes the problem might be as complicated as having used different [character codes](https://en.wikipedia.org/wiki/Character_encoding) in your code. The following is the guideline for asking questions in the forums:  
-
-       1. Let other people know that you have done all the previous necessary steps.  
-       2. Read the documentation :) :), just be patient and read it.  
-       3. Describe the goal. This is more important than describing steps.  
-       4. Be explicit about your question.  
-       5. Provide as minimum amount of information as it possibly appropriate.  
-       6. Follow-up with the answer if/when you find it.  
+      1. Let other people know that you have done all the previous necessary steps.  
+      2. Read the documentation :) :), just be patient and read it.  
+      3. Describe the goal. This is more important than describing steps.  
+      4. Be explicit about your question.  
+      5. Provide as minimum amount of information as it possibly appropriate.  
+      6. Follow-up with the answer if/when you find it.  
 
 
 ## Program 1: Pay Calculator.
