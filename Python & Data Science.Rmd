@@ -171,7 +171,7 @@ But if you input this one:
     ```python
         >>> VarX = 2  #(VarX is assigned a constant)
         >>> VarA = VarX + 2  #(VarA is an expression here)  
-      ```
+    ```
 
 ##### 8. Variables.  
 * A.K.A variable names, these are numbers, letters or string of words which are used to represent something in the programming codes.
@@ -300,7 +300,7 @@ Before we begin, I am necessitated to bring the following things to your attenti
 * The sign for this is the fact that the command words won't be colored if you are using a programming text editor like Atom. If you notice that the command words are of the same color as the variable names then know that you didn't write them correctly.  
 * Don't even capitalize the first letter. Python wants to read the command statement like an "if" as "if ..." not "If..."  
 
-### 2. Not Coercing Your Input Functions into Integers or Real Numbers When Using Comparison Operators Against Numerical Values.  
+### 2. Not Coercing The User-Input into Integers or Real Numbers When Using Comparison Operators Against Numerical Values.  
 
 * Look at the following example:  
 
@@ -1086,3 +1086,69 @@ The code above also uses the `None` variable to establish a logic that:
   
 
 ## Regular Expressions
+
+
+
+
+
+
+
+## What is Python
+* It is a simple, easy-to-understand computer language developed in 1980's.  
+* It uses common English words as instructions and a simple writing format that is easy to understand when you know the basics.  
+* It is also a powerful computer language, considering the applications it can be used at and the open source community behind it. It has been used for web development, data science, writing applications and more.  
+
+
+
+## Types of Data That Can Be Entered And Processed in Python  
+
+### 1. Strings
+* These are values that are entered as lettered words  
+* 
+* 
+
+#### Operations That Can Be Done On Strings
+
+##### Indexing Letters
+
+##### Concatenating Words
+
+### 2. Numerical
+
+
+
+### Operations Possible on Numbers
+
+#### 1. Summation
+
+#### 2. Subtraction  
+
+#### 3. Division  
+
+#### 4. Multiplication  
+
+#### 5. Modulo  
+
+#### 6. Plus-Equals
+
+
+
+## Structures of Data in Python  
+### Lists
+
+### Dictionaries
+
+### Tuples  
+
+
+
+
+
+
+#### Requirements For Using Python Language
+1. No previous programming knowledge needed.  
+2. A computer  
+3. A text editor for programming such as Notepad++, Atom etc. Atom is recommended because it behaves similarly in Windows, Mac and Linux computers. Get it [**here**](https://atom.io/)  
+4. Python itself. You can download it [**here**](https://www.python.org/downloads/).  
+
+

@@ -1,0 +1,15 @@
+---
+title: "Mathematics in Data Science"
+author: "David Mukajanga"
+date: "10/7/2021"
+output: word_document
+---
+
+
+## Introduction
+This short summary is written to outline important topics in mathematics that you should revise in order to be fluent in Data Science.  
+
+## The Topics
+1. The Difference Btn Integers and Real Numbers.  
+2. Base 10 and Base 2 number conversions  
+3.
