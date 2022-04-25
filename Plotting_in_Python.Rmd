@@ -1,0 +1,12 @@
+---
+title: "Plotting in Python"
+author: "David Mukajanga"
+date: "4/14/2022"
+output: word_document
+---
+
+## Using ***Matplotlib.pyplot***    
+
+1. First import the package  
+2. Create a figure  
+3. Plot. Use line plots, scatter plots, histograms etc.
