@@ -2,7 +2,7 @@
 title: "Data Science Specialization"
 author: "David Mukajanga"
 date: "8/10/2021"
-output: pdf_document
+output: word_document
 ---
 
 
@@ -261,16 +261,16 @@ In this module we will look at the tools you need for Data Science. Welcome to e
 
 
 ## Data Science Tools
-* Data Science uses the following in its operations:  
+* As a data scientist, you will be always working with the following:  
   * ***Descriptive and Inferential Statistics*** :- In cleaning, analyzing and exploring the data.  
   * ***Probability*** :- In creating prediction models that work to minimize uncertainty about the future action of a data source.  
-  * ***Programming*** :- In creating tools that does both the statistics and probability so swiftly that the end result is delivered in a nick of time.  
+  * ***Programming*** :- In creating tools that does both the statistics and probability so swiftly that you don't need to be there all the time.  
 
 
 ## Computer Programming in Data Science  
-* As mentioned in the previous chapter, the job of a data scientist is to create infrastructures in which data processing and analyses can be done and deliver the final product directly.  
-* In this understanding, Data science differentiates itself from normal statistical analysis since, although the normal statistical analysis can be used to achieve almost a similar outcome to data science when it comes to report writing, it is usually a one time solution compared to the applications in which data science operates in.  
-* This is why, although data science and statistical analysis both use statistical inferencing and probability to carry out their operations, data science usually use computer programming while statistical analysis uses ready made statistical programs such as SPSS, STATA, Excel etc.  
+* As a data scientist, your job is to create automated infrastructures that do data acquisition, processing and analysis and finally delivers a tangible outcome such as a recommender system or an automated report writer.  
+* Data science is different from normal statistical analyses as normal statistical analyses is just a static view of a phenomena as it is at a certain period of time while data science creates a system where the analysis is automatically updated using any new information obtained.  
+* This is why although data science and statistical analysis both use statistical inferencing and probability to carry out their operations, data science uses computer programming while statistical analysis uses ready made statistical programs such as SPSS, STATA, Excel etc.  
 * With data science, the end result is to have a system that does a particular function with minimal human interference, while in statistical analysis, we constantly rely on human knowledge to be able to advise on a range of subjects of interests.  
 * A good example is the task of predicting the criminal risk of a particular person in a particular period of time, say 2 years for example. While a statistical analysis can enable us to see in a general scale the demographic groups likely to commit certain kinds of crimes in the specified timeline, data science enables us to create a computer program that can predict as accurately as it is possible, the possibility of an individual person committing a certain crime in the specified amount of time.  
 * While the end result of a statistical analysis in such a question as one above is static in certain time intervals and thus more likely to give false conclusions, a predictor model made out of artificial intelligence through data science continuously updates itself with every new information that it receives, thus being a more sustainable solution in long-run.  
@@ -401,6 +401,22 @@ Preparing to confirm changes to a file that is monitored by a version control sy
 - If the user intends to use the forked repository as his/her own, GitHub will still display that the repository was forked from someone else and thus there is no chance for plagiarism.  
 
 #### 8. Cloning  
+
+
+### Getting and Installing Git
+- You first need to set up a GitHub account for yourself. Go [***here***](https://github.com) for that.  
+- You then go and get Git. Get it [***here***](https://git-scm.com/downloads)  
+- After downloading it, install it by accepting most of the default settings that come with the installation package. It's better you read though, as you are going through with the installer. It will educate you on one or two things.  
+- After installing it, the first job is to configure the name and email of your local Git to match those of your GitHub account. Do this by doing the following:  
+  - Open the Git Bash (right click anywhere on your desktop and select "Open Git Bash Here")  
+  - Type the following commands on Git Bash:  
+    ```$ git config --global user.name "The_One_You_Use_in_GitHub"```
+    ```$ git config --global user.email yourGitHubemail```
+  - Do a small sanity check by typing the following command: `$ git config --list --show-origin`. You should see all your current settings.
+    
+- 
+
+
 
 
 ### Best Practises in Using Git & GitHub
