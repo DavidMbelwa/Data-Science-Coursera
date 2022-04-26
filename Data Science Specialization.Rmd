@@ -410,11 +410,12 @@ Preparing to confirm changes to a file that is monitored by a version control sy
 - After installing it, the first job is to configure the name and email of your local Git to match those of your GitHub account. Do this by doing the following:  
   - Open the Git Bash (right click anywhere on your desktop and select "Open Git Bash Here")  
   - Type the following commands on Git Bash:  
-  
-    ```$ git config --global user.name "The_One_You_Use_in_GitHub"```
-    ```$ git config --global user.email yourGitHubemail```
+    ```
+       $ git config --global user.name "The_One_You_Use_in_GitHub"
+       $ git config --global user.email yourGitHubemail  
+    ```
     
-  - Do a small sanity check by typing the following command: `$ git config --list --show-origin`. You should see all your current settings.
+- Do a small sanity check by typing the following command: `$ git config --list --show-origin`. You should see all your current settings.
     
 - 
 
