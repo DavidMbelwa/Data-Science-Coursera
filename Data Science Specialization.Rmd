@@ -412,6 +412,7 @@ Preparing to confirm changes to a file that is monitored by a version control sy
   - Type the following commands on Git Bash:  
     ```$ git config --global user.name "The_One_You_Use_in_GitHub"```
     ```$ git config --global user.email yourGitHubemail```
+    
   - Do a small sanity check by typing the following command: `$ git config --list --show-origin`. You should see all your current settings.
     
 - 
