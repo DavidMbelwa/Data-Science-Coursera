@@ -266,7 +266,7 @@ In this module we will look at the tools you need for Data Science. Welcome to e
 
 ## Computer Programming in Data Science  
 * As a data scientist, your job is to create automated infrastructures that do data acquisition, processing and analysis and finally delivers a tangible outcome such as a recommender system or an automated report writer.  
-* Data science is different from normal statistical analyses as normal statistical analyses is just a static view of a phenomena as it is at a certain period of time while data science creates a system where the analysis is automatically updated using any new information obtained.  
+* Data science is different from normal statistical analyses as normal statistical analyses are just a static view of a phenomena as it is at a certain period of time while data science creates a system where the analysis is automatically updated using any new information obtained.  
 * This is why although data science and statistical analysis both use statistical inferencing and probability to carry out their operations, data science uses computer programming while statistical analysis uses ready made statistical programs such as SPSS, STATA, Excel etc.  
 * With data science, the end result is to have a system that does a particular function with minimal human interference, while in statistical analysis, we constantly rely on human knowledge to be able to advise on a range of subjects of interests.  
 * A good example is the task of predicting the criminal risk of a particular person in a particular period of time, say 2 years for example. While a statistical analysis can enable us to see in a general scale the demographic groups likely to commit certain kinds of crimes in the specified timeline, data science enables us to create a computer program that can predict as accurately as it is possible, the possibility of an individual person committing a certain crime in the specified amount of time.  
@@ -414,9 +414,19 @@ Preparing to confirm changes to a file that is monitored by a version control sy
     
 - Do a small sanity check by typing the following command: `$ git config --list --show-origin`. You should see all your current settings.
     
-- 
 
 
+### Linking Git and RStudio
+
+- Git will automatically establish a connection with an installed copy of RStudio, you will find it there in the ***environment*** quadrant. You have to create a key, however, that will identify your local RStudio copy with GitHub whenever you commit changes to a file.  
+
+* Create this key by going to `Tools > Global Options > Git/SVN` in your `Tools` tab of RStudio.  
+
+* Verify that the Git executable is sourced from the correct location (by verifying the path to it) and then go to the option that says `Create SSH Key`. Create it and copy it.  
+
+* Then go to your GitHub account, Settings then SSH and GPG keys. Click on the tab written `New SSH key`, copy it, name the key, and you are good to go.  
+
+* Every key represents one machine / one RStudio user so you will have multiple keys if you are working on your files from different computers or if your account is accessible by different users.  
 
 
 ### Best Practises in Using Git & GitHub
@@ -1197,17 +1207,17 @@ def personal_xstics(no_of_investmnts, smoking_status, no_of_children, criminal_r
 personal_xstcs(2, 0, 1, 0)
 ```
 
-* ***Keyword Argument*** is when we assign an argument to a parameter by completely call the name of the parameter and assign it a value when invoking our custome function.  
+* ***Keyword Argument*** is when we assign an argument to a parameter by completely call the name of the parameter and assign it a value when invoking our custom function.  
 
 * In the code below, keyword arguments have been used to assign value to `miles_to_travel`, `rate` and `discount`.  
 
 ```python
-  def calculate_taxi_price(miles_to_travel, rate, discount):  
+  def taxi_price(miles_to_travel, rate, discount):  
       to_user = (miles_to_travel * rate) - discount
       print(to_user)
       
       
-  calculate_taxi_price(rate = 10, miles_to_travel = 2, discount = 5)
+print(taxi_price(rate = 10, miles_to_travel = 2, discount = 5))
   
 ```
 
@@ -1380,11 +1390,10 @@ When an argument has
 
 ### Data Type 1: STRINGS.
 
-#### Basic Features of String Variables  
-* Can be concatenated (joined) together by using the "+" operator.  
-* This is to remind you that the "+" operator serves a different purpose on strings compared to numbers.  
-* The "+" operator cannot be used between numerical and string variables.  
-* Take the following example:  
+* It is any variable whose value is enclosed by single / double square brackets.    
+* They are concatenated together using the "+" operator.  
+* Be careful therefore. A plus sign between strings will act different as between numbers.  
+* The "+" operator cannot be used between numerical and string variables. For example:  
 
   ```python
     >>> a = 'String'
@@ -1393,8 +1402,7 @@ When an argument has
     TypeError: must be str, not int  
   ```
 
-#### Operations That Are Done On Strings.  
-* There are several things that can be done to text in python. The following are among the major ones.  
+#### Operations Done On Strings.  
 
 ##### 1. Indexing The Letters in a Block of Text.  
 * By default, python assigns a number to each letter of a string variable.  
@@ -1415,7 +1423,6 @@ When an argument has
 ##### 2. Looping Through a String    
 * Can be used with an indexing variable.  
 
-
   ```python 
     >>> ex = 'Example'
     >>> ind = ex[0], ex[1], ex[2], ex[3]
@@ -1426,7 +1433,6 @@ When an argument has
     a
     m
   ```
-  
   
 ##### 3. Counting the Number of Letters in a String.  
 * This is done by using the `len()` function.  
@@ -1441,7 +1447,6 @@ When an argument has
   ```
   
 * The code above counted all the letter, including all white spaces and all the commas.  
-
 
 ##### 4. Slicing
 
@@ -1465,7 +1470,7 @@ Some of the most popular methods in the string library are:
 
 ### Data Type 2: NUMBERS.
 
-* There are 2 types of Numbers known to python. They are ***Integers*** and ***Floating Numbers***.    
+* Two types of numbers known to Python are;  ***Integers*** and ***Floating Numbers***.    
 
 #### 1. Integers 
 * These are all numerical values that don't have fractions or decimals.  
@@ -1473,20 +1478,20 @@ Some of the most popular methods in the string library are:
     
 #### 2. Real Numbers 
 * Known as "***Floating Numbers***" in python, they are all numbers that have decimals and fractions.  
-* They represent measurements of objects that can be divided into fractional units such as litres of water, lenght of a wall etc.  
-* One important thing to note about real (from hence forth we'll call them ***floating numbers***) numbers in python is that: Python will store ***the nearest approximation*** of the floating number entered / displayed in the program and ***not*** the actual value of the number itself.  
+* They represent measurements of objects that can be divided into fractional units such as liters of water, length of a wall etc.  
+* One important thing to note about ***floating  numbers*** in python is that; Python will store ***the nearest approximation*** of the floating number entered / displayed in the program and ***not*** the actual value of the number itself.  
 * This is due to the problems of ***base*** number conversion where by base 2 is the default arithmetic system on the computer and base 10 the default representation system in the computer.  
 * For this reason, the value 0.1 as displayed in the program is not the actual value of 1/10 but the nearest representation of it.  
 * For most use cases of floating numbers, this is not a big problem. But for people who are seeking absolute accuracy out of their computer calculations, the floating point inaccuracy might become a problem as the computer will have a slightly higher or lower value of the intended calculation in its mind, differently on what is displayed on the screen.  
 * [***This***](http://www.lahey.com/float.htm) article on floating point inaccuracies and [***This***](https://docs.python.org/3/tutorial/floatingpoint.html) python documentation on floating numbers have explained this problem in detail.  
-* Another thing to remember also is that; ***Money is never represented as a floating number in Python***. This is a rule of thumb.  
+* Also; ***Money is never represented as a floating number in Python***. Keep this in mind :) :).    
 
 
 #### Data Type 3: BOOLEANS
 * These are data is said to either be `True` or `False`  
 
 
-### Data Structures  
+### DATA STRUCTURES  
 
 #### Difference Btn Algorithms and Data Structures  
 * Algorithms are set of computer codes written in form of one line after the other, with each variable containing a specific value, while collections / data structures contains several values in one variable.  
@@ -1495,17 +1500,17 @@ Some of the most popular methods in the string library are:
 
 
 #### Data Structure 1: LISTS  
-* This is the organized version of collections.  
+* Made by using square brackets(`[]`), they are an organized version of collections in python. They can contain different types of data, even other lists inside them.  
 
-##### Creating a List
-* `[]`
+##### Operations Done on Lists  
 
-##### Indexing items in a list
+
+###### **Indexing items in a list**
 * Zero-indexing and negative indexing  
 
-##### Slicing and Dicing Lists
+###### **Slicing and Dicing Lists**
 * This refers to selecting multiple elements from your list.  
-* Slicing is equivalent to indexing items in a list, only this time you are giving a certain range where the ***starting*** value will be included by the ending value won't.  
+* It is equivalent to indexing items in a list, only this time you are giving a certain range where the ***starting*** value will be included but the ***ending value*** won't.  
 * Take a following example:  
 
 ```python
@@ -1537,7 +1542,7 @@ Children of the Smiths' family are: "John Smiths", "Adam Smiths", "Jerry Smiths"
 Parents in the Smiths' family are: "Anna Smiths", "Aden Smiths"
 ``` 
 
-##### Indexing the Items of a list within a list
+###### **Indexing the Items of a list within a list**
 
 * Done using the following format:  
 `a_list[Item in the fist list][Item in the list inside the first list]`  
@@ -1555,7 +1560,6 @@ For example:
 ```
 
 
-##### Changing Items in a List
 ###### **1. Changing an Element in A list**  
 * Can be done by indexing a list item and assigning a new value to it.  
 
@@ -1571,7 +1575,6 @@ For example:
 
 ###### **2. Adding an Element**  
 * Done by using the `+` sign.  
-*  
 
 For example:  
 
@@ -1600,9 +1603,9 @@ For example:
 
 ```
 
-###### **4. Making a New List Out of an Old One**
-* Can also serve the purpose of separating lists.  
-* Uses the indexing mechanism.  
+###### **4. Copying a List**
+* Also serves the purpose of separating lists, lists copied in this way are tied to each other and changes made to the new list will affect the old list also.  
+* It is done using the indexing mechanism.  
 
 For example:  
 
@@ -1616,20 +1619,11 @@ For example:
 
 ```
 
-###### **4. Copying a List**
-* Done by assign a different variable to an old list after putting under the `list()` function.  
-
-For example:  
+* The entire list can also be copied by using the `[:]` like so:  
 
 ```python
->>> possessions = ["Laptop", "2 Sofas", "Working Table", "Bed", "Car", "House", "PlayStation 4"]
->>> of_david_possessions = possessions[:2]
->>> of_isaac_possessions = possessions[3:]
->>> print(of_isaac_possessions)
 
-['Bed', 'Car', 'House', 'PlayStation 4']
-
->>> of_david_possessions_updated = list(of_david_possessions)  
+>>> of_david_possessions_updated = of_david_possessions[:]  
 >>> of_david_possessions_updated[0] = 'Desktop Computer'
 >>> print(of_david_possessions_updated)
 
@@ -1637,18 +1631,24 @@ For example:
 
 ```
 
-* The entire list can also be copied by using the `[:]` like so:  
+
+
+###### **4. Making a New List Out of An Old One**
+* Done by assigning an old list inside the `list()` function, making a list this way will untie the new list from the old one and changes made to the new list won't reflect on the old one.  
+
+An example:  
 
 ```python
 >>> possessions = ["Laptop", "2 Sofas", "Working Table", "Bed", "Car", "House", "PlayStation 4"]
->>> of_david_possessions = possessions[:2]
->>> of_isaac_possessions = possessions[3:]
->>> print(of_isaac_possessions)
+>>> of_david_possessions = list(possessions[:3])
+>>> of_isaac_possessions = list(possessions[3:])
+>>> print(of_david_possessions)
 
-['Bed', 'Car', 'House', 'PlayStation 4']
+["Laptop", "2 Sofas", "Working Table"]
 
->>> of_david_possessions_updated = of_david_possessions[:]  
->>> of_david_possessions_updated[0] = 'Desktop Computer'
+
+>>> of_david_possessions[0] = 'Desktop Computer'
+
 >>> print(of_david_possessions_updated)
 
 ['Desktop Computer', '2 Sofas', 'A Working Table']
@@ -1671,20 +1671,28 @@ Note:
 * When using methods such as `append()` in a list  
 
 
-##### Numpy Arrays
+#### Data Structure 2: Numpy ARRAYS.
 
-* These are a type of lists made by using the NumPy package.  
-* It is an important type of list because, different from normal python lists, they enable you to carry out mathematical calculations between two python lists element-wise.  
-Take a following example:  
+* They are an advanced types of lists made by using the Numpy Package.  
+
+* Unlike normal lists, they can contain only one type of data in them and you can do mathematical operations on the items in them. Example:  
+
 
 ```python
   # This is the height of family members in inches
+  import numpy as np
   
-  height_of_family = [59.0551, 63.3858, 69.291, 58.66, 67]
+  weight_of_family_members = np.array([59.0551, 63.3858, 69.291, 58.66, 67])
+  height of family_cm = np.array([170, 180, 182, 169, 180])
+  height_of_family_meters = height_of_family_cm * 0.01
+  bmi = weight_of_family_members / (height_of_family_meters)**2
+  print(bmi)
+  
+  [20.4, 19.6, 20.9, 20.5, 20.7]
 
 ```
 
-If we want to convert  
+* First, you import the Numpy Package  
 
 
 
