@@ -2,13 +2,13 @@
 title: "Data Science Specialization"
 author: "David Mukajanga"
 date: "8/10/2021"
-output: pdf_document
+output: word_document
 ---
 
 
 # Introduction
 
-This course is taken as a starting point to learning data science. It is a beginner course and in it we will learn what is data science about, why we should learn it, where it is used and start with the basics.  
+Hello! Welcome to Introduction to Data Science. This book is designed for the aspiring juniors in the various fields of science who have the basic knowledge of statistical analyses and are looking forward to move on to the real world applications of statistics and data analysis. The book is also beneficial to long-term statisticians who are looking forward to specialize fully in the field of data science. The book is written in a simple language intended to make the usage of the book among people of different levels of expertise possible. It covers in a considerable depth what data science is about, the tools used to carry out data science and various applications of data science in the real world. By the end of the book, it is expected that you will be considerably conversant with quality data collection and cleaning, computer programming for data analysis using Python and R and building machine learning and predictor models that can predict and automate various processes that rely on data to function properly. All the best.   
 
 \newpage
 
@@ -232,11 +232,8 @@ In this chapter, we have looked at:
 2. Meaning of Data Science  
 3. Data Science Process  
 4. Your Responsibilities As A Data Scientist  
-5. Data Science Tools  
-6. Installing R & RStudio  
-7. Version Control: Git & GitHub  
-8. Types of Data Science Questions 
-9. Applications of Data Science  
+5. Types of Data Science Questions 
+6. Applications of Data Science  
 
 
 
@@ -435,6 +432,7 @@ Preparing to confirm changes to a file that is monitored by a version control sy
 
 
 
+
 \newpage  
 
 # Module 3: Programming With Python  
@@ -444,11 +442,15 @@ Preparing to confirm changes to a file that is monitored by a version control sy
    
    
 ## Introduction to Python  
-#### What is Python?  
-* It is a programming language made in the late 1980's as an attempt to creating a powerful but easy to learn programming language.  
-* It was so because programming languages of that time were very technical and had a steep learning curve.  
 
-So with Python you should be able to hit the ground running in your computer programming journey.  
+Python is one of the easiest ways you can start your data science journey on. The language is simple and multipurpose, so you can use it not only for data manipulation but also other fun stuff such as creating computer software and so on. Let's get into it.  
+
+
+#### What is Python?  
+* It is a programming language made in late 1980's as an attempt to create a powerful and easy to learn programming language.  
+* It is an easy programming language that doesn't have a steep learning curve if you put your mind into it.  
+
+* It is also widely used for computer programming in general, so enjoy the journey as we turn you into a computer programmer.  
 
 #### Requirements
 1. No previous programming knowledge needed.  
@@ -457,150 +459,45 @@ So with Python you should be able to hit the ground running in your computer pro
 4. Python itself. You can download it [**here**](https://www.python.org/downloads/).  
 
 
-* The important thing to note before we continue is that we will be ***writing*** our code in the text editor, which in this case is Atom, and ***running*** that code through the [*command prompt*](https://en.wikipedia.org/wiki/Command-line_interface) in Windows computers and the [*terminal*](https://en.wikipedia.org/wiki/Terminal_(macOS)) in Macs.  
+* Before we continue, note that we will be ***writing*** our code in the text editor (like Atom), and ***running*** that code through the [*command prompt*](https://en.wikipedia.org/wiki/Command-line_interface) in Windows computers and the [*terminal*](https://en.wikipedia.org/wiki/Terminal_(macOS)) in Macs.  
 
 
 
 #### Important Terminologies.  
 
 ##### 1. Interactive Programming.  
-* This is when you are writing code and executing it in the same time.  
-* You usually do this when for example you are coding directly in the Windows or Mac's terminal.  
-* It is a little bit fun but it is not convenient in writing a huge chunk of coding lines in it since you lack most of the tools from programming text editors that enable you to write your code correctly and in the end your code is not saved.  
+* This is when you are writing your code and executing it at the same time. You usually do this when you are coding directly on Windows or Mac's terminals or in an [*Interactive Python* session](https://en.wikipedia.org/wiki/IPython)  
 
+* Although it is fun, it isn't convenient when you are writing a huge chunk of code since your code won't be saved when you are done with it. It is good for experimentation though, when you want to execute small lines of code and see how they behave.  
 
 
 ##### 2. The Python Interpreter (```>>>```) A.K.A *The Chevron Script*   
 
-* It is a sign that you can type and execute a python command.
-
-* If this symbol also appears in the Window's Command Prompt or Mac's Terminal, it means that python has been opened and is running in the background.  
-*  It also means you can program directly from the command prompt or terminal but your code will not be saved.  
+* This is a sign that you are in an interactive python session. It is a symbol you will see when you open your python shell in windows or Mac's terminal.  
 
 
-##### 3. Errors.  
-  1. `Syntax Error` = You should know this by now :) :).  
-  2. `ValueError` = When you are trying to coerce a value of data to a class of data that it can not be coerced to. Eg, letters to integers.  
-  3. `TypeError` = When you are giving a mathematical relations between two different types of variables whose class of data don't relate mathematically. Eg. trying to sum a lettered variable and an integer variable.  
-  4. `AttributeError` : When an un-applicable python ***method*** is used to a certain type of variable. Python ***Methods*** are small instructions attached to different types of Python variables depending on their nature. These instructions modify the specified variable in a certain manner and when a method is applied to a variable it was not meant to operate with, it throws back this `AttributeError`. We will touch more on python methods later.  
-
-
-##### 4. Reserved Words  
-* These are function specific words that are used in Python to tell it to do a specific task.  
-* Under no situation can these words be used to mean something else than what the programming language understand them to be mean.  
-* This is the list of them:     
-
-![](C:\Users\David\Desktop\DS\Data-Science-Coursera\Images_Python_Notes\Reserved Words Python.png)  
-
-
-##### 5. Sentences / Lines  
-
-* Basically are lines of code  
-* Contains either the Assignment Statement (variable & its value), Assignment with an Expression (variable, its value + a command ) or a function (eg. print(variable name goes here)).  
-
-##### 6. Operators.  
-* These are symbols used to instruct the Programming language like Python to carry out a specific task.  
-
-* The following are common operators:  
-   * Assignment Operator (`=`) = Used to assign a specific value to a variable. Eg, Variable1 = 2.  
-   * Addition = (`+`)  
-   * Subtraction = (`-`)  
-   * Multiplication = (`*`)  
-   * Division = (`/`)  
-   * Power = (`**`)  
-   * Remainder (`%`) = This publishes **just** the remainders in the division equation.  
-     Eg, if you input the following code:  
-
-        ```python
-          >>> x = 9 / 2   
-          >>> print(x)   
-          x = 4.5
-        ```  
-
-But if you input this one:  
-
-  ```python  
-      >>> x = 9 % 2  
-      >>> print (x)  
-      x = 5 #(Because 5 is the remainder in 4.5)    
-  ```
-
-
-   - Larger than / Smaller than = ">" "<"  
-   - Equal to = "==" (Basically asks the question 'Is...equal to ...?')     
-   - Larger than or Equal to = ">="  
-   - Smaller than or Equal to = "<="  
-
-##### 7. Expressions  
-* These are commands in the right side of the assignment operator .i.e. '='.  
-* They should not be confused with constants in such a code as: x = **2**. Here 2 is a constant (also used as "value" in the previous explanations), not an expression.  
-* The following is an example of an expression:-  
-
-    ```python
-        >>> VarX = 2  #(VarX is assigned a constant)
-        >>> VarA = VarX + 2  #(VarA is an expression here)  
+##### 3. Variables.  
+* These are names made up of numbers or letters whose purpose is to represent a particular value / object in python.  
+   - In this small code for example, *x* is a variable while 2 is a value/constant.  
+   
+   ```python
+      >>> x = 2
+      >>> print(x)
+      2
     ```
 
-##### 8. Variables.  
-* A.K.A variable names, these are numbers, letters or string of words which are used to represent something in the programming codes.
-   - Eg. In this small code "x = 2", *x* is a variable while 2 is a constant.  
 
-* The ***type*** of a variable depends on the ***class*** of data in that variable.  
-   * **String variables** are all variables whose data is enclosed by single quotes or double quotes .i.e. 'data here' / "" . In these type of variables, even if the data inside the quotes is numbers or has numbers, python will still read these as letters.  
-   * **Integers**. These are numbers that are presented only in a round form .i.e. 10 instead of 10.0 or 10.1 etc.  
-   * **Floating numbers (Real Numbers)**. These are the opposite of integers, that is, can be presented in fractions, decimals etc. Covers the whole range of numbers.  
-    **N.B**  
-* The difference between floating numbers and integers in Python is of great importance since some variables are supposed to only be presented in one class and not the other. Money for example should not be input in terms of floating numbers in python. That's just a rule of thumb.  
-* There is a way of *coercing* one type of variable to become another one, depending on the suitability of the class of data within that variable.  
-
-* For example, the '123' in code ```>>> x = '123'``` is a string variable and thus will be read as letters within python.  
-* So if we want to add 1, for example, by using the following code, the following error will occur in the execution of our code;  
+* **String variables** are all variables whose data is enclosed in single or double quotes. In these types of variables, even if the data inside the quotes has numbers, python will read everything inside the quotes as letters.  
 
   ```python
-    >>> x = '123'
-    >>> a = x + 1
-    >>> print(a)
-    TypeError: Can't convert 'int' object to str implicitly.
+    >>> a_var_name = "Some Data"
+      
   ```
 
-* To coerce this into an integer, the "**int**()" function is used. Eg:  
+* Other values represented by python variable names include integers, continuous numbers, lists and several other python object types. More on these later.  
 
-  ```python
-    >>> x = '123'  
-    >>> y = int(x)  
-    >>> a = x + 1  
-    >>> print (a)  
-    124.  
-  ```
-
-* But not all variable types can be coerced in integers or floating numbers. (At least in python. In R it can be done.)  
-* In python, to use the **int()** or the **float()** function, there has to be numbers in that string for it to be transformed into an integer variable. Look at the following example:  
-
-   ```python
-     >>> x = 'Hello Bob'  
-     >>> a = int(x)  
-     ValueError: Invalid literal for int() with base 10: 'x'  
-   ```
-
-* To know the type of your variable, type the following function: type(Variable Name). Eg.  
-
-   ```python
-      >>> x = '123'  
-      >>> type(x)  
-      <class 'int'>  
-   ```
-
-* Integers can be coerced into floating numbers by using the "float()" function. Eg.  
-
-   ```python  
-      >>> x = 11  
-      >>> float(x)  
-      11.0  
-   ```
-
-
-##### 9. Mnenomic (Nimonik) Variable Names  
-* This is a system of naming variables in programming that makes the code easy to understand for a human being.  
+##### 4. Mnenomic (Nimonik) Variable Names  
+* This is a system of naming variables in programming that makes a line of code easy to understand for a human being.  
 
 * For Example: The following variable names are completely fine for Python:  
 
@@ -621,8 +518,86 @@ But if you input this one:
      >>> gpa = (score * no.courses) / no.courses  
    ```
 
-* So Mnemonic naming is naming variables so that they can be clear, memorable & non-confusable.  
+* So Mnemonic naming is naming variables so that they can be clear, memorable & non-confusing.  
 * An important thing to keep in mind is to ***not*** use the 'reserved words' as variable names.  
+
+
+
+##### 5. Reserved Words  
+* These are specific words that are used in Python to tell it to do a specific task.  
+* Make sure you don't use these words for anything else other than what they were intended for for python.  
+
+* This is the list of them:     
+
+![](C:\Users\David\Desktop\DS\1. Repository\Images_Python_Notes\Reserved Words Python.png)  
+
+
+
+
+##### 6. Expressions  
+* These are commands in the right side of the assignment operator .i.e. the ```'='```.  
+* They should not be confused with constants in such a code as: x = **2**. Here 2 is a constant (also used as "value" in the previous explanations), not an expression.  
+* The following is an example of an expression:-  
+
+    ```python
+        >>> VarX = 2  #(VarX is assigned a constant)
+        >>> VarA = VarX + 2  #(VarA is an expression here)  
+    ```
+
+
+
+##### 7. Errors.  
+When you type something that python doesn't understand, it will give you back an error message, usually in words colored in red, telling you that there is something not right in a particular line of code.  
+
+The errors include the following:  
+
+  1. `Syntax Error` = This is when you type something that python doesn't understand.  
+      - It usually comes from mis-spelling.  
+      
+  2. `ValueError` = You'll encounter this when you are trying to coerce a value of data to a class of data that it can not be coerced to. Eg, letters to integers.  
+  3. `TypeError` = You'll get this when you are giving a mathematical or a comparative relationship to two different types of variables or data_types whose class of data don't relate mathematically or comparatively. Eg. trying to sum a lettered variable and an integer variable.  
+  4. `AttributeError` : You'll get this when you apply a python ***method*** to a python variable that it is not compatible with. Python ***Methods*** are small instructions attached to different types of Python variables depending on their nature. These instructions modify the specified variable in a certain manner and when a method is applied to a variable it was not meant to operate with, it throws back this `AttributeError`. We will touch more on python methods later.  
+
+
+##### 8. Sentences / Lines  
+
+* Basically are lines of code.  
+* Contains either the Assignment Statement (variable & its value), Assignment with an Expression (variable, its value + a command ) or a function (eg. print(variable name goes here)).  
+
+##### 9. Operators.  
+* These are symbols used to instruct the Programming language like Python to carry out a specific task.  
+
+* The following are common operators:  
+   * Assignment Operator (`=`) = Used to assign a specific value to a variable. Eg, Variable1 = 2.  
+   * Addition (`+`) = Performs addition when used with integer or floated variables but does ***concatenation*** when used on string variables.    
+   * Subtraction (`-`) = Used on integer or float variables to perform substractions.   
+   * Multiplication (`*`)  
+   * Division (`/`)  
+   * Power (`**`)  
+   * Remainder (`%`) = This publishes **just** the remainders in the division equation.  
+     Eg, if you input the following code:  
+
+        ```python
+          >>> x = 9 / 2   
+          >>> print(x)   
+          x = 4.5
+        ```  
+
+
+  But if you input this one:  
+
+      ```python  
+        >>> x = 9 % 2  
+        >>> print (x)  
+        x = 5 #(Because 5 is the remainder in 4.5)    
+      ```
+
+
+   - Larger than / Smaller than = ">" "<"  
+   - Equal to = "==" (Basically asks the question 'Is...equal to ...?')     
+   - Larger than or Equal to = ">="  
+   - Smaller than or Equal to = "<="  
+   
 
 
 ##### 10. Scripts.  
@@ -649,8 +624,7 @@ But if you input this one:
 
 ## Learning To Swim In Python 
 
-* In this chapter, you will start to learn the basics of python through writing simple python programs. By the end of this course, you should have known the following:  
-
+* In this chapter, you will start to learn the basics of python through writing simple python programs. By the end of this course, you should have known the following:   
     * Likely sources of errors in your code  
 
     * The "Input()" Function.  
@@ -668,10 +642,10 @@ But if you input this one:
 
 ### Likely Sources of Errors In your Code.  
 
-Before we begin, I am necessitated to bring the following things to your attention, things that made my first codes not work. They are small stuff which you too can make and they can make your brain heat up when you don't notice them as the source of problems in your code.  
+Before we begin, I am necessitated to bring the following things to your attention, things that made my first codes not work. They are small things which can make your brain heat up when you don't notice them as the source of problems in your code.  
 
 ##### 1. Capitalizing the command words..  
-* Don't capitalize command words such as "if", "elif" etc. Your code will not work, the main reason being that the capitalized command words will be read as variable names instead of as commands.  
+* Don't capitalize command words, such as "if", "elif" etc. Your code will not work, the main reason being that the capitalized command words will be read as variable names instead of as commands.  
 
 * The sign for this is that, if you are using a programming text editor like Atom, the command words with capital letters won't be colored. If you notice that the command words are of the same color as the variable names then know that you didn't write them correctly.  
 * Don't even capitalize the first letter. Python wants to read the command statement like an "if" as "if ..." not "If..." :) :)  
@@ -701,7 +675,7 @@ Before we begin, I am necessitated to bring the following things to your attenti
 * Notice now that the value that will be compared to 75 is a floated numerical value of the variable `xscr` from the first line.  
 
 
-### 3. Putting an Instruction In Front of the "else" Statement.  
+##### 3. Putting an Instruction In Front of the "else" Statement.  
 
 * Look at the following code:  
 
@@ -733,7 +707,7 @@ Before we begin, I am necessitated to bring the following things to your attenti
             print ("You have to repeat the entrance exam")  
     ```
 
-### Post your problem in online forums.  
+##### Post your problem in online forums.  
 * Sometimes the only people that can see the problem in your code are anybody else but you :) :).  
 
 * This is usually because they are more experts or experienced than you :) :).  
@@ -750,9 +724,9 @@ Before we begin, I am necessitated to bring the following things to your attenti
     6. Follow-up with the answer if/when you find it.  
 
 
-## Program 1: Pay Calculator.
+### Program 1: Pay Calculator.
 
-### The "input("")" Function  
+#### The "input("")" Function  
 * It is a programming function that instruct the program to pause and ask for a user input before using that input to continue executing the written code.  
 * As it can be noticed, the inside of the brackets in the input function has double quotient marks which means that everything that gets entered into that function is a **STRING** data. This includes numbers.  
 * Therefore, in an example like this, let us write a program to prompt a user for hours and rate per hour in order to calculate the gross pay:  
@@ -772,14 +746,14 @@ In this code:
 4. The output of the third variable is displayed to the user with the words "Pay:" preceding the value of the third variable. The output will look like this: - **Pay: 96.25**  
 
 
-### The "print()" Function  
+#### The "print()" Function  
 * This displays the output of the code to the user of the program.  
 * It is a way in which the programmer displays the things he/she wants to display to the user.  
 
 
 ### Program 2: The Course Admission Checker  
 
-#### The Python Flow  
+##### The Python Flow  
 * This is the order in which Python executes the written code.  
 
 * There are three types of Python execution flow depending on the type of the ***python statements*** written. They are:  
@@ -813,19 +787,19 @@ In this code:
 * The procedure might differ depending on the text editor you are using so if you are having a hard time finding those setting, searching on Google or YouTube might help.  
 
 
-### Types of Python Statements/Codes  
+#### Types of Python Statements/Codes  
 
-#### Sequential Statements/Codes
+##### Sequential Statements/Codes
 
 * These are python codes written in such a manner that they are executed in a sequence from the first line to the last.  
 
 * It is the default execution pattern in python. All the other execution flows are embedded in a sequential execution of the code.  
 * The picture of the following chart flow explains this clearly:  
 
- ![](C:\Users\David\Desktop\DS\Data-Science-Coursera\Images_Python_Notes\image-3.jpg)  
+ ![](C:\Users\David\Desktop\DS\1. Repository\Images_Python_Notes\image-3.jpg)  
 
 
-#### Conditional Statements  
+##### Conditional Statements  
 
 * These are python codes that will not get executed unless a particular condition specified by the programmer is met.  
 * The use of conditional statements in programming is also known as the use of "**Logic**".  
@@ -833,7 +807,7 @@ In this code:
 * Conditional statements are the building blocks of logic since they are the ones' giving a computer program a sort of rudimentary intelligence on what to do and when.  
 * They are made by using an "**if**" statement and further clarified by using the "**elif**" or "**else**" statements.  
 
-##### 1. The "if" Statements
+###### 1. The "if" Statements
 
 * Consider the following example:  
     Eg.
@@ -873,11 +847,11 @@ In this code:
 * If, for example, we didn't put any clarification of what should be done if the value entered is less than 75, then the program will not do anything as it won't execute the "If" line and there is nothing else after that.  
 
 
-### Repeating/Loop Statements.
+#### Repeating/Loop Statements.
 
 * There are made by either using the 'while' statement or the 'for' statement.  
 
-#### 1. Indefinite Loops       
+##### 1. Indefinite Loops       
 * These are made by using the `while` statement.   
 * They essentially repeat the same thing until a specific condition/logic created by the programmer is met.  
 * The condition is known as the "iteration statement".  
@@ -897,7 +871,7 @@ In this code:
 * In the code above, the iteration statement is `x > 0`.  
 * As long as the assigned value of x is greater than zero, python will continue to run the code in the indented portion of the while statement. Only when `x == 0` will python exit that code block and continue downwards.  
 * The output of the above code will be as following:  
-![](C:\Users\David\Desktop\DS\Data-Science-Coursera\Images_Python_Notes\Example_Images\Screenshot 2021-09-08 205528.png)  
+![](C:\Users\David\Desktop\DS\1. Repository\Images_Python_Notes\Example_Images\Screenshot 2021-09-08 205528.png)  
 
 ##### 1.1. Infinite Loops  
 * These are 'while' statements with either no iteration statement or an iteration statement which always remains true.  
@@ -1335,12 +1309,46 @@ When an argument has
 
 
 #### Installing Python Packages
-* Check the version of Python you are using. Do
+* Check the version of Python you are using. Do  
+
+
 #### Importing Python Packages
 
 ##### 1. Importing the Whole Package  
-##### 2. Importing part of the Package / Subpackage
-##### 3. Importing a Method in a Custom Name
+* A package is imported by using the `import` statement followed by the name of the package. Eg. `import numpy`  
+
+* After the package has been imported, it has to be called if it has to be used. Eg.
+
+```python
+  import numpy
+  
+  normal_list = [1, 2, 3, 4, 5]
+  
+  arrayed_list = numpy.array(normal_list)
+
+```
+
+* Like seen in the example, an imported package is called by first mentioning the name of the package, then a dot, then the name of the method needed from it and then the name of the variable to be transformed in the brackets.  
+
+* A package can also be imported to be used with a different name. Eg. 
+
+```python
+  import numpy as np
+  
+  normal_list = [1, 2, 3, 4, 5]
+  arrayed_list = np.array(normal_list)
+  multiplied_arrayed_list = arrayed_list * 2
+  print(multiplied_arrayed_list)
+  
+  [2, 4, 6, 8, 10]
+  
+```
+
+* From the example above, numpy has been called by using `np` rather than `numpy` and everything still worked great.  
+
+
+##### 3. Importing part of the Package / Subpackage
+##### 4. Importing a Method in a Custom Name
 
 
 
@@ -1487,10 +1495,10 @@ Some of the most popular methods in the string library are:
   print(sliced_list)
   
   
-  ["Item 2", "Item 3", 4, 5]
+  ["Item 3", 4, 5, 6]
 ```  
   
-* The printed `sliced_list` displays values 2 to 5, excluding value six which was put as a boundary for the slicing.   
+* The printed `sliced_list` displays element 3 to 6, excluding the element number seven which was put as a boundary for the slicing through zero indexing.   
   
 * When the beginning or the ending value in the slicing statement has not been specified, python will automatically start from the beginning or go up to the end.  
 
@@ -1645,6 +1653,37 @@ Note:
 
 
 ##### Numpy Arrays
+
+* These are a type of lists made by using the NumPy package.  
+* It is an important type of list because, different from normal python lists, they enable you to carry out mathematical calculations between two python lists element-wise.  
+Take a following example:  
+
+```python
+  # This is the height of family members in inches
+  
+  height_of_family = [59.0551, 63.3858, 69.291, 58.66, 67]
+
+```
+
+If we want to convert  
+
+
+
+###### **2D Numpy Arrays**
+* These are Numpy Arrays that have more than one row.  
+* They are made by creating sub-lists within a Numpy Array. Eg.  
+
+```python
+  import numpy as np
+  
+  family_height_n_weight = np.array([[59.0551, 63.3858, 69.291, 58.66, 67], [61, 73, 82, 41, 66]])
+  
+  height_smallest = family_height_n_weight[0:0] #or [0,0]. Basically means row 1, element 1 (using zero indexing)
+  
+  height_n_weight_smallest = family_height_n_weight[0:2,0] #Basically selecting the first element in both row 1 and 2. Left side of the comma denotes the rows that will be selected, the right side the elements.
+  
+  
+```
 
 #### Lists and Definite Loops  
 
