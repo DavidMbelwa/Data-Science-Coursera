@@ -1502,7 +1502,7 @@ Some of the most popular methods in the string library are:
 #### Data Structure 1: LISTS  
 * Made by using square brackets(`[]`), they are an organized version of collections in python. They can contain different types of data, even other lists inside them.  
 
-##### Operations Done on Lists  
+##### Manipulating Lists  
 
 
 ###### **Indexing items in a list**
@@ -1675,7 +1675,13 @@ Note:
 
 * They are an advanced types of lists made by using the Numpy Package.  
 
-* Unlike normal lists, they can contain only one type of data in them and you can do mathematical operations on the items in them. Example:  
+* Unlike normal lists, they can contain only one type of data in them and you can do mathematical operations on items within them. Example:  
+
+
+#### Manipulating Numpy Arrays
+
+* First you need to import the Numpy package.  
+
 
 
 ```python
