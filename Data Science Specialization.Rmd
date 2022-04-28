@@ -254,7 +254,7 @@ In this chapter, we have looked at:
 
 
 ## Introduction  
-In this module we will look at the tools you need for Data Science. Welcome to explore the data science world.  
+We will look at the tools you need for Data Science in this chapter. Welcome!  
 
 
 
@@ -465,8 +465,7 @@ Preparing to confirm changes to a file that is monitored by a version control sy
 
 \newpage  
 
-# CHAPTER 3: Data Science with Python     
-   
+# CHAPTER 3: Data Science with Python   
 
 
 ## What is Python?
@@ -478,11 +477,11 @@ Preparing to confirm changes to a file that is monitored by a version control sy
 #### Requirements
 1. No previous programming knowledge needed.  
 2. A computer  
-3. A text editor for programming such as Notepad++, Atom etc. Atom is recommended because it behaves similarly in Windows, Mac and Linux computers. Get it [**here**](https://atom.io/)  
+3. A text editor such as Notepad++, Atom etc, for programming. Atom will be the one used in this course as it behaves similarly in both Windows, Mac and Linux computers. Get it [**here**](https://atom.io/)  
 4. Python itself. You can download it [**here**](https://www.python.org/downloads/).  
 
 
-* Before we continue, note that we will be ***writing*** our code in the text editor (like Atom), and ***running*** that code through the [*command prompt*](https://en.wikipedia.org/wiki/Command-line_interface) in Windows computers and the [*terminal*](https://en.wikipedia.org/wiki/Terminal_(macOS)) in Macs.  
+* We will be ***writing*** our code in the text editor and then ***running*** that code through the [*command prompt*](https://en.wikipedia.org/wiki/Command-line_interface) in Windows computers and the [*terminal*](https://en.wikipedia.org/wiki/Terminal_(macOS)) in Macs. Take a note of this.  
 
 
 
@@ -556,7 +555,6 @@ Preparing to confirm changes to a file that is monitored by a version control sy
 
 
 
-
 ##### 6. Expressions  
 * These are commands in the right side of the assignment operator .i.e. the ```'='```.  
 * They should not be confused with constants in such a code as: x = **2**. Here 2 is a constant (also used as "value" in the previous explanations), not an expression.  
@@ -584,21 +582,21 @@ The errors include the following:
 
 ##### 8. Sentences / Lines  
 
-* Basically are lines of code.  
-* Contains either the Assignment Statement (variable & its value), Assignment with an Expression (variable, its value + a command ) or a function (eg. print(variable name goes here)).  
+* These are basically lines of code.  
+* They contain either the ***Assignment Statement*** (variable & its value), ***Assignment with an Expression*** (variable, its value + a command ) or a function (*eg. print(variable name goes here)*).  
 
 ##### 9. Operators.  
-* These are symbols used to instruct the Programming language like Python to carry out a specific task.  
+* These are symbols used to instruct a programming language like Python to carry out a specific task.  
 
 * The following are common operators:  
    * Assignment Operator (`=`) = Used to assign a specific value to a variable. Eg, Variable1 = 2.  
-   * Addition (`+`) = Performs addition when used with integer or floated variables but does ***concatenation*** when used on string variables.    
+   * Addition (`+`) = Performs addition when used with integer or floated variables but *concatenates* when used on string variables.    
    * Subtraction (`-`) = Used on integer or float variables to perform substractions.   
    * Multiplication (`*`)  
    * Division (`/`)  
    * Power (`**`)  
-   * Remainder (`%`) = This publishes **just** the remainders in the division equation.  
-     Eg, if you input the following code:  
+   * Modulo (`%`) = This publishes just the **remainders** of a division equation.  
+     For ex; if you input the following code:  
 
         ```python
           >>> x = 9 / 2   
@@ -617,7 +615,7 @@ The errors include the following:
 
 
    - Larger than / Smaller than = ">" "<"  
-   - Equal to = "==" (Basically asks the question 'Is...equal to ...?')     
+   - Equal to = `"=="` (Basically asks the question 'Is...equal to ...?')     
    - Larger than or Equal to = ">="  
    - Smaller than or Equal to = "<="  
    
@@ -628,18 +626,19 @@ The errors include the following:
 
 
 ##### 11. Python Objects
-* It is another name for python variables.  
-* They are named like this because: 1^st^, variables are the building blocks of everything in python, 2^nd^, variables take different types, which reflects better with the concept of objects.  
+* They are python variables representing different types of data in python.  
+* 
 
 
 ***
 
 #### Commenting in Python  
-* The symbol ```#``` is used for commenting in python.  
-* Essentially, everything that comes at the right side of that symbol in a python file is regarded as a comment and will thus be ignored in the execution of the code.  
-* This means that you can put instructions, comments and even reserve code under that symbol and the program will not look at it.  
-* This is useful in situations where you need to share your code to someone else or you are coming to read your own code after a while and don't remember why you did a particular function.  
-* It is therefore advisable to put instructions in the form of comments in your code in major steps so that it should be easy for you in the future.  
+* The symbol `#` is used for commenting in python. Everything that comes at the right side of this symbol is regarded as a comment in python and will thus not be executed.  
+* You can use this symbol to put instructions in your code, comments, or even store some code that you don't want executed.  
+* Commenting is useful, especially considering you'll be sharing your code with other people who have different coding styles or you will want to remind yourself why you were writing a particular line of code in the future.  
+* So comment in your code.  
+
+
 
 
 \newpage   
