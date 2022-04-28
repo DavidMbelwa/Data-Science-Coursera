@@ -761,7 +761,7 @@ Some of the most popular methods in the string library are:
 #### Data Structure 1: LISTS  
 * Made by using square brackets(`[]`), they are an organized version of collections in python. They can contain different types of data, even other lists inside them.  
 
-##### Manipulating Lists  
+##### **Manipulating Lists**  
 
 ###### **Indexing items in a list**
 * Zero-indexing and negative indexing  
@@ -918,7 +918,7 @@ An example:
 * `sorting()` takes 3 arguments: **iterable**, **key** and **reverse** in the specific order.  
 
 
-##### List Libraries
+##### **List Libraries**
 Popular methods used on lists include:  
 
 * `append()`: Used to add an element to a list.  
@@ -935,10 +935,11 @@ Popular methods used on lists include:
 * Unlike normal lists, they can contain only one type of data in them and you can do mathematical operations on items within them.  
 
 
-#### Manipulating Numpy Arrays
+##### **Manipulating Numpy Arrays**
 
 * First you need to import the Numpy package. [***Here***](some_link) is how you download and install a package in your system.  
 * Create a numpy array by doing the following:  
+
   ```python
     import numpy as np
   
@@ -946,7 +947,7 @@ Popular methods used on lists include:
   
                     OR 
                     
-    a_new_variable = np.array(a_variable_that's_a_list_goes_here)
+    a_new_variable = np.array(a_variable_thats_a_list_goes_here)
   ```
 
 
@@ -988,44 +989,48 @@ Popular methods used on lists include:
 
 
 #### Data Structures 3: Dictionaries  
-* An unorganized version of collections in python.  
-* It is a list-like accumulation of values that are given specific labels.  
-* The labels are used to identify the value later in the program.  
-* Consider the following example:  
+* It is an unorganized version of collections in python.  
+* It uses labels to represent values. Values can be any python data type, be it a list, a panda series and so on.  
+* Labels are then used to identify the value later on in the program. For example:  
 
   ```python
-    >>> purse = {}
-    >>> purse['PaperMoney'] = 12
-    >>> purse ['Bank Card'] = 14 
-    >>> purse['Coins'] = 13
-    >>> purse['Bus Card'] = 39
+    >>> purse = {
+            'PaperMoney' : 12
+            'Bank Card' : 14 
+            'Coins'] : 13
+            'Bus Card' : 39
+          }
+          
+          
     >>> print(purse)
     {'Money': 12, 'key': 14, 'perfume': 13, 'Bus Card': 39}
   ```
   
   
-* From the code above, a wallet has been taken to exemplify what a python dictionary is.  
-  1. A new empty dictionary has been made. This is done by assigning empty curly brackets (`{}`) or using the `dict()` function on a new variable.  
-  2. We added values and assigned keys to them.  
-  3. Values and Keys can be added like ***this***;  
+* In the code above, `purse` is a dictionary. "PaperMoney" and others are labels, and values are in the right-side of the column signs.  
+
+* A new dictionary is made by using curly brackets (`{}`) or using the `dict()` function on a new variable.  
+
+* Values and Keys are added like ***this***;  
   
   ```python
       variableName = {'Key': Value, 'Key': Value}
   ```  
+  
+  
   or like this:  
   
+  
   ```python
-      VariableName = {}
-      VariableName['key'] = Value
+      dict_name = {}
+      dict_name['key'] = Value
       VariableName['key'] = Value
   ```
   
-  So in our code above, values are 12, with key "Money", 14 "Bank Card", 13 "Coins" and 39 "Bus Card".  
   
-* So, in a normal wallet, colors and textures would be used to identify the value of paper money / a coin. In python the "Keys" are used for that purpose.  
 
 
-#### Functions used in Dictionaries
+#### Manipulating Dictionaries
 
 #### Looping Through Dictionaries  
 
@@ -1039,7 +1044,7 @@ Popular methods used on lists include:
 
 
 
-## Learning To Swim In Python 
+## Python Grammar 
 
 * In this chapter, you will start to learn the basics of python through writing simple python programs. By the end of this course, you should have known the following:   
     * Likely sources of errors in your code  
