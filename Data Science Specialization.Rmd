@@ -31,7 +31,8 @@ Hello! Welcome to Introduction to Data Science. This book is designed for the as
 
 
 
-# Module 1: Introduction to Data Science  
+# Chapter 1: Introduction to Data Science  
+
 ## What is Data?  
 * It is a ***collection*** of ***rows*** and ***columns*** of collected information about ***something***.  
 * The emphasis is on *rows* and *columns* because it is usually a repetitive information about ***something*** from different ***sources*** or ***points in time***.  
@@ -241,7 +242,7 @@ In this chapter, we have looked at:
 
 \newpage
 
-# Module 2: Tools of Data Science.
+# CHAPTER 2: Tools of Data Science.
 
 ## Contents  
 1. Data Science Tools  
@@ -464,21 +465,14 @@ Preparing to confirm changes to a file that is monitored by a version control sy
 
 \newpage  
 
-# Module 3: Programming With Python  
-
-   This chapter will give you everything you need to know about python and how you will use it in data science. It is a detailed condensation of hands-on knowledge of python and you should be fairly comfortable and fluent with the Python language after finishing it. Good Luck!.  
+# CHAPTER 3: Data Science with Python     
    
-   
-   
-## Introduction to Python  
-
-Python is one of the easiest ways you can start your data science journey on. The language is simple and multipurpose, so you can use it not only for data manipulation but also other fun stuff such as creating computer software and so on. Let's get into it.  
 
 
-#### What is Python?  
-* It is a programming language made in late 1980's as an attempt to create a powerful and easy to learn programming language.  
-* It is an easy programming language that doesn't have a steep learning curve if you put your mind into it.  
+## What is Python?
 
+* It is one of the easiest paths you can take to become a data scientist.  
+* It is a simple but powerful programming language that you can use not only for data manipulation but also software engineering. It doesn't have a steep learning curve and is easly learnable.  
 * It is also widely used for computer programming in general, so enjoy the journey as we turn you into a computer programmer.  
 
 #### Requirements
