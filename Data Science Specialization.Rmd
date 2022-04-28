@@ -651,6 +651,401 @@ The errors include the following:
 \newpage   
 
 
+
+## Data Types and Structures in Python   
+
+
+### Data Type 1: STRINGS.
+
+* It is any variable whose value is enclosed by single / double quotes (`' "," '`).    
+* They are concatenated together using the "+" operator.  
+* Be careful therefore. A plus sign between strings will act different as between numbers.  
+* The "+" operator cannot be used between numerical and string variables. For example:  
+
+  ```python
+    >>> a_string = 'Some string'
+    >>> a_number = 10
+    >>> print ('I just merged ' + a_string + 'and a ' + a_number.)
+    TypeError: must be str, not int  
+  ```
+
+#### Manipulating Strings.  
+
+##### 1. Indexing The Letters in a Block of Text.  
+* By default, python assigns a number to each letter of a string variable.  
+* The numbers starts with zero in the first letter and ascends to the length of the text.  
+* Indexing is calling out a specific letter or group of letters in python by using the assigned numbers.  
+* This is done by using the square brackets "`[]`", with the *index*(the number of the letter), inside the brackets.  
+* The brackets are put in the end of the string variable.  
+* Consider the following example:  
+
+  ```python
+    >>> ex = 'Example'
+    >>> ind = ex[0], ex[1], ex[2], ex[3]
+    >>> print(ind)
+    
+    ('E', 'x', 'a', 'm')
+  ```
+
+##### 2. Looping Through a String    
+* Can be used with an indexing variable.  
+
+  ```python 
+    >>> ex = 'Example'
+    >>> ind = ex[0], ex[1], ex[2], ex[3]
+    >>> for letter in ind :
+            print(letter)
+    E
+    x
+    a
+    m
+  ```
+  
+##### 3. Counting the Number of Letters in a String.  
+* This is done by using the `len()` function.  
+* The variable name of the string variable in question goes into the brackets.  
+* Consider the following example:  
+
+  ```python
+    >>> name = 'David, Mukajanga'
+    >>> count = len(name)
+    >>> print(count)
+    16
+  ```
+  
+* The code above counted all the letter, including all white spaces and all the commas.  
+
+##### 4. Slicing
+
+##### 5. Search & Replace  
+
+##### 6. Stripping White Space
+
+#### String Library  
+Some of the most popular methods in the string library are:  
+
+*  `.upper()` = For capitalizing all the words in the particular string variable.  
+
+* `.count(argument_goes_here)` = For counting the occurrance of the letter entered as an argument in the bracket.  
+
+* 
+
+#### Prefixes  
+#### Parsing and Extracting  
+
+
+
+### Data Type 2: NUMBERS.
+
+* Two types of numbers known to Python are;  ***Integers*** and ***Floating Numbers***.    
+
+#### 1. Integers 
+* These are all numerical values that don't have fractions or decimals.  
+* They represent quantities of objects that cannot be divided into fractional quantities like a number of phones, people etc..  
+    
+#### 2. Real Numbers 
+* Known as "***Floating Numbers***" in python, they are all numbers that have decimals and fractions.  
+* They represent measurements of objects that can be divided into fractional units such as liters of water, length of a wall etc.  
+* One important thing to note about ***floating  numbers*** in python is that; Python will store ***the nearest approximation*** of the floating number entered / displayed in the program and ***not*** the actual value of the number itself.  
+* This is due to the problems of ***base*** number conversion where by base 2 is the default arithmetic system on the computer and base 10 the default representation system in the computer.  
+* For this reason, the value 0.1 as displayed in the program is not the actual value of 1/10 but the nearest representation of it.  
+* For most use cases of floating numbers, this is not a big problem. But for people who are seeking absolute accuracy out of their computer calculations, the floating point inaccuracy might become a problem as the computer will have a slightly higher or lower value of the intended calculation in its mind, differently on what is displayed on the screen.  
+* [***This***](http://www.lahey.com/float.htm) article on floating point inaccuracies and [***This***](https://docs.python.org/3/tutorial/floatingpoint.html) python documentation on floating numbers have explained this problem in detail.  
+* Also; ***Money is never represented as a floating number in Python***. Keep this in mind :) :).    
+
+
+### Data Type 3: BOOLEANS
+* This is when python deems a variable `True` or `False` depending on a logic put previously.    
+
+
+### DATA STRUCTURES  
+
+* This is when one variable has been assigned more than one value.  
+* There are several ways of doing this, most popular being using python lists, Numpy Arrays, dictionaries, dataframes and tuples.  
+* The data contained therein is referred to as a collection.  
+
+
+#### Data Structure 1: LISTS  
+* Made by using square brackets(`[]`), they are an organized version of collections in python. They can contain different types of data, even other lists inside them.  
+
+##### Manipulating Lists  
+
+###### **Indexing items in a list**
+* Zero-indexing and negative indexing  
+
+###### **Slicing and Dicing Lists**
+* This is equal as selecting multiple elements from your list.  
+* It is equivalent to indexing an item in a list, only this time you are giving a certain range where the ***starting*** value will be included but the ***ending value*** won't.  
+* Take a following example:  
+
+```python
+  list_example = ["Item 1", "Item 2", "Item 3", 4, 5, 6, 7]
+  sliced_list = list_example[2:6]
+  print(sliced_list)
+  
+  
+  ["Item 3", 4, 5, 6]
+```  
+  
+* The printed `sliced_list` displays element 3 to 6, excluding the element number seven which was put as a boundary for the slicing through zero indexing.   
+  
+* When the beginning or the ending value in the slicing statement has not been specified, python will automatically start from the beginning or go up to the end.  
+
+For example:  
+
+```python
+>>> family = ["John Smiths", "Adam Smiths", "Jerry Smiths", "Anna Smiths", "Aden Smiths"]
+>>> children_in_the_family = family[ :3]
+>>> parents_of_the_family = family[3: ]
+>>> print("Children of the Smiths' family are: ", children_in_the_family)
+>>> print("Parents in the Smiths' family are: ", parents_of_the_family)
+```
+
+```
+Children of the Smiths' family are: "John Smiths", "Adam Smiths", "Jerry Smiths"
+
+Parents in the Smiths' family are: "Anna Smiths", "Aden Smiths"
+``` 
+
+###### **Indexing the Items of a list within a list**
+
+* Done using the following format:  
+`a_list[Item in the fist list][Item in the list inside the first list]`  
+
+For example:  
+
+```python
+  >>> random_list = [["a", "b", "c"], ["d", "e", "f"], ["g", "h", "i"]]
+  >>> print(random_list[2][2])
+  'e'
+  
+  >>> print(random_list[2][:2])
+  ['d', 'e']
+  
+```
+
+###### **1. Changing an Element in A list**  
+* Can be done by indexing a list item and assigning a new value to it.  
+
+For example:  
+
+```python
+  >>> random_list = ["a", "b", "c", "d", "e"]
+  >>> random_list[3] = "Letter of my name"
+  >>> print(random_list)
+  
+  ["a", "b", "c", "Letter of my name", "e"]
+```
+
+###### **2. Adding an Element**  
+* Done by using the `+` sign.  
+
+For example:  
+
+```python
+>>> possessions = ["Laptop", '2 Sofas', 'Working Table', 'Bed', 'Car', 'House', 'DVD Set']
+>>> possessions = possessions + ['PlayStation 4', 'New Speaker System']
+>>> print(possessions)
+
+['Laptop', '2 Sofas', 'Working Table', 'Bed', 'Car', 'House', 'DVD Set', 'Playstation 4', 'New Speaker System']
+
+```
+
+
+###### **3. Deleting an Element**  
+
+* It is done by using the `del()` statement.  
+
+For example:  
+
+```python
+>>> possessions = ["Laptop", "2 Sofas", "Working Table", "Bed", "Car", "House", "DVD Set", 'PlayStation 4']
+>>> possessions_new = del(possessions[-2])
+>>> print(possessions_new)
+
+["Laptop", "2 Sofas", "Working Table", "Bed", "Car", "House", "PlayStation 4"]
+
+```
+
+###### **4. Copying a List**
+* Also serves the purpose of separating lists, lists copied in this way are tied to each other and changes made to the new list will affect the old list also.  
+* It is done using the indexing mechanism.  
+
+For example:  
+
+```python
+>>> possessions = ["Laptop", "2 Sofas", "Working Table", "Bed", "Car", "House", "PlayStation 4"]
+>>> of_david_possessions = possessions[:2]
+>>> of_isaac_possessions = possessions[3:]
+>>> print(of_isaac_possessions)
+
+['Bed', 'Car', 'House', 'PlayStation 4']
+
+```
+
+* The entire list can also be copied by using the `[:]` like so:  
+
+```python
+
+>>> of_david_possessions_updated = of_david_possessions[:]  
+>>> of_david_possessions_updated[0] = 'Desktop Computer'
+>>> print(of_david_possessions_updated)
+
+['Desktop Computer', '2 Sofas', 'A Working Table']
+
+```
+
+
+
+###### **4. Making a New List Out of An Old One**
+* Done by assigning an old list inside the `list()` function, making a list this way will untie the new list from the old one and changes made to the new list won't reflect on the old one.  
+
+An example:  
+
+```python
+>>> possessions = ["Laptop", "2 Sofas", "Working Table", "Bed", "Car", "House", "PlayStation 4"]
+>>> of_david_possessions = list(possessions[:3])
+>>> of_isaac_possessions = list(possessions[3:])
+>>> print(of_david_possessions)
+
+["Laptop", "2 Sofas", "Working Table"]
+
+
+>>> of_david_possessions[0] = 'Desktop Computer'
+
+>>> print(of_david_possessions_updated)
+
+['Desktop Computer', '2 Sofas', 'A Working Table']
+
+```
+
+
+###### **5 Sorting Stuff In A List**  
+* Done by using the `sorting()` function.  
+* `sorting()` takes 3 arguments: **iterable**, **key** and **reverse** in the specific order.  
+
+
+##### List Libraries
+Popular methods used on lists include:  
+
+* `append()`: Used to add an element to a list.  
+* `remove()`: Removes the first element of the list that matches the input in the brackets.  
+* `reverse()`: Reverses the order of the elements in the list that it is called on.   
+
+
+
+
+#### Data Structure 2: Numpy ARRAYS.
+
+* They are an advanced types of lists made by using the Numpy Package.  
+
+* Unlike normal lists, they can contain only one type of data in them and you can do mathematical operations on items within them.  
+
+
+#### Manipulating Numpy Arrays
+
+* First you need to import the Numpy package. [***Here***](some_link) is how you download and install a package in your system.  
+* Create a numpy array by doing the following:  
+  ```python
+    import numpy as np
+  
+    a_new_variable = np.array([A_List_goes_Here])
+  
+                    OR 
+                    
+    a_new_variable = np.array(a_variable_that's_a_list_goes_here)
+  ```
+
+
+```python
+  # This is the height of family members in inches
+  import numpy as np
+  
+  weight_of_family_members = np.array([59.0551, 63.3858, 69.291, 58.66, 67])
+  height of family_cm = np.array([170, 180, 182, 169, 180])
+  height_of_family_meters = height_of_family_cm * 0.01
+  bmi = weight_of_family_members / (height_of_family_meters)**2
+  print(bmi)
+  
+  [20.4, 19.6, 20.9, 20.5, 20.7]
+
+```
+
+* First, you import the Numpy Package  
+
+
+
+###### **2D Numpy Arrays**
+* These are Numpy Arrays that have more than one row.  
+* They are made by creating sub-lists within a Numpy Array. Eg.  
+
+```python
+  import numpy as np
+  
+  family_height_n_weight = np.array([[59.0551, 63.3858, 69.291, 58.66, 67], [61, 73, 82, 41, 66]])
+  
+  height_smallest = family_height_n_weight[0:0] #or [0,0]. Basically means row 1, element 1 (using zero indexing)
+  
+  height_n_weight_smallest = family_height_n_weight[0:2,0] #Basically selecting the first element in both row 1 and 2. Left side of the comma denotes the rows that will be selected, the right side the elements.
+  
+  
+```
+
+
+
+
+#### Data Structures 3: Dictionaries  
+* An unorganized version of collections in python.  
+* It is a list-like accumulation of values that are given specific labels.  
+* The labels are used to identify the value later in the program.  
+* Consider the following example:  
+
+  ```python
+    >>> purse = {}
+    >>> purse['PaperMoney'] = 12
+    >>> purse ['Bank Card'] = 14 
+    >>> purse['Coins'] = 13
+    >>> purse['Bus Card'] = 39
+    >>> print(purse)
+    {'Money': 12, 'key': 14, 'perfume': 13, 'Bus Card': 39}
+  ```
+  
+  
+* From the code above, a wallet has been taken to exemplify what a python dictionary is.  
+  1. A new empty dictionary has been made. This is done by assigning empty curly brackets (`{}`) or using the `dict()` function on a new variable.  
+  2. We added values and assigned keys to them.  
+  3. Values and Keys can be added like ***this***;  
+  
+  ```python
+      variableName = {'Key': Value, 'Key': Value}
+  ```  
+  or like this:  
+  
+  ```python
+      VariableName = {}
+      VariableName['key'] = Value
+      VariableName['key'] = Value
+  ```
+  
+  So in our code above, values are 12, with key "Money", 14 "Bank Card", 13 "Coins" and 39 "Bus Card".  
+  
+* So, in a normal wallet, colors and textures would be used to identify the value of paper money / a coin. In python the "Keys" are used for that purpose.  
+
+
+#### Functions used in Dictionaries
+
+#### Looping Through Dictionaries  
+
+#### Common Applications of Dictionaries  
+##### Counting The Frequency  
+
+
+
+
+\newpage
+
+
+
 ## Learning To Swim In Python 
 
 * In this chapter, you will start to learn the basics of python through writing simple python programs. By the end of this course, you should have known the following:   
@@ -1317,406 +1712,7 @@ When an argument has
 \newpage
 
 
-## Data Types and Structures in Python  
 
-* In this part of chapter 3, we look at the types of data entered and processed in Python.  
-* We will look on several operations that can be done to them in python and we will explore for what purpose those operations are done.  
-* After that we will look at how these different data types are organized in python, a more occupational name being Data Structuring :), :).  
-
-
-### Python Methods
-### Python Packages
-* There are a collection of codes that enables you to do specific stuff in python.  
-* These codes are written and maintained by other people in the python open-source community and don't necessary come pre-installed in Python.  
-* Scikit-learn for example, is a python package for machine learning, Matplotlib for data visualization et cetera.  
-* These packages actually come with a list of python libraries &
-* Popular python Packages include:  
-    * math:  
-    * numpy:  
-    *  
-    *  
-
-
-#### Installing Python Packages
-* Check the version of Python you are using. Do  
-
-
-#### Importing Python Packages
-
-##### 1. Importing the Whole Package  
-* A package is imported by using the `import` statement followed by the name of the package. Eg. `import numpy`  
-
-* After the package has been imported, it has to be called if it has to be used. Eg.
-
-```python
-  import numpy
-  
-  normal_list = [1, 2, 3, 4, 5]
-  
-  arrayed_list = numpy.array(normal_list)
-
-```
-
-* Like seen in the example, an imported package is called by first mentioning the name of the package, then a dot, then the name of the method needed from it and then the name of the variable to be transformed in the brackets.  
-
-* A package can also be imported to be used with a different name. Eg. 
-
-```python
-  import numpy as np
-  
-  normal_list = [1, 2, 3, 4, 5]
-  arrayed_list = np.array(normal_list)
-  multiplied_arrayed_list = arrayed_list * 2
-  print(multiplied_arrayed_list)
-  
-  [2, 4, 6, 8, 10]
-  
-```
-
-* From the example above, numpy has been called by using `np` rather than `numpy` and everything still worked great.  
-
-
-##### 3. Importing part of the Package / Subpackage
-##### 4. Importing a Method in a Custom Name
-
-
-
-    
-### Python Libraries
-* It is a list of functions that can be applied to a specific kind of a python variable.  
-* Functions stored in python libraries are referred to as **Methods**.  
-* The use of various python ***methods*** will be covered as we look at the python data types in detail, but because we cannot cover everything in the examples we will use, you can always type `help(variable type)` in the interactive python to discover the list of all methods applicable in the particular variable type.  
-
-
-### Data Type 1: STRINGS.
-
-* It is any variable whose value is enclosed by single / double square brackets.    
-* They are concatenated together using the "+" operator.  
-* Be careful therefore. A plus sign between strings will act different as between numbers.  
-* The "+" operator cannot be used between numerical and string variables. For example:  
-
-  ```python
-    >>> a = 'String'
-    >>> numerical = 10
-    >>> print ('I just merged a ' + a + 'with a ' + numerical 'variable'.)
-    TypeError: must be str, not int  
-  ```
-
-#### Operations Done On Strings.  
-
-##### 1. Indexing The Letters in a Block of Text.  
-* By default, python assigns a number to each letter of a string variable.  
-* The numbers starts with zero in the first letter and ascends to the length of the text.  
-* Indexing is calling out a specific letter or group of letters in python by using the assigned numbers.  
-* This is done by using the square brackets "`[]`", with the *index*(the number of the letter), inside the brackets.  
-* The brackets are put in the end of the string variable.  
-* Consider the following example:  
-
-  ```python
-    >>> ex = 'Example'
-    >>> ind = ex[0], ex[1], ex[2], ex[3]
-    >>> print(ind)
-    
-    ('E', 'x', 'a', 'm')
-  ```
-
-##### 2. Looping Through a String    
-* Can be used with an indexing variable.  
-
-  ```python 
-    >>> ex = 'Example'
-    >>> ind = ex[0], ex[1], ex[2], ex[3]
-    >>> for letter in ind :
-            print(letter)
-    E
-    x
-    a
-    m
-  ```
-  
-##### 3. Counting the Number of Letters in a String.  
-* This is done by using the `len()` function.  
-* The variable name of the string variable in question goes into the brackets.  
-* Consider the following example:  
-
-  ```python
-    >>> name = 'David, Mukajanga'
-    >>> count = len(name)
-    >>> print(count)
-    16
-  ```
-  
-* The code above counted all the letter, including all white spaces and all the commas.  
-
-##### 4. Slicing
-
-##### 5. Search & Replace  
-
-##### 6. Stripping White Space
-
-#### String Library  
-Some of the most popular methods in the string library are:  
-
-*  `.upper()` = For capitalizing all the words in the particular string variable.  
-
-* `.count(argument_goes_here)` = For counting the occurrance of the letter entered as an argument in the bracket.  
-
-* 
-
-#### Prefixes  
-#### Parsing and Extracting  
-
-
-
-### Data Type 2: NUMBERS.
-
-* Two types of numbers known to Python are;  ***Integers*** and ***Floating Numbers***.    
-
-#### 1. Integers 
-* These are all numerical values that don't have fractions or decimals.  
-* They represent quantities of objects that cannot be divided into fractional quantities like a number of phones, people etc..  
-    
-#### 2. Real Numbers 
-* Known as "***Floating Numbers***" in python, they are all numbers that have decimals and fractions.  
-* They represent measurements of objects that can be divided into fractional units such as liters of water, length of a wall etc.  
-* One important thing to note about ***floating  numbers*** in python is that; Python will store ***the nearest approximation*** of the floating number entered / displayed in the program and ***not*** the actual value of the number itself.  
-* This is due to the problems of ***base*** number conversion where by base 2 is the default arithmetic system on the computer and base 10 the default representation system in the computer.  
-* For this reason, the value 0.1 as displayed in the program is not the actual value of 1/10 but the nearest representation of it.  
-* For most use cases of floating numbers, this is not a big problem. But for people who are seeking absolute accuracy out of their computer calculations, the floating point inaccuracy might become a problem as the computer will have a slightly higher or lower value of the intended calculation in its mind, differently on what is displayed on the screen.  
-* [***This***](http://www.lahey.com/float.htm) article on floating point inaccuracies and [***This***](https://docs.python.org/3/tutorial/floatingpoint.html) python documentation on floating numbers have explained this problem in detail.  
-* Also; ***Money is never represented as a floating number in Python***. Keep this in mind :) :).    
-
-
-#### Data Type 3: BOOLEANS
-* These are data is said to either be `True` or `False`  
-
-
-### DATA STRUCTURES  
-
-#### Difference Btn Algorithms and Data Structures  
-* Algorithms are set of computer codes written in form of one line after the other, with each variable containing a specific value, while collections / data structures contains several values in one variable.  
-
-#### Concept of a Collection 
-
-
-#### Data Structure 1: LISTS  
-* Made by using square brackets(`[]`), they are an organized version of collections in python. They can contain different types of data, even other lists inside them.  
-
-##### Manipulating Lists  
-
-
-###### **Indexing items in a list**
-* Zero-indexing and negative indexing  
-
-###### **Slicing and Dicing Lists**
-* This refers to selecting multiple elements from your list.  
-* It is equivalent to indexing items in a list, only this time you are giving a certain range where the ***starting*** value will be included but the ***ending value*** won't.  
-* Take a following example:  
-
-```python
-  list_example = ["Item 1", "Item 2", "Item 3", 4, 5, 6, 7]
-  sliced_list = list_example[2:6]
-  print(sliced_list)
-  
-  
-  ["Item 3", 4, 5, 6]
-```  
-  
-* The printed `sliced_list` displays element 3 to 6, excluding the element number seven which was put as a boundary for the slicing through zero indexing.   
-  
-* When the beginning or the ending value in the slicing statement has not been specified, python will automatically start from the beginning or go up to the end.  
-
-For example:  
-
-```python
->>> family = ["John Smiths", "Adam Smiths", "Jerry Smiths", "Anna Smiths", "Aden Smiths"]
->>> children_in_the_family = family[ :3]
->>> parents_of_the_family = family[3: ]
->>> print("Children of the Smiths' family are: ", children_in_the_family)
->>> print("Parents in the Smiths' family are: ", parents_of_the_family)
-```
-
-```
-Children of the Smiths' family are: "John Smiths", "Adam Smiths", "Jerry Smiths"
-
-Parents in the Smiths' family are: "Anna Smiths", "Aden Smiths"
-``` 
-
-###### **Indexing the Items of a list within a list**
-
-* Done using the following format:  
-`a_list[Item in the fist list][Item in the list inside the first list]`  
-
-For example:  
-
-```python
-  >>> random_list = [["a", "b", "c"], ["d", "e", "f"], ["g", "h", "i"]]
-  >>> print(random_list[2][2])
-  'e'
-  
-  >>> print(random_list[2][:2])
-  ['d', 'e']
-  
-```
-
-
-###### **1. Changing an Element in A list**  
-* Can be done by indexing a list item and assigning a new value to it.  
-
-For example:  
-
-```python
-  >>> random_list = ["a", "b", "c", "d", "e"]
-  >>> random_list[3] = "Letter of my name"
-  >>> print(random_list)
-  
-  ["a", "b", "c", "Letter of my name", "e"]
-```
-
-###### **2. Adding an Element**  
-* Done by using the `+` sign.  
-
-For example:  
-
-```python
->>> possessions = ["Laptop", '2 Sofas', 'Working Table', 'Bed', 'Car', 'House', 'DVD Set']
->>> possessions = possessions + ['PlayStation 4', 'New Speaker System']
->>> print(possessions)
-
-['Laptop', '2 Sofas', 'Working Table', 'Bed', 'Car', 'House', 'DVD Set', 'Playstation 4', 'New Speaker System']
-
-```
-
-
-###### **3. Deleting an Element**  
-
-* It is done by using the `del()` statement.  
-
-For example:  
-
-```python
->>> possessions = ["Laptop", "2 Sofas", "Working Table", "Bed", "Car", "House", "DVD Set", 'PlayStation 4']
->>> possessions_new = del(possessions[-2])
->>> print(possessions_new)
-
-["Laptop", "2 Sofas", "Working Table", "Bed", "Car", "House", "PlayStation 4"]
-
-```
-
-###### **4. Copying a List**
-* Also serves the purpose of separating lists, lists copied in this way are tied to each other and changes made to the new list will affect the old list also.  
-* It is done using the indexing mechanism.  
-
-For example:  
-
-```python
->>> possessions = ["Laptop", "2 Sofas", "Working Table", "Bed", "Car", "House", "PlayStation 4"]
->>> of_david_possessions = possessions[:2]
->>> of_isaac_possessions = possessions[3:]
->>> print(of_isaac_possessions)
-
-['Bed', 'Car', 'House', 'PlayStation 4']
-
-```
-
-* The entire list can also be copied by using the `[:]` like so:  
-
-```python
-
->>> of_david_possessions_updated = of_david_possessions[:]  
->>> of_david_possessions_updated[0] = 'Desktop Computer'
->>> print(of_david_possessions_updated)
-
-['Desktop Computer', '2 Sofas', 'A Working Table']
-
-```
-
-
-
-###### **4. Making a New List Out of An Old One**
-* Done by assigning an old list inside the `list()` function, making a list this way will untie the new list from the old one and changes made to the new list won't reflect on the old one.  
-
-An example:  
-
-```python
->>> possessions = ["Laptop", "2 Sofas", "Working Table", "Bed", "Car", "House", "PlayStation 4"]
->>> of_david_possessions = list(possessions[:3])
->>> of_isaac_possessions = list(possessions[3:])
->>> print(of_david_possessions)
-
-["Laptop", "2 Sofas", "Working Table"]
-
-
->>> of_david_possessions[0] = 'Desktop Computer'
-
->>> print(of_david_possessions_updated)
-
-['Desktop Computer', '2 Sofas', 'A Working Table']
-
-```
-
-
-###### **5 Sorting Stuff In A List**  
-* Done by using the `sorting()` function.  
-* `sorting()` takes 3 arguments: **iterable**, **key** and **reverse** in the specific order.  
-
-
-##### List Libraries
-Popular methods used on lists include:  
-
-* `append()`: Used to add an element to a list.  
-* `remove()`: Removes the first element of the list that matches the input in the brackets.  
-* `reverse()`: Reverses the order of the elements in the list that it is called on.   
-Note:  
-* When using methods such as `append()` in a list  
-
-
-#### Data Structure 2: Numpy ARRAYS.
-
-* They are an advanced types of lists made by using the Numpy Package.  
-
-* Unlike normal lists, they can contain only one type of data in them and you can do mathematical operations on items within them. Example:  
-
-
-#### Manipulating Numpy Arrays
-
-* First you need to import the Numpy package.  
-
-
-
-```python
-  # This is the height of family members in inches
-  import numpy as np
-  
-  weight_of_family_members = np.array([59.0551, 63.3858, 69.291, 58.66, 67])
-  height of family_cm = np.array([170, 180, 182, 169, 180])
-  height_of_family_meters = height_of_family_cm * 0.01
-  bmi = weight_of_family_members / (height_of_family_meters)**2
-  print(bmi)
-  
-  [20.4, 19.6, 20.9, 20.5, 20.7]
-
-```
-
-* First, you import the Numpy Package  
-
-
-
-###### **2D Numpy Arrays**
-* These are Numpy Arrays that have more than one row.  
-* They are made by creating sub-lists within a Numpy Array. Eg.  
-
-```python
-  import numpy as np
-  
-  family_height_n_weight = np.array([[59.0551, 63.3858, 69.291, 58.66, 67], [61, 73, 82, 41, 66]])
-  
-  height_smallest = family_height_n_weight[0:0] #or [0,0]. Basically means row 1, element 1 (using zero indexing)
-  
-  height_n_weight_smallest = family_height_n_weight[0:2,0] #Basically selecting the first element in both row 1 and 2. Left side of the comma denotes the rows that will be selected, the right side the elements.
-  
-  
-```
 
 #### Lists and Definite Loops  
 
@@ -1752,52 +1748,8 @@ Note:
 
 #### Sorting Tuples
 
-### Data Structures 3: Dictionaries  
-* An unorganized version of collections in python.  
-* It is a list-like accumulation of values that are given specific labels.  
-* The labels are used to identify the value later in the program.  
-* Consider the following example:  
 
-  ```python
-    >>> purse = {}
-    >>> purse['PaperMoney'] = 12
-    >>> purse ['Bank Card'] = 14 
-    >>> purse['Coins'] = 13
-    >>> purse['Bus Card'] = 39
-    >>> print(purse)
-    {'Money': 12, 'key': 14, 'perfume': 13, 'Bus Card': 39}
-  ```
-  
-  
-* From the code above, a wallet has been taken to exemplify what a python dictionary is.  
-  1. A new empty dictionary has been made. This is done by assigning empty curly brackets (`{}`) or using the `dict()` function on a new variable.  
-  2. We added values and assigned keys to them.  
-  3. Values and Keys can be added like ***this***;  
-  
-  ```python
-      variableName = {'Key': Value, 'Key': Value}
-  ```  
-  or like this:  
-  
-  ```python
-      VariableName = {}
-      VariableName['key'] = Value
-      VariableName['key'] = Value
-  ```
-  
-  So in our code above, values are 12, with key "Money", 14 "Bank Card", 13 "Coins" and 39 "Bus Card".  
-  
-* So, in a normal wallet, colors and textures would be used to identify the value of paper money / a coin. In python the "Keys" are used for that purpose.  
-
-
-#### Functions used in Dictionaries
-
-#### Looping Through Dictionaries  
-
-#### Common Applications of Dictionaries  
-##### Counting The Frequency  
       
-
 
 
 
