@@ -1098,9 +1098,36 @@ For example:
     new_df = old_df.sort_values(subset = "Column_goes_here", ascending = True / False)
   ```
 
+* Sort your data frame using two or more columns by putting both the values of the "`subset`" and "`ascending`" arguments in lists. For example:  
 
+  ```python
+      
+    print(df_name.sort_values(subset = ["Col_1", "Col_2", "etc"], ascending = [True, True, False]))
+    
+  ```
+  
+###### **Subsetting Rows (Filtering)**
 
+* You first create a variable that represents the filtered dataframe, and then you write your code like this:  
 
+  ```python
+    
+    filtered_df = old_df[ old_df["the_Filtering_column"] condition goes here]
+
+  ```
+  
+  Ex.  
+  
+  ```python
+  
+    import pandas as pd
+    
+    students_df = pd.read_csv("the_path_goes_here")
+    
+    print(students_df.head())
+  
+  ```
+    
 \newpage
 
 
