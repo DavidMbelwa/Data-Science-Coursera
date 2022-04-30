@@ -607,11 +607,11 @@ The errors include the following:
 
   But if you input this one:  
 
-      ```python  
-        >>> x = 9 % 2  
-        >>> print (x)  
-        x = 5 #(Because 5 is the remainder in 4.5)    
-      ```
+  ```python  
+    >>> x = 9 % 2  
+    >>> print (x)  
+    x = 5 #(Because 5 is the remainder in 4.5)    
+  ```
 
 
    - Larger than / Smaller than = ">" "<"  
@@ -728,7 +728,7 @@ Some of the most popular methods in the string library are:
 
 
 
-### Data Type 2: NUMBERS.
+### **Data Type 2: NUMBERS.**
 
 * Two types of numbers known to Python are;  ***Integers*** and ***Floating Numbers***.    
 
@@ -751,14 +751,14 @@ Some of the most popular methods in the string library are:
 * This is when python deems a variable `True` or `False` depending on a logic put previously.    
 
 
-### DATA STRUCTURES  
+### Data Structures  
 
 * This is when one variable has been assigned more than one value.  
 * There are several ways of doing this, most popular being using python lists, Numpy Arrays, dictionaries, dataframes and tuples.  
 * The data contained therein is referred to as a collection.  
 
 
-#### Data Structure 1: LISTS  
+#### **Data Structure 1: LISTS**  
 * Made by using square brackets(`[]`), they are an organized version of collections in python. They can contain different types of data, even other lists inside them.  
 
 ##### **Manipulating Lists**  
@@ -995,12 +995,11 @@ Popular methods used on lists include:
 
   ```python
     >>> purse = {
-            'PaperMoney' : 12
-            'Bank Card' : 14 
-            'Coins'] : 13
-            'Bus Card' : 39
+            'PaperMoney' : 12,
+            'Bank Card' : 14, 
+            'Coins'] : 13,
+            'Bus Card' : 39,
           }
-          
           
     >>> print(purse)
     {'Money': 12, 'key': 14, 'perfume': 13, 'Bus Card': 39}
@@ -1036,6 +1035,68 @@ Popular methods used on lists include:
 
 #### Common Applications of Dictionaries  
 ##### Counting The Frequency  
+
+
+
+
+#### Data Structure 3: Pandas Data Frames
+
+* Made using the Pandas package.  
+* It is a powerful statistical package allowing various data manipulation capabilities on data tables created using 2D Numpy arrays.  
+* Data frames are created by first importing the pandas package and then putting a list or dictionary inside the `.DataFrame()` method.  
+For example:  
+
+```python
+    import pandas as some_other_guy
+    
+    some_df = some_other_guy.DataFrame(some_dictionary_or_list_goes_here)
+
+```
+
+* They can also be imported as external files .i.e csv, txt etc.  
+
+
+##### **Manipulating Data Frames**
+
+###### **Inspecting a Data Frame**
+* First, print out a small part of your data frame to see what you are working with.  
+
+* This can be done using the `.head()` method on top of a data frame or the row indexing of 2D Numpy arrays. For ex:  
+
+  ```python
+    import pandas
+    
+    some_df = pandas.read_csv("Some DataFrame")
+    
+    print(some_df.head())
+    
+            #OR
+            
+    print(some_df[:6])
+
+      # The result is the same.
+  ```
+  
+  
+* Check the general information about your data frame, such as the data types in your columns, the number of missing values and so on by using the `.info()` method for this.  
+
+* Check also the number of rows and columns by using the `.shape` attribute on the data frame.  
+
+* You can then calculate few descriptive statistics by using the `.describe()` method on top of the data frame.  
+
+* You can also print only the names of columns by using the `.columns` attribute or names of rows by using the `.index` attribute.  
+
+* If you want to see the values of the data frame without their column and row names, pass the `.values` attribute. It will display just a 2D numpy array containing the values of each row.  
+
+
+###### **Sorting a Data Frame**
+
+* Use the "`.sort_values()` method to achieve this. For example:  
+
+  ```python
+    
+    new_df = old_df.sort_values(subset = "Column_goes_here", ascending = True / False)
+  ```
 
 
 
