@@ -1106,6 +1106,30 @@ For example:
     
   ```
   
+  
+###### **Selecting Few Columns of Interest**
+
+* There are two ways of doing this;  
+
+  * The first one creates a pandas series:  
+    
+    ```python
+    
+      some_new_df = the_old_df["column_goes_here"]
+      
+    ```
+   
+    
+  * The second one a new and different data frame:  
+      
+    ```python
+    
+      some_new_df = the_old_df[ ["Column1", "Column2"] ]
+
+    ```
+    
+
+  
 ###### **Subsetting Rows (Filtering)**
 
 * You first create a variable that represents the filtered dataframe, and then you write your code like this:  
@@ -1125,9 +1149,47 @@ For example:
     students_df = pd.read_csv("the_path_goes_here")
     
     print(students_df.head())
+    
+    students_df_gpa = students_df[students["GPA"] > 3.5]
   
   ```
     
+    
+###### **Filtering Rows Based on Categorical variables**  
+
+* First create a list of variables you want to discriminate with..  
+
+  Ex.  
+  
+  ```python
+  
+    colors = ["Red", "Yellow"]
+    
+    condition = posionous_flowers["color"].isin(colors)
+    
+    print(poisonous_flowers[condiotion])
+    
+  ```
+    
+    
+###### **Adding Columns on the Data Frame**
+
+* Do this by doing the following:  
+
+  ```python
+    
+    df_name["new_column_name"] = #List of values goes here.  
+    
+  ```
+
+
+
+##### **Summary Statistics**
+
+* Can be done using the "`.mean(), .median(), etc`" methods.  
+
+
+
 \newpage
 
 
