@@ -1039,10 +1039,10 @@ Popular methods used on lists include:
 
 
 
-#### Data Structure 3: Pandas Data Frames
+#### Data Structure 3: Pandas' Data Frames
 
 * Made using the Pandas package.  
-* It is a powerful statistical package allowing various data manipulation capabilities on data tables created using 2D Numpy arrays.  
+* It is a powerful statistical package that various data manipulation capabilities on data tables created using 2D Numpy arrays.  
 * Data frames are created by first importing the pandas package and then putting a list or dictionary inside the `.DataFrame()` method.  
 For example:  
 
@@ -1089,23 +1089,6 @@ For example:
 * If you want to see the values of the data frame without their column and row names, pass the `.values` attribute. It will display just a 2D numpy array containing the values of each row.  
 
 
-###### **Sorting a Data Frame**
-
-* Use the "`.sort_values()` method to achieve this. For example:  
-
-  ```python
-    
-    new_df = old_df.sort_values(subset = "Column_goes_here", ascending = True / False)
-  ```
-
-* Sort your data frame using two or more columns by putting both the values of the "`subset`" and "`ascending`" arguments in lists. For example:  
-
-  ```python
-      
-    print(df_name.sort_values(subset = ["Col_1", "Col_2", "etc"], ascending = [True, True, False]))
-    
-  ```
-  
   
 ###### **Selecting Few Columns of Interest**
 
@@ -1129,7 +1112,80 @@ For example:
     ```
     
 
+* Apart from the standard column indexing using the square brackets, the `.loc` and `.iloc` attributes are very useful. Use them when you want to select a particular set of rows from a particular set of columns. For example:  
+
+  ```python
   
+    # Panda has been imported
+    
+    new_df = old_df.loc[ ["Row_1", "Row_2"], ["Column_1", "Column_2"] ]
+
+  ```
+  
+  
+* Use `.loc` with row and column labels and `.iloc` with row and column indexes. Replace the list of either rows or columns in the `.loc` or `.iloc` statement with ` : ` if the objective is to take all rows or columns for particular rows or columns.  
+
+
+
+
+* Set a column as the row index using the `.set_index()` method.  
+
+Example  
+
+  ```python
+    
+    # Panda is already in
+    
+    new_df = old_df.set_index("Column_name_goes_here")
+    
+  ```
+  
+  
+* You can set multi-level indexes where by two columns or more columns are used as row indeces. Ex:  
+
+  ```python
+  
+    a_new_df = old_df.set_index( ["Outer_level_index_column", "Inner_lvl_index_column"] )
+    
+  ```
+
+
+
+###### **Sorting a Data Frame**
+
+* Use the `.sort_values()` method to achieve this. For example:  
+
+  ```python
+    
+    new_df = old_df.sort_values(subset = "Column_goes_here", ascending = True / False)
+  ```
+
+* Sort your data frame using two or more columns by putting both the values of the "`subset`" and `ascending` arguments in lists. For example:  
+
+  ```python
+      
+    print(df_name.sort_values(subset = ["Col_1", "Col_2", "etc"], ascending = [True, True, False]))
+    
+  ```
+
+  
+* Drop duplicates using the "`.drop_duplicates()`" method, passing the "`subset`" argument in the parantheses and passing the column you want to drop duplicates from in single or double quotes or in a list if you want to drop them from more than 2 columns.  
+
+  Ex.  
+  
+  ```python
+  
+    store_types = sales.drop_duplicates(subset = ["store", "type"])
+print(store_types.head())
+
+  ```
+
+
+* You can count values in the data frame by using the method `.value_counts()`. Apply it on the column of your choice and pass the arguments `normalize = True` to show the proportion of each count and `sort = True` to make it such that the most occuring one is on-top.  
+
+
+
+
 ###### **Subsetting Rows (Filtering)**
 
 * You first create a variable that represents the filtered dataframe, and then you write your code like this:  
@@ -1144,7 +1200,7 @@ For example:
   
   ```python
   
-    import pandas as pd
+    # Pandas has been imported as pd
     
     students_df = pd.read_csv("the_path_goes_here")
     
@@ -1157,7 +1213,10 @@ For example:
     
 ###### **Filtering Rows Based on Categorical variables**  
 
-* First create a list of variables you want to discriminate with..  
+* There are two ways you can do this:  
+
+
+* The first one is by creating a list of the categorical answers in the categorical variable you want to descriminate with and then use the `.isin()` method and normal square bracket filtering to get the job done.  
 
   Ex.  
   
@@ -1165,13 +1224,42 @@ For example:
   
     colors = ["Red", "Yellow"]
     
-    condition = posionous_flowers["color"].isin(colors)
+    condition = posionous_flowers["name_of_the_column_containing_color_names"].isin(colors)
     
     print(poisonous_flowers[condiotion])
     
   ```
     
     
+* The second one is by creating a similar list and pass it directly in a `.loc[]` statement.  
+
+Ex  
+
+  ```python
+  
+    colors = ["Red", "Yellow"]
+    
+    poisonous = flowers.loc[colors]
+    
+    print(poisonous)
+    
+  ```
+  
+* If your data frame has multi-level indexes for the rows, use the loc method while you have put tuples in the initial list.  
+
+Ex.  
+
+  ```python
+  
+    countries_n_cities = [ ("Country", "City"), ("Another_country", "Another_city")]
+    
+    regional_temperatures = global_temperatures.loc[countries_n_cities]
+    
+    print(regional_temperatures)
+    
+  ```
+  
+
 ###### **Adding Columns on the Data Frame**
 
 * Do this by doing the following:  
@@ -1182,11 +1270,34 @@ For example:
     
   ```
 
+* You can make new columns as a collection of new data from an outside source or as a result of some mathematical relations btn some columns in your data frame.   
 
 
-##### **Summary Statistics**
+
+
+##### **Descriptive Statistics**
 
 * Can be done using the "`.mean(), .median(), etc`" methods.  
+
+* You can also do cumulative statistics using the "`.cumsum(), cummax(), and .cummin()`" methods.
+
+* Performed on dates, they are very good for sorting the data from the oldest to the latest. Methods used for this purpose are "`min(), max()`".  
+
+* You can also apply custom functions on a data frame using the "`.agg()`" method. The following is the example:  
+
+  ```python
+    
+    def iqr(column) :
+      
+      return column.quantile(0.75) - column.quantile(0.25)
+      
+    
+    print(students["GPA"].agg(iqr))
+    
+    
+  ```
+  
+  
 
 
 
