@@ -626,8 +626,53 @@ The errors include the following:
 
 
 ##### 11. Python Objects
-* They are python variables representing different types of data in python.  
-* 
+* They are python variables representing different types of data in python, eg. tables, figures, values etc.  
+
+
+##### 14. Methods
+
+* They are functions that does a particular modification to a particular data type.  
+
+* ` .append() ` for example, add an item to a python list, ` .len() ` counts the number of letters in a string variable etc.  
+
+* Methods always have parentheses at their end and ***arguments*** can be put inside the parentheses. Arguments are further modifications to the modifications made by a method.  
+
+* For example: You've created a python dataframe and you want to set a particular column as a column of row names. You do this by using the ` .set_index() ` method and the ` subset ` argument. Ex:  
+
+  ```python
+  
+    some_df = the_data_frame.set_index( subset = "column_name_goes_here")
+
+  ```
+  
+ * You can attach methods at the same variable in the same line of code, just know that the second method will modify the modifications made by the first method.  
+
+For example:  
+
+  ```python
+  
+    some_df = the_same_df.set_index( subset = [ "1st_column_goes_here", "2nd_goes_here], ascending = [True, False] ).head()  
+    
+    # The data frame will first have the aforementioned columns set as index columns by the `.set_index()` method, then the modified data frame will have its first five rows printed using the `.head()` method.
+    
+    # Reversed, the first five rows of the data frame will first be selected by the `.head()` method and then arranged according to the instructions in the `.set_index()` method. The column indexes won't be set for the entire dataframe. 
+    
+  ```
+
+
+
+##### Attributes
+
+* These are characteristics of a particular data type in python.  
+
+* They are printed without attaching parentheses at their end, though they are attached to the python object the same as a method is. For example:  
+
+  ```python
+  
+    
+    
+  ``` 
+  
 
 
 ***
@@ -1141,7 +1186,7 @@ Example
   ```
   
   
-* You can set multi-level indexes where by two columns or more columns are used as row indeces. Ex:  
+* You can set multi-level index columns where by two or more columns are used as row indeces. Ex:  
 
   ```python
   
@@ -1157,7 +1202,7 @@ Example
 
   ```python
     
-    new_df = old_df.sort_values(subset = "Column_goes_here", ascending = True / False)
+    new_df = old_df.sort_values(subset = "sorting_column_goes_here", ascending = True / False)
   ```
 
 * Sort your data frame using two or more columns by putting both the values of the "`subset`" and `ascending` arguments in lists. For example:  
@@ -1169,16 +1214,38 @@ Example
   ```
 
   
-* Drop duplicates using the "`.drop_duplicates()`" method, passing the "`subset`" argument in the parantheses and passing the column you want to drop duplicates from in single or double quotes or in a list if you want to drop them from more than 2 columns.  
+* Drop duplicates using the "`.drop_duplicates()`" method, passing the "`subset`" argument in the parantheses and passing the column you want to drop duplicates from in single or double quotes. If you want to drop duplicates from two or more columns then put your columns in a list and pass the list in the subset argument.  
 
   Ex.  
   
   ```python
   
     store_types = sales.drop_duplicates(subset = ["store", "type"])
-print(store_types.head())
+    print(store_types.head())
 
   ```
+
+
+* You can group your index column values using the `.sort_index()` method. It will sort your index columns' values in an ascending order by default (A-Z, Lowest to largest). To set them in a descending order pass two arguments: `level = ` which takes whichever column level you put pass into it in double or single quotes and `ascending = # True / False`.  
+
+* To do the same thing for both level 1 and level 2 index columns, put the values for `level = ` and `ascending = ` in lists, with the corresponding order of how you want each column to be sorted. Ex:   
+
+  ```python
+    
+    # Panda has been imported as pd 
+    
+    # Values in the first index column will be in a descending order while the second index column should be in an ascending order
+    
+    some_df = that_df.set_index( ["1st_index_column", "2nd_index_col"] )
+    
+    print( some_df.sort_index( level = [ "1st_level_col", "2nd_level_column" ], ascending = [False, True])
+    
+  ```
+  
+  
+  
+
+
 
 
 * You can count values in the data frame by using the method `.value_counts()`. Apply it on the column of your choice and pass the arguments `normalize = True` to show the proportion of each count and `sort = True` to make it such that the most occuring one is on-top.  
