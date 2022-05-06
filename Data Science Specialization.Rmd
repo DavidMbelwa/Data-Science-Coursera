@@ -1241,10 +1241,7 @@ Example
     print( some_df.sort_index( level = [ "1st_level_col", "2nd_level_column" ], ascending = [False, True])
     
   ```
-  
-  
-  
-
+ 
 
 
 
