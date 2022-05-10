@@ -8,7 +8,19 @@ output: word_document
 
 # Introduction
 
-Hello! Welcome to Introduction to Data Science. This book is designed for the aspiring juniors in the various fields of science who have the basic knowledge of statistical analyses and are looking forward to move on to the real world applications of statistics and data analysis. The book is also beneficial to long-term statisticians who are looking forward to specialize fully in the field of data science. The book is written in a simple language intended to make the usage of the book among people of different levels of expertise possible. It covers in a considerable depth what data science is about, the tools used to carry out data science and various applications of data science in the real world. By the end of the book, it is expected that you will be considerably conversant with quality data collection and cleaning, computer programming for data analysis using Python and R and building machine learning and predictor models that can predict and automate various processes that rely on data to function properly. All the best.   
+Hey! I hope you are doing well.  
+
+This is a book of instruction intended to guide you through your journey of becoming a data scientist.  
+
+It is like a collection of notes intended to remind you important concepts that you should have a certain level of idea concerning data science.  
+
+The book has started fairly far back, so you are supposed to be fairly comfortable since the content will cover both the theoretical and technical parts of almost everything which is appropriate for setting a foundation of understanding of what you'll be doing.  
+
+The language is pretty straight forward and you shouldn't have any trouble navigating through the content.  
+
+All the best.  
+
+
 
 \newpage
 
@@ -359,25 +371,25 @@ We will look at the tools you need for Data Science in this chapter. Welcome!
 
 ### Important Terms: 
 
-#### Repository
+#### **1. Repository**
 * It is where you save your file for Git to access them (online).  
 
-#### 2. Pulling  
+#### **2. Pulling**  
 * Downloading the current version of files from a certain online repository to a personal computer.  
 
-#### 3. Pushing
+#### **3. Pushing**
 * Uploading the current version of files of a certain project to the repository of that project.  
 
-#### 4. Committing
+#### **4. Committing**
 
 Confirming changes to a file that is monitored by a version control system.  
 
 
-#### 5. Staging
+#### **5. Staging**
 
 Preparing to confirm changes to a file that is monitored by a version control system.  
 
-#### 6. A Branch  
+#### **6. A Branch**  
 * A copy of a repository made to exist under the same repository it was copied from.  
 * Branches are usually made by the collaborators in a project.  
 
@@ -391,14 +403,14 @@ Preparing to confirm changes to a file that is monitored by a version control sy
         * When a Pull request is opened, all other contributors can view the suggested changes and comment.  
         * If changes are accepted by the owner of the repository, he accepts the pull request and thus merges the two branches into one. Now the main branch will include the new tires added by the mechanic.  
         
-#### 7. Forking  
+#### **7. Forking**  
 - It is equal to copying an existing repository and making in your own.  
 - The difference between Forking and making a new branch is that while a new branch exists under the same repository, Forking includes copying the whole thing, with its branches and everything, to a different user account.  
 - A forked repository will still show the name of the original author, but it will give the user who forked it the permission to edit even the main branch.  
 - The edited version of the forked repository will still need to be presented to the original author via a pull request for it to be able to be used in place of the original one.  
 - If the user intends to use the forked repository as his/her own, GitHub will still display that the repository was forked from someone else and thus there is no chance for plagiarism.  
 
-#### 8. Cloning  
+#### **8. Cloning**  
 
 
 ### Getting and Installing Git
@@ -417,15 +429,61 @@ Preparing to confirm changes to a file that is monitored by a version control sy
     
 
 
+
+### RStudio
+
+* This is a development environment that you'll likely use most of the time as a data scientist.  
+
+* You'll need it because it provides the environment that can enable you to code your R or Python Scripts and execute them in the same window without having to switch over various windows.  
+
+* You'll also enjoy its capability to show you the tables and figures that you make out of your data and to seamlessly connect the version control systems of your local computer and the other one that is on the internet. You'll enjoy it pretty much.  
+
+
+* It seamlessly connects, detects or sets the working directories, making software development much easier.  
+
+
+#### **Tour of RStudio**
+
+* The program is natively for R, so the default language of the console is R.  
+
+* People have developed packages that enables the user to integrate other languages on top of the R console that comes natively after you install the program. So be ready to be using R syntax all the time.  
+
+* The interface has four main parts:  
+
+1. Source = Top Left. You will write your R or Python scripts here with something called RMarkdown (we'll look at this in a short while). The output of the code that gets executed will also be displayed in this part if the output isn't a figure.  
+
+2. Console = Bottom Left. Here is where your code is executed. You can also input your code here directly if you don't plan to store it for any future use.  
+
+3. Environment = Top Right. This is where you see the interpretation of the code you wrote in the Console. It is also the place that you'll find tabs that will enable you to connect to GitHub or other forms of version control installed in your system. You of course need to connect these two.  
+
+
+4. Files = Bottom Right. This is the place where you'll have access to your working directory.  
+
+R packages currently installed in your computer, plots resulting from the code in the console and a help tab giving you information about how to use R are all available in this part. Just go to any one of the 5 tabs in this part and everything should be fairly straight forward.  
+
+ 
+    
+* The main two ways to find a package for any task you have in mind is to:  
+    1. Visit [rdocumentation.org](rdocumentation.org)  
+    2. Google that task with "R package" at the end. Eg. "R package for statistical plots"  
+
+        
+* To load a package, click on the checkbox in the "Packages" tab or type: **library (Package Name)** in the console.  
+  *To get help on how to use a package or the functions it contains:-  
+    - Either go to the **Files** quadrant and select the "Help" tab.  
+    - OR type:- **help("Package Name")** in the console to get the general description on what the package is about.  
+   * Or type:- **browsevignettes("PackageName")** to access detailed information on how to use the package.  
+
+
 ### Linking Git and RStudio
 
 - Git will automatically establish a connection with an installed copy of RStudio, you will find it there in the ***environment*** quadrant. You have to create a key, however, that will identify your local RStudio copy with GitHub whenever you commit changes to a file.  
 
-* Create this key by going to `Tools > Global Options > Git/SVN` in your `Tools` tab of RStudio.  
+* Create this key by going to ` Tools > Global Options > Git/SVN ` in your `Tools` tab of RStudio.  
 
-* Verify that the Git executable is sourced from the correct location (by verifying the path to it) and then go to the option that says `Create SSH Key`. Create it and copy it.  
+* Verify that the Git executable is sourced from the correct location (by verifying the path to it) and then go to the option that says ` Create SSH Key `. Create it and copy it.  
 
-* Then go to your GitHub account, Settings then SSH and GPG keys. Click on the tab written `New SSH key`, copy it, name the key, and you are good to go.  
+* Then go to your GitHub account, Settings then SSH and GPG keys. Click on the tab written ` New SSH key `, copy it, name the key, and you are good to go.  
 
 * Every key represents one machine / one RStudio user so you will have multiple keys if you are working on your files from different computers or if your account is accessible by different users.  
 
@@ -629,7 +687,7 @@ The errors include the following:
 * They are python variables representing different types of data in python, eg. tables, figures, values etc.  
 
 
-##### 14. Methods
+##### 12. Methods
 
 * They are functions that does a particular modification to a particular data type.  
 
@@ -658,6 +716,13 @@ For example:
     # Reversed, the first five rows of the data frame will first be selected by the `.head()` method and then arranged according to the instructions in the `.set_index()` method. The column indexes won't be set for the entire dataframe. 
     
   ```
+
+
+
+##### Packages
+
+* You'll use these a lot to carry out functions that do not come pre-installed in python.  
+
 
 
 
@@ -1236,9 +1301,10 @@ Example
     
     # Values in the first index column will be in a descending order while the second index column should be in an ascending order
     
-    some_df = that_df.set_index( ["1st_index_column", "2nd_index_col"] )
+    some_df = that_df.sort_index( ["1st_index_column", "2nd_index_col"] )
     
     print( some_df.sort_index( level = [ "1st_level_col", "2nd_level_column" ], ascending = [False, True])
+    
     
   ```
  
@@ -1247,6 +1313,10 @@ Example
 
 * You can count values in the data frame by using the method `.value_counts()`. Apply it on the column of your choice and pass the arguments `normalize = True` to show the proportion of each count and `sort = True` to make it such that the most occuring one is on-top.  
 
+
+###### **Pivot Tables**
+
+* A great way to do summary statistics for more than two variables. Eg.  
 
 
 
@@ -2162,42 +2232,21 @@ When an argument has
 * The original goal of the creator of this language was to enable a statistician to be able to carry-out advanced statistical analysis on data without having the need to know any major computer programming language.  
 * The goal is achieved as both "S" and later "R" became popular computer languages for statistical analysis. The syntax between the 2 languages is not different at all but R has got more functioning added onto it that makes it popular in the open source coding community.  
 
-### What is RStudio
-* It is a platform which makes using R simpler and more interactive. This is by enabling it to display tables, charts, graphs and other things.  
 
 ### How R and RStudio works?
-* First you have to download R. The instructions for doing so are in the next heading.  
-* Then you download RStudio.  
-* You can use R without RStudio, just that your workflow will be a little bit constricted and not pleasing to the eye.  
-* The basic R installation comes with several tools that enable you to carry out statistical analysis right away but it doesn't contain all tools for statistical analysis. These missing tools are called **Packages**. They basically add functionality to R as a program and enable it to do more complicated stuff.  
-* For example, when you install a new operating system in your computer, the operating system might come with native programs for things like text editing etc, but if you want serious functionality, you will still have to download 3^rd^ party programs such as Microsoft Word and VLC Media Player. These third party programs are what Packages are in R.  
-* R Packages are stored in cloud-based online databases called "Repositories". In these particular websites, R Packages can be downloaded and installed at any time free of cost.  
-* Because R is an open source project, R Packages are developed and updated by an online open source community which means that anybody can create a new package and modify an existing one without any restrictions.  
-* The open-source part of it also allows for problems within packages to be detectable quickly and also solved quickly as anyone with the ability to do so can do so.  
-* The main 3 big repositories for R Packages are [**CRAN** (Comprehensive R Archive Network)](https://cran.r-project.org/web/packages/), [**BioConductor** (For BioInfo statistical packages)](https://bioconductor.org/packages/release/BiocViews.html#___Software), and GitHub (Which is not only specific for R). To know these is just a formality as installing R packages does not require you to visit these sites first.  
+* Firstly, download R.  
+* Then, download RStudio.  
+* You can use R without RStudio, it's just your work will be too technical and not pleasing to the eye. It's like coding in an Interactive Python session. You'll suffer the same problems that you'll face there.  
+* Like Python, the basic R installation comes with a limited number of tools for statistical analysis. So you'll end up installing **Packages**. They are like the packages in Python, each package adding some functionality that'll make everything easier to do.  
 
-### Download Sources:
-  * Both two are free software so just type "R free download for Windows/Mac etc" in Google and it should lead you to right places.  
-  * The same goes for RStudio.  
-  
-### Tour of RStudio
-  * The interface has four main quadrants/panels:
-    1. Source = Top Left  
-    2. Console = Bottom Left  
-    3. Environment = Top Right  
-    4. Files = Bottom Right  
+* As usual, you need to know what package is used for what purpose. You do this by visiting [**CRAN** (Comprehensive R Archive Network)](https://cran.r-project.org/web/packages/), one of the biggest package repository for R.  
 
-  * The work flow is like the following:
-    1. You input the code into the **CONSOLE** quadrant  
-    2. It gets interpreted in the **ENVIRONMENT** quadrant  
-    3. If the output is not a plot, it is shown in **SOURCE** quadrant. If it is a plot it is shown in the **Plots** tab of the **FILE** quadrant  
-    4. The **FILES** quadrant in the bottom right will show you the folder in which all the files of your current project are saved. The **Packages** tab in the same quadrant will show all R packages that you have installed and will display also which are currently active via a green tick at a check box in the left side of the package name.    
-    
-  * To find the packages for any task you have in mind, there are 2 main ways:-  
-    1. [rdocumentation.org](rdocumentation.org)  
-    2. Google that task with "R package" at the end. Eg. "R package for statistical plots"
-    
-  * To install packages from BioConductor:  
+* Other packages are found in [**BioConductor** (For BioInfo statistical packages)](https://bioconductor.org/packages/release/BiocViews.html#___Software), and GitHub, both of which are the next big repositories for R.  
+
+* The internet will also help you a lot. Ask over there for any help.  
+
+
+* To install packages from BioConductor:  
     1. 1^{st} run this code:- source("https://bioconductor.org/bioclite.R")
        * This will make the main install function of Bioconductor: bioclite (), availabe to you.  
     2. Then you can install any package from Bioconductor like so:-
@@ -2210,13 +2259,13 @@ When an argument has
       2. Install the "devtools" package in R and load it.  
       3. Use the following command to install the package from GitHub:-
         * install_github ("author/package")  
-        
-        
-  * To load a package, click on the checkbox in the "Packages" tab or type: **library (Package Name)** in the console.  
-  *To get help on how to use a package or the functions it contains:-  
-    - Either go to the **Files** quadrant and select the éHelp" tab.  
-    - OR type:- **help("Package Name")** in the console to get the general description on what the package is about.  
-   * Or type:- **browsevignettes("PackageName")** to access detailed information on how to use the package.  
+
+
+### Download Sources:
+  * Both two are free software so just type "R free download for Windows/Mac etc" in Google and it should lead you to right places.  
+  * The same goes for RStudio.  
+  
+ 
   
   
 \newpage  
