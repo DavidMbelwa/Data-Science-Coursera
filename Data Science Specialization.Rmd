@@ -461,8 +461,7 @@ Preparing to confirm changes to a file that is monitored by a version control sy
 
 R packages currently installed in your computer, plots resulting from the code in the console and a help tab giving you information about how to use R are all available in this part. Just go to any one of the 5 tabs in this part and everything should be fairly straight forward.  
 
- 
-    
+
 * The main two ways to find a package for any task you have in mind is to:  
     1. Visit [rdocumentation.org](rdocumentation.org)  
     2. Google that task with "R package" at the end. Eg. "R package for statistical plots"  
@@ -488,6 +487,36 @@ R packages currently installed in your computer, plots resulting from the code i
 * Every key represents one machine / one RStudio user so you will have multiple keys if you are working on your files from different computers or if your account is accessible by different users.  
 
 
+### Python in RStudio
+
+* You'll have to download and install the "reticulate" package in RStudio in order to be able to run a Python execution environment in RStudio. Follow the following steps:  
+
+1. Run this command: ` install.package ("reticulate") ` in the console. Reticulate will download and install. The internet has to be connected.  
+
+2. Run this command to initiate the package: ` library(reticulate) `. The package would be loaded.  
+
+3. Run this command to initiate the Python shell (The execution environment): ` repl_python() `. When running it for the first time, it would download the python shell and install it in RStudio. It might prompt you to answer some questions during the downloading process. Answer accordingly.  
+
+4. To make sure you are using the same version of Python as the one installed on your computer, go to the windows command prompt, open the Python shell there and check the version in the description that occurs after opening it.  
+
+5. To make it even better, you can use the same python shell installed in your computer (not RStudio), by executing this : ` use_python("path_to_python_should_be_here", required = TRUE) `, command in the place of ` repl_python() `. Find the location of the main python shell by first importing the ` os ` package into a running instance of the main Python shell and run the attribute ` sys.path `. Copy everything up to the file with the ` .zip ` extension. Don't include this file. Then you copy it inside ` use_python() ` while changing the backslashes to the forward ones. Now you should be able to run your python script in RStudio.  
+
+* You can write your python script in an RMarkdown file and run your scripts from the source window of RStudio. This is one of the greatest ways to write your code and a document around it.   
+
+    
+### RMarkdown  
+
+* It is a computer language that allows the user to write text and computer code in one file and be able to display both the text, the code and the output of the code in the final document.  
+* R Markdown is important in the data science community since it enables easier communication from one data scientist to another by enabling them to see both the content of the research study and the steps taken to analyze findings both in the same file. This makes it easy if the other data scientist want to use the same steps to solve a similar problem.  
+* It is also popular for it's ease of revision and editing and the fact that the final output can be printed in PDF, HTML, a Web page and many other useful formats.  
+* It is also quite simple. It has few symbols for assigning headers, text formatting and specifying titles and codes in the document. The document containing instructions on what symbols are used to do what in R Markdown (A.K.A RMarkdown Cheat Sheet) is found [***here***](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf).  
+* To open a new RMarkdown file in RStudio, go to File > New File > R Markdown..  
+* A new window will appear asking you for the name of the document, author, date and whether you want to save it in PDF, HTML or PowerPoint. Choose your settings and a new tab will open in the source quadrant of RStudio with the name of your file and a ".Rmd" file extension. You are good to go.  
+* After writing on your file, you can save the contents by clicking on the saving disk icon at the source panel of your Rstudio session. This will save what you have written so far but will not print the final output in the format you specified e.g. PDF, PowerPoint etc.  
+* To do this, find a knitting icon in the source panel or click "Ctrl + Shift + K" if you are using windows. More instructions are provided in the RMarkdown cheat sheet attached above.  
+
+
+
 ### Best Practises in Using Git & GitHub
 1. Purposeful single-issue commits  
 2. Informative commit messages  
@@ -506,20 +535,6 @@ R packages currently installed in your computer, plots resulting from the code i
     * In Settings Scroll down to "Pages"  
     * On the interface that occurs, to to the 1^st^ prompt that you want your pages to originate and select one of the branch of that current repository.  
     
-    
-## RMarkdown  
-
-* It is a computer language that allows the user to write text and computer code in one file and be able to display both the text, the code and the output of the code in the final document.  
-* R Markdown is important in the data science community since it enables easier communication from one data scientist to another by enabling them to see both the content of the research study and the steps taken to analyze findings both in the same file. This makes it easy if the other data scientist want to use the same steps to solve a similar problem.  
-* It is also popular for it's ease of revision and editing and the fact that the final output can be printed in PDF, HTML, a Web page and many other useful formats.  
-* It is also quite simple. It has few symbols for assigning headers, text formatting and specifying titles and codes in the document. The document containing instructions on what symbols are used to do what in R Markdown (A.K.A RMarkdown Cheat Sheet) is found [***here***](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf).  
-* To open a new RMarkdown file in RStudio, go to File > New File > R Markdown..  
-* A new window will appear asking you for the name of the document, author, date and whether you want to save it in PDF, HTML or PowerPoint. Choose your settings and a new tab will open in the source quadrant of RStudio with the name of your file and a ".Rmd" file extension. You are good to go.  
-* After writing on your file, you can save the contents by clicking on the saving disk icon at the source panel of your Rstudio session. This will save what you have written so far but will not print the final output in the format you specified e.g. PDF, PowerPoint etc.  
-* To do this, find a knitting icon in the source panel or click "Ctrl + Shift + K" if you are using windows. More instructions are provided in the RMarkdown cheat sheet attached above.  
-
-
-
 
 \newpage  
 
