@@ -2,7 +2,7 @@
 title: "Data Science Specialization"
 author: "David Mukajanga"
 date: "8/10/2021"
-output: word_document
+output: pdf_document
 ---
 
 
@@ -489,13 +489,13 @@ R packages currently installed in your computer, plots resulting from the code i
 
 ### Python in RStudio
 
-* You'll have to download and install the "reticulate" package in RStudio in order to be able to run a Python execution environment in RStudio. Follow the following steps:  
+* You'll have to download and install the "reticulate" package in RStudio in order to be able to run a Python [*shell*](https://www.tutorialsteacher.com/python/python-interective-shell) in RStudio. Follow the following steps:  
 
 1. Run this command: ` install.package ("reticulate") ` in the console. Reticulate will download and install. The internet has to be connected.  
 
 2. Run this command to initiate the package: ` library(reticulate) `. The package would be loaded.  
 
-3. Run this command to initiate the Python shell (The execution environment): ` repl_python() `. When running it for the first time, it would download the python shell and install it in RStudio. It might prompt you to answer some questions during the downloading process. Answer accordingly.  
+3. Run this command to initiate the Python shell: ` repl_python() `. When running it for the first time, it would download the python shell and install it in RStudio. It might prompt you to answer some questions during the downloading process. Answer accordingly.  
 
 4. To make sure you are using the same version of Python as the one installed on your computer, go to the windows command prompt, open the Python shell there and check the version in the description that occurs after opening it.  
 
@@ -503,7 +503,11 @@ R packages currently installed in your computer, plots resulting from the code i
 
 * You can write your python script in an RMarkdown file and run your scripts from the source window of RStudio. This is one of the greatest ways to write your code and a document around it.   
 
-    
+
+* Install python packages by typing the command ` py_install("Package_Name") ` before you've opened the shell via ` repl_python() `.  
+
+
+
 ### RMarkdown  
 
 * It is a computer language that allows the user to write text and computer code in one file and be able to display both the text, the code and the output of the code in the final document.  
@@ -538,8 +542,9 @@ R packages currently installed in your computer, plots resulting from the code i
 
 \newpage  
 
-# CHAPTER 3: Data Science with Python   
 
+
+# CHAPTER 3: Data Science with Python   
 
 ## What is Python?
 
@@ -547,7 +552,7 @@ R packages currently installed in your computer, plots resulting from the code i
 * It is a simple but powerful programming language that you can use not only for data manipulation but also software engineering. It doesn't have a steep learning curve and is easly learnable.  
 * It is also widely used for computer programming in general, so enjoy the journey as we turn you into a computer programmer.  
 
-#### Requirements
+### Requirements
 1. No previous programming knowledge needed.  
 2. A computer  
 3. A text editor such as Notepad++, Atom etc, for programming. Atom will be the one used in this course as it behaves similarly in both Windows, Mac and Linux computers. Get it [**here**](https://atom.io/)  
@@ -558,7 +563,7 @@ R packages currently installed in your computer, plots resulting from the code i
 
 
 
-#### Important Terminologies.  
+### Important Terminologies.  
 
 ##### 1. Interactive Programming.  
 * This is when you are writing your code and executing it at the same time. You usually do this when you are coding directly on Windows or Mac's terminals or in an [*Interactive Python* session](https://en.wikipedia.org/wiki/IPython)  
@@ -566,7 +571,7 @@ R packages currently installed in your computer, plots resulting from the code i
 * Although it is fun, it isn't convenient when you are writing a huge chunk of code since your code won't be saved when you are done with it. It is good for experimentation though, when you want to execute small lines of code and see how they behave.  
 
 
-##### 2. The Python Interpreter (```>>>```) A.K.A *The Chevron Script*   
+##### 2. The Python Interpreter (` >>> `) A.K.A *The Chevron Script*   
 
 * This is a sign that you are in an interactive python session. It is a symbol you will see when you open your python shell in windows or Mac's terminal.  
 
@@ -738,7 +743,32 @@ For example:
 
 * You'll use these a lot to carry out functions that do not come pre-installed in python.  
 
+* Install packages by running a following command in the command prompt ***before*** starting the python shell:  
 
+```
+  py -m pip install "PackageName"
+  
+```
+
+
+* Upgrade ` pip `, one of the biggest repository of python package by running this command:  
+
+```
+  py -m pip install --upgrade pip setuptools wheel
+  
+```
+
+* In RStudio, do the same thing by following the instruction given in Chapter 2 of the book, the section dealing with Python in RStudio.  
+
+
+
+###### Python Virtual Environments
+
+* Virtual instances of the Python Program in your computer that do the job of separating different copies of python instances such that packages in one instance are not the same as those of the other instances.  
+
+* They are advised to be used because they prevent program being unintentionally modified if there is a system wide update of python packages in the system. In such a case, a package installed in a virtual environment won't be updated and the programs that were written on that particular instance won't be affected.  
+
+* It is a good practice to create virtual instances for each project because some projects might need to run two different versions of the same package so in the instance that all projects are run in the same environment, only a project whose version is currently available in the system will run, leaving the other project unproductive.  
 
 
 ##### Attributes
@@ -754,10 +784,46 @@ For example:
   ``` 
   
 
+\newpage
 
-***
 
-#### Commenting in Python  
+## Importing Data to Python
+
+* Python will use the current location of your python script as the working directory.  
+
+* To change the working directory, first import the ` os ` package, then run the following command ` os.chdir("Path_goes_here") `. To get the current working directory, run: ` os.getcwd() `  
+
+
+
+* Use : ` A_new_variable_name = open("file_name.ext", mode = "r" #(If you only want to read the file without making any changes or mode = "w" if you want to change the file)) `.  
+
+Eg.  
+
+```{python}
+
+import os
+os.getcwd()
+
+os.chdir("C:/users/David/Desktop/DS/1. Repository/Documents")
+
+os.getcwd()
+
+a_random_doc = open("A_random_document.txt", mode = "r")
+
+print(a_random_doc.read())
+
+a_random_doc.close()
+```
+
+
+
+
+### Excel Sheets
+
+* Ensure the "openpyxl" package has been installed in your python environment.  
+
+
+### Commenting in Python  
 * The symbol `#` is used for commenting in python. Everything that comes at the right side of this symbol is regarded as a comment in python and will thus not be executed.  
 * You can use this symbol to put instructions in your code, comments, or even store some code that you don't want executed.  
 * Commenting is useful, especially considering you'll be sharing your code with other people who have different coding styles or you will want to remind yourself why you were writing a particular line of code in the future.  
@@ -879,7 +945,7 @@ Some of the most popular methods in the string library are:
 ### Data Structures  
 
 * This is when one variable has been assigned more than one value.  
-* There are several ways of doing this, most popular being using python lists, Numpy Arrays, dictionaries, dataframes and tuples.  
+* There are several ways of doing this, most popular being using python lists, Numpy Arrays, dictionaries, tuples and  dataframes.  
 * The data contained therein is referred to as a collection.  
 
 
@@ -1335,6 +1401,10 @@ Example
 
 
 
+
+
+
+
 ###### **Subsetting Rows (Filtering)**
 
 * You first create a variable that represents the filtered dataframe, and then you write your code like this:  
@@ -1454,7 +1524,18 @@ Ex.
 
 
 
+
+
 ## Python Grammar 
+
+### Importing Data Into Python
+
+
+
+
+
+
+
 
 * In this chapter, you will start to learn the basics of python through writing simple python programs. By the end of this course, you should have known the following:   
     * Likely sources of errors in your code  
