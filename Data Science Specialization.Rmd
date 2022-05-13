@@ -793,13 +793,13 @@ For example:
 
 * To change the working directory, first import the ` os ` package, then run the following command ` os.chdir("Path_goes_here") `. To get the current working directory, run: ` os.getcwd() `  
 
-
+### Normal Text Files
 
 * Use : ` A_new_variable_name = open("file_name.ext", mode = "r" #(If you only want to read the file without making any changes or mode = "w" if you want to change the file)) `.  
 
 Eg.  
 
-```{python}
+```{python eval=FALSE, include=FALSE}
 
 import os
 os.getcwd()
@@ -820,7 +820,17 @@ a_random_doc.close()
 
 ### Excel Sheets
 
-* Ensure the "openpyxl" package has been installed in your python environment.  
+* Ensure the "openpyxl" package has been installed in your python environment and that the sheet you want to work with is in your current working directory. The code won't work if the file is in a folder inside your current working directory.    
+
+* Read the file into python by assigning it a variable to it. Eg:  
+
+```{python}
+
+import os
+os.getcwd()
+
+o
+```
 
 
 ### Commenting in Python  
