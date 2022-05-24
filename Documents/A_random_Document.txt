@@ -1,0 +1,2 @@
+This is a random text file in the authors directory.  
+These kinds of text files are normal in Python and are usually used as a README or something similar.  

@@ -2,7 +2,7 @@
 title: "Data Science Specialization"
 author: "David Mukajanga"
 date: "8/10/2021"
-output: pdf_document
+output: word_document
 ---
 
 
@@ -430,7 +430,7 @@ Preparing to confirm changes to a file that is monitored by a version control sy
 
 
 
-### RStudio
+## RStudio
 
 * This is a development environment that you'll likely use most of the time as a data scientist.  
 
@@ -442,7 +442,7 @@ Preparing to confirm changes to a file that is monitored by a version control sy
 * It seamlessly connects, detects or sets the working directories, making software development much easier.  
 
 
-#### **Tour of RStudio**
+### Tour of RStudio
 
 * The program is natively for R, so the default language of the console is R.  
 
@@ -580,19 +580,24 @@ R packages currently installed in your computer, plots resulting from the code i
 * These are names made up of numbers or letters whose purpose is to represent a particular value / object in python.  
    - In this small code for example, *x* is a variable while 2 is a value/constant.  
    
-   ```python
-      >>> x = 2
-      >>> print(x)
-      2
-    ```
+```{python}
+
+x = 2
+
+
+print(x)
+
+```
 
 
 * **String variables** are all variables whose data is enclosed in single or double quotes. In these types of variables, even if the data inside the quotes has numbers, python will read everything inside the quotes as letters.  
 
-  ```python
-    >>> a_var_name = "Some Data"
+```{python}
+
+a_var_name = "Some Data"
       
-  ```
+```
+
 
 * Other values represented by python variable names include integers, continuous numbers, lists and several other python object types. More on these later.  
 
@@ -739,7 +744,7 @@ For example:
 
 
 
-##### Packages
+##### 13. Packages
 
 * You'll use these a lot to carry out functions that do not come pre-installed in python.  
 
@@ -762,7 +767,7 @@ For example:
 
 
 
-###### Python Virtual Environments
+##### Python Virtual Environments
 
 * Virtual instances of the Python Program in your computer that do the job of separating different copies of python instances such that packages in one instance are not the same as those of the other instances.  
 
@@ -789,17 +794,13 @@ For example:
 
 ## Importing Data to Python
 
+### Working Directories
 * Python will use the current location of your python script as the working directory.  
 
 * To change the working directory, first import the ` os ` package, then run the following command ` os.chdir("Path_goes_here") `. To get the current working directory, run: ` os.getcwd() `  
 
-### Normal Text Files
 
-* Use : ` A_new_variable_name = open("file_name.ext", mode = "r" #(If you only want to read the file without making any changes or mode = "w" if you want to change the file)) `.  
-
-Eg.  
-
-```{python eval=FALSE, include=FALSE}
+```{python}
 
 import os
 os.getcwd()
@@ -808,43 +809,772 @@ os.chdir("C:/users/David/Desktop/DS/1. Repository/Documents")
 
 os.getcwd()
 
+```
+
+
+
+### Normal Text Files
+
+* A primitive method is to use : ` A_new_variable_name = open("file_name.ext", mode = "r" #(If you only want to read the file without making any changes or mode = "w" if you want to change the file)) `.  
+
+* It is a primitive and an easy method, just that you have to close the file at the end of your code. Not closing the file will make it inaccessible to any other computer program as long as your script is running.  
+
+Eg.  
+
+```{python}
+
 a_random_doc = open("A_random_document.txt", mode = "r")
 
 print(a_random_doc.read())
 
 a_random_doc.close()
+
+```
+
+* A better way of opening a normal text file is by using ***the context Manager***. It is a way of wrapping your code such that the code block is automatically closed when all the commands inside it are run.  
+
+* It is opened by using the  `with`  statement as following:  
+
+
+```{python}
+
+with open("A_random_Document.txt", mode = "r") as any_variable_name :
+  print(any_variable_name.readline())
+
+```
+
+* Make sure you don't leave any empty indentations after writing the last line of code within the context manager. You won't get what you want if you don't do this.  
+
+
+
+### Flat Files (.csv)
+
+* There is a primitive way of doing this, and an advanced way.  
+
+* The primitive is by using Numpy Arrays. Numpy Arrays are marvelous at being able to carry out mathematical functions on list items, but they don't handle mixed data types well, something you are going to deal with a lot as a data scientist.  
+
+* Pandas dataframes are the advanced and the most preferred means of importing flat files. They can handle multiple types of data fine, they are built up on Numpy arrays so can carry-out mathematics within columns and rows just well and they can be used to perform much more, including merging or separating rows / columns, slicing values and so on.  
+
+* You should learn both methods though. Numpy is useful in other packages such as Sci-kit Learn (Machine Learning) and it is standard way of storing numerical data in python. So the knowledge on how to import tabled files in Numpy is crucial for you to become a good data scientist.  
+
+* .csv file are commonly known as flat files. They are different from excel sheets and methods shown in this section don't work on excel sheet, rather a single .csv table.  
+
+#### .csv as Numpy Arrays
+
+* Import Numpy as usual then assign a new variable to a "Numpy"'s  `.loadtxt()` method. This method takes the following arguments:  
+
+    1. `delimiter` = The separator between columns. There are two types: the comma  `(",")`, and tab `("\")`. You can look at this by opening your csv file in RStudio. If the values are separated by a comma then it's a comma, if they're separated by empty spaces then it's a tab.   
+    2. `dtype` = Converts all of the data in the file into one data type.  
+    3. `skiprows` = a list of rows you don't want displayed.  
+    4. `usecols` = a list of columns you wish to use.  
+    
+
+Eg.  
+
+```{python}
+
+import numpy as np
+
+size_of_economy = np.loadtxt(
+    "Size_of_Economy.csv", 
+    delimiter = ",", 
+    usecols = [3, 5, 11], 
+    dtype = str
+    )
+
+print(size_of_economy[0:5])
+
 ```
 
 
+* The output of `.loadtxt()` looks fine, especially when you coerce all values of the .csv file into strings using the  `dtype` argument. But it wasn't meant to be used with files that have columns with different data types.  `.genfromtxt()` and  `recfromcsv()` were created for this.  
+
+* `.genfromtxt()`  will read your file and detect the types of data in each column. Since `Numpy` arrays cannot have elements of different types, this function saves each row as a [structured Numpy array](https://numpy.org/doc/stable/user/basics.rec.html), whose output is like a list of ***tuples***, each one containing the values from every one of the columns specified.   
+
+* `.recfromcsv()` does the same thing  `.genfromtxt`  does, but you don't need to specify the  `dtype` value.  
+
+
+```{python}
+
+import numpy as np
+
+size_of_economy = np.genfromtxt(
+    "Size_of_Economy.csv", 
+    delimiter = ",", 
+    names = True, 
+    usecols = [3, 5, 11], 
+    dtype = None
+    )
+
+print(size_of_economy[0:5])
+
+``` 
+
+
+#### .csv As DataFrames
+
+* You import pandas as usual  
+
+* Read a .csv using the  `.read_csv()`  method. For example:  
+
+```{python}
+import pandas as some_fun_stuff
+undernourishment = some_fun_stuff.read_csv("Undernourishment.csv")
+
+print(undernourishment)
+
+``` 
+
+* The  `.read_csv()` method takes the argument  `index_col = `  to specify a column that will be used as the index column for the row names.  
+
+* Use the  `nrows = `  argument to specify the number of rows you want displayed by the method.  
+
+* Use the  `header = None`  argument if you don't want to display the header of your dataframe. Use this argument also to let Pandas know that your table also doesn't have a header. If your table indeed doesn't have a header and you didn't specify this argument, the first row of your data will be used as a header, something you don't want.  
+
+* Use  `sep = "\t" or ","` ,  `comment = "the symbol used for comments in the file" `  and  `na_values = ["what_was_used_for_missing_values"] `  to tell   `.read_csv() `  the separator used in the file, the symbol for comments and the symbol for missing values and the output won't include the last two things.  
+
+
+* Use the method  `.head()`  to only print the first 5 rows of the dataframe.  
+
+Eg.  
+
+```{python}
+import pandas as pandas
+
+undernourishment = pandas.read_csv(
+    "undernourishment.csv", 
+    index_col = 3, 
+    na_values = ["NaN"]
+    )
+
+print(undernourishment.head())
+
+```
+
+* Convert a data frame into a numpy array by using the attribute  `.values`.  
+
+Eg.  
+
+```{python}
+import pandas as pandas
+
+undernourishment = pandas.read_csv(
+    "undernourishment.csv", 
+    index_col = 3, 
+    na_values = ["NaN"]
+    )
+
+print(undernourishment.head().values)
+
+```
+
+
+### Pickled Files
+
+* They are basically flat .csv files saved in another extension (.json).  
+
+* They are used to save lists and dictionaries which sometimes are harder to save as flat files.  
+
+* You import them by first importing the `pickle` library and then use a context manager to open a pickled file. For example:  
+
+```python
+>>> with open("file_name", mode = "rb") as a_variable_name : 
+        variable_name = pickle.load(a_variable_name)
+
+```
+
+* Doing this, you have basically serialized the file, meaning translated it from binary to a human readable file.  
+
+* The "rb" in the `mode` argument means "read only and binary".  
 
 
 ### Excel Sheets
 
 * Ensure the "openpyxl" package has been installed in your python environment and that the sheet you want to work with is in your current working directory. The code won't work if the file is in a folder inside your current working directory.    
 
-* Read the file into python by assigning it a variable to it. Eg:  
+* Read the file into python by assigning a variable to a ` .ExcelFile() ` method of Pandas. Eg.  
 
 ```{python}
 
-import os
-os.getcwd()
+import pandas as pd
 
-o
+informal_employment = pd.ExcelFile("Informal_Employment.xlsx")
+
+print(informal_employment.sheet_names)
+
+```  
+
+
+
+* Load a particular sheet by using the ` .parse("Name_of_the_sheet_goes_here") ` method. You can use the sheet's zero index in the place of the sheet's name. Arguments that go into the ` .parse() ` method are:  
+
+  1. `names` = The list of column labels you want your columns to have.  
+  
+  2. `usecols` = A list of columns you want displayed.   
+
+  3. `skiprows` = A list of rows you ***don't*** want displayed.  
+
+Eg.  
+
+```{python}
+import pandas as pd
+
+structure_of_output = pd.ExcelFile("Structure_of_output.xlsx")
+
+print(structure_of_output.parse(
+    "Structure_of_output", 
+    names = ["Countries", "Agric (% of GDP)", 
+    "Industry", "Services"], 
+    usecols = [0, 4, 6, 10], 
+    skiprows = [0, 1, 2, 7, 8]).head()
+    )
+
+
+```  
+
+
+### SAS and STATA Files
+
+* SAS is a data format used mostly in the business community for data analysis and other stuff. STATA is common among researchers.  
+
+* For SAS, you first need to import the "sas7bdat" package that is in the Pandas libraries and then import the "SAS7BDAT" function. You do all this in one line:  
+
+```python
+
+  >>> from sas7bdat import SAS7BDAT
+  
+```
+
+* You then use a context manager to open the SAS file you want to open:  
+
+```python
+  >>> with SAS7BDAT("Some_file.sas7bdat") as file: 
+          dataframe = file.to-data-frame()
+          
+```
+
+* SAS files are loaded as a dataframe by using the method `".to_data_frame()"` on top of the loaded SAS7BDAT file.  
+
+
+* STATA is natively read in pandas, so just type a following type of code:  
+
+```python
+the_variable_name = pandas.read_stata("file_name.stata")
+
 ```
 
 
-### Commenting in Python  
-* The symbol `#` is used for commenting in python. Everything that comes at the right side of this symbol is regarded as a comment in python and will thus not be executed.  
-* You can use this symbol to put instructions in your code, comments, or even store some code that you don't want executed.  
-* Commenting is useful, especially considering you'll be sharing your code with other people who have different coding styles or you will want to remind yourself why you were writing a particular line of code in the future.  
-* So comment in your code.  
+### HDF5 Files
 
+* These are files that are hierarchial in nature, meaning you can target individual parts of the data using the headings they have been given. People use this particular file format if they have data a hundred GB's in size. It is easier to work with these kinds of data that way.  
+
+* You first import the h5py package and then you load the file as usual on a variable:  
+
+```python 
+import h5py as some_complicated_stuff
+
+1st_h5py = complicated.stuff.File("file_name.hdf5", mode = "r")
+
+```  
+
+* HDF5 files have hierachies known as *keys*. These are like directories containing several aspects of the data you're about to explore.  
+
+* So, you start by loading keys by using the following function:  
+
+```python 
+for key in hdf5_file_variable_name.keys() :
+    print(key)
+    
+```
+
+* You can then print what is in the particular key by using the following code:  
+
+```python
+print(hdf5_variable_name["1st_key"]["2nd_key"].value)
+
+```
+
+
+### MATLAB Files
+
+* Used in academia, these files are dealt with by using the "scipy.io" package.  
+
+* You load them like the following:  
+
+```python
+import scipy.io as academic_stuff
+variable_name = "a_matlab_file.mat"
+variable_1 = academic_stuff.loadmat(variable_name)
+```
+
+* The method `".loadmat()"` that is used for reading MATLAB files is only for reading. It doesn't have the arguments `"mode = "r""` or "w". It uses the method  `".savemat()"` to write into them instead.  
+
+* Make sure you check the type of a mat file you load. This will help you know how to interpret the various objects of a matlab file into a python file.  
+
+Eg.  
+
+Keys of a python dictionary = matlab variable names  
+    
+Values of a python dictionary = the objects assigned to matlab variables
+
+
+* Specify which module you intend to use if meddling with your data requires you to use multiple modules.  
+
+Eg:  You're importing a matlab file using scipy.io then you want to print a shape of one of the keys that cvomes up using numpy.  
+
+Since you are going to use a numpy method for this, the whole thing of what you want to do will start by `"np.method_here("Object of interest")"`    
+
+
+
+### Databases
+* These are a files that contain other files with information about very specific entities. Let's say you own a school for example, a database will be one file that contains other files that have specific information about the teachers, the students, other employees etc.  
+
+* Information in databases is usually connected because things that are put into a database are usually inter-connected.  
+
+* Depending on these type of connections, there are two types of database infrastructure; **Relational Databases** and **Non-Relational Databases**  
+
+* Relational databases are databases that use tables to store and connect information within them. They are liked due to the data integrity they offer and how easy it is for applications to access and modify data.  
+
+* Relational databases only use the Structured Query Language (SQL) to fetch and modify the information on their tables, so they are also known as **SQL databases**.  
+
+* Non-Relational databases are the ones that uses different data formats to store and connect data and they are usually known as the **NoSQL databases** because they use ***not only*** SQL but also other languages to fetch and modify data in them.  
+
+* They are liked due to their ability to modify data quickly especially in applications such as in engineering parts where data is constantly changing.  
+
+* Accessing and modifying data in each of these two database systems requires a software called a Database Management System, which are available in many varieties for both relational and non-relational database systems.  
+
+* Among the most popular for Relational Databases include MySQL, PostgreSQL and SQLite while you have MongoDB and others for the NoSQL team.  
+
+
+#### Creating a Database: Relational Databases
+* Tables in relational databases are linked via columns that have specific identifiers for each entry in the particular table.  
+
+* When these identifiers are used in another table, the column that contains those identifiers in one table can be used to fetch the information related to these identifiers from their primary table. This makes it easy to store multiple layers of information concerning one thing in multiple tables.   
+
+* Let's say you have a business and thus you have a database containing the tables for the characteristics of orders, characteristics of customers and characteristics of sellers.  
+
+* In the orders table, each order has a specific ID and will have been recorded as a single entry in the table, that is, a single row.  
+
+* To connect the orders table and the customers table, you just make sure that you include a column in the customers' table that includes the type of orders they made and that that column uses the same order IDs as those used in the orders table. Now you can fetch the order information while you are working on the customers table by simply joining the two tables using the order ID column.  
+
+
+
+#### Queryig Relational Databases
+* To be able to query a relational database, you have to know first it was made using which database system. Then you'll know which packages to use etc.  
+
+
+
+##### SQLite
+* For SQLite, the most popular packages for querying are **sqlalchemy** and **sqlite3**. We are going to use `sqlachemy` in this passage. Download it to your python by searching it using the word "SQLALchemy" exactly as written.  
+
+* To query the database, you first need to have the database in your working directory.  
+
+* You then establish a connection to it by creating an SQL engine.  
+
+
+* You can establish an sqlite engine using sqlalchemy as following :  
+
+```python
+
+from sqlalchemy import create_engine
+    engine = create_engine("sqlite:///the_database.sqlite")
+
+```
+
+
+
+* You then use the sub-package `"inspect"` to list the names of all the tables in the database as following:  
+
+```python
+
+from sqlalchemy import create_engine, inspect
+    
+engine = create_engine("sqlite:///fileName.sqlite")
+    
+inspector = inspect(engine)
+
+print(inspector.get_table_names())
+
+
+```    
+    
+* It will bring you a list of all the tables. Now you want to select a table: You can do this using a primitive way or an advanced one or the most advanced one :) :)..  
+
+* In the primitive way, you first establish a connection to the engine like so..  
+  
+```python
+
+con = engine.connect()
+  
+```
+  
+* You then query the table by selecting it like so..  
+    
+```python
+some_variable_name = con.execute("SELECT * FROM table_name(case_sensitive)")
+    
+```
+
+* You then apply the pandas in order to turn the fetched table into a data frame..  
+  
+```python
+  
+  some_panda = pd.Dataframe(fetched_table_var_name.fetchall())
+  
+```
+
+* You then close the connection  
+
+```python
+
+con.close()
+
+```
+
+Eg.  
+
+```{python}
+
+import pandas as pd
+
+from sqlalchemy import create_engine, inspect
+
+engine = create_engine("sqlite:///chinook.db")
+
+inspector = inspect(engine)
+
+print(inspector.get_table_names())
+
+
+con = engine.connect()
+
+fetched = con.execute("SELECT * FROM media_types")
+
+df = pd.DataFrame(fetched.fetchmany(size = 5))
+
+df.columns = fetched.keys()
+
+print(df)
+
+con.close()
+
+```
+
+* The advanced way is to use the context manager..  
+
+```{python}
+import pandas as pd
+
+from sqlalchemy import create_engine, inspect
+
+engine = create_engine("sqlite:///chinook.db")
+
+inspector = inspect(engine)
+
+#print(inspector.get_table_names())
+
+
+with engine.connect() as con :
+    fetched = con.execute("SELECT * FROM media_types")
+    df = pd.DataFrame(fetched.fetchmany(size = 5))
+    df.columns = fetched.keys()
+    print(df)
+
+```
+
+
+
+* Print the dataframe head, just to check that everything is alright.  
+
+* The last command from the code above enables the print-out of the data frame to have column names.  
+
+* The `" * "` in the argument `"SELECT * FROM"` means "*select* **all columns** *from*...". To select specific columns, put the column names, as exactly as they have been written in the database, between the `"SELECT"` statement and the `"FROM"` statement.  
+
+* Your code will get longer and longer as you continue to use more complicated stuff in the `"con.execute()"` method, so the best way to make sure that it is beautiful and readable to the eye of the reader is to put your code in triple quotations, like it has been put in the code that follows. This makes your code able to span multiple line hence making it clearer to read.  
+
+* The method `".fetchall()"` collects all rows in the particular table and brings them to you. `".fetchmany()"` allows you to specify how many rows you want to be displayed. Just set the argument `"size"` equal to the number of rows you want.  
+
+Eg.  
+
+  ```python
+
+    with engine.connect as con :
+        fetched = con.execute("SELECT * FROM media_types")
+        df = pd.DataFrame(fetched.fetchmany(size = 5))
+
+  ```
+
+
+
+* Filter your query by using the SQL argument "WHERE" after the SQL argument "FROM", followed by the condition you want to filter your columns with. For example:  
+
+
+```{python}
+
+import pandas as pd
+
+from sqlalchemy import create_engine, inspect
+
+engine = create_engine("sqlite:///Chinook.db")
+
+#print(inspect(engine).get_table_names())
+
+
+with engine.connect() as con :
+    fetched = con.execute("SELECT * FROM employees")
+    col_names = fetched.keys()
+    #print(col_names)
+    modified = con.execute("""
+        SELECT 
+        LastName, FirstName, Title 
+        FROM employees
+        WHERE Title == "Sales Support Agent"
+        """)
+    df = pd.DataFrame(modified.fetchall())
+    df.columns = modified.keys()
+    print(df)
+
+```
+
+
+* Order your results by using the statement `"ORDER BY"` in your SQL request:  
+
+```python
+
+with engine.connect() as some_var_name :
+    data = some_var_name.execute("""
+        SELECT col1, col2, col3 
+        FROM some table
+        ORDER BY somecolumn
+        """)
+    ...
+    
+```
+
+(The ordering will be from small to large)  
+
+Eg.  
+
+```{python}
+
+import pandas as pd
+
+from sqlalchemy import create_engine, inspect
+
+engine = create_engine("sqlite:///chinook.db")
+
+inspector = inspect(engine)
+
+#print(inspector.get_table_names())
+
+with engine.connect() as con :
+    fetched_data = con.execute("""
+        SELECT * 
+        FROM albums
+    """)
+    
+    print(fetched_data.keys()) #(For seeing col_names)
+    
+    selected_columns = con.execute("""
+        SELECT Title, AlbumId, ArtistId
+        FROM albums
+        ORDER BY AlbumId
+    """)
+    
+    the_df = pd.DataFrame(selected_columns.fetchmany(6))
+    
+    print(the_df)
+
+```
+
+
+* Join the tables by using the "INNER JOIN" argument. This is where the fun starts. Follow the following code..   
+
+```python
+# all packages have been imported
+
+# an engine has been created
+
+# tables have been displayed
+
+with engine.connect() as connection :
+    
+    data = connection.execute("""
+        SELECT columns from the 1st table, 
+        including the column you'll use for joining
+        
+        FROM the 1st_table
+        
+        INNER JOIN the 2nd table
+        on 1st_table.joining_col = 2nd_table.joining_col
+        
+        ORDER BY a column from any of the 2 tables
+    
+    """)
+    
+    df = ....
+    
+    print(df)
+
+
+```
+
+For example:  
+
+
+```{python}
+
+import pandas as pd
+
+from sqlalchemy import create_engine, inspect
+
+engine = create_engine("sqlite:///chinook.db")
+
+#table_names = inspect(engine).get_table_names()
+
+#print(table_names)
+
+with engine.connect() as con :
+    
+    data = con.execute("""
+              SELECT * 
+              FROM albums
+              INNER JOIN artists 
+              on 
+              albums.ArtistId = artists.ArtistId"""
+              )
+    
+    df = pd.DataFrame(data.fetchmany(size= 6))
+    
+    df.columns = data.keys()
+    
+    print(df)
+
+```
+
+
+* Querying with pandas is the most advanced way of querying the database.  
+
+* Use the same method to create an engine then write a line like this:  
+
+```python
+
+some_var_name = pd.read_sql_query("""
+    SELECT *
+    FROM some_table""",
+    engine_name
+    )
+
+```
+
+For-example:  
+
+```{python}
+
+import pandas as pd
+
+from sqlalchemy import create_engine, inspect
+
+the_chinook_engine = create_engine("sqlite:///chinook.db")
+
+#get the table names
+
+
+the_albums_table = pd.read_sql("""
+    SELECT *
+    FROM albums
+    INNER JOIN artists
+    on albums.ArtistId = artists.ArtistId
+    ORDER BY AlbumId
+    """,
+    the_chinook_engine
+)
+
+print(the_albums_table.head())
+
+```
+
+### Importing From The Web
+* You do this because it makes your work easier to reproduce and reduce significantly the time it takes to fetch data.  
+
+* It also saves you some storage space because most of the times you will be importing the data directly from the internet to python without downloading to your computer.  
+
+* If you want to download a file, you can also write your code such that a file is downloaded automatically whenever the particular script is run. This again speaks in favor of the reproduciability of your work and how long it would've taken another person to search and download the same file.  
+
+* To do the aforementioned task, you need to have and import the `"urllib"` package. You can then automate the download of the file as follows:  
+
+```python
+
+from urllib.request import urlretrieve
+
+url = "the_url_goes_here"
+
+urlretrieve(url, "the_name_you_want_to_give_the_file.ext")
+
+```
+
+* From then you can use pandas and other packages to process the data as needed.  
+
+* Most of the times, however, you will be getting the file directly into python.  
+
+* This is easier actually, because you won't need the `"urllib"` package to achieve it. Just use the `".read_csv()"` from the pandas for flat files and `".read_excel()"` for excel sheets and you should be good to go.  
+
+* You have to open the file at the site to know the separators though, because the argument `"sep= "` will go into the `".read_csv()` to notify python the type of separator that has been used on the file.  
+
+Eg.  
+
+
+```{python}
+
+import pandas as pd
+
+url = "https://assets.datacamp.com/production/course_1606/datasets/winequality-red.csv"
+
+df = pd.read_csv(url, sep= ";").head()
+
+print(df.iloc[:, [1,2,3]])
+
+```  
+
+
+* The `".read_excel()"` method will import an excel file as a dictionary in python and it takes the argument `"sheet_names= "` which basically asks you which sheets you want to import. If you want to import all of them, then set it to `"None"`.  
+
+* All operations you will do on the file imported through `".read_excel()"` should be operations suitable for dictionaries. The imported file is not a dataframe yet.  
+
+Eg.  
+
+```{python}
+
+# Import package
+import pandas as pd
+
+# Assign url of file: url
+url = 'https://assets.datacamp.com/course/importing_data_into_r/latitude.xls'
+
+# Read in all sheets of Excel file: xls
+xls = pd.read_excel(url, sheet_name = None)
+
+# Print the sheetnames to the shell
+print(xls.keys())
+
+# Print the head of the first sheet (using its name, NOT its index)
+print(xls["1700"].head())
+
+```
+
+
+
+### Web Scrapping
+* It is the practice of importing data directly from the web into the programming environment.  
+
+* The following are steps you'll go through importing different types of data from the internet.  
+
+
+#### Flat Files
 
 
 
 \newpage   
-
-
 
 ## Data Types and Structures in Python   
 
@@ -962,23 +1692,28 @@ Some of the most popular methods in the string library are:
 #### **Data Structure 1: LISTS**  
 * Made by using square brackets(`[]`), they are an organized version of collections in python. They can contain different types of data, even other lists inside them.  
 
-##### **Manipulating Lists**  
 
-###### **Indexing items in a list**
+##### **Indexing items in a list**
 * Zero-indexing and negative indexing  
 
-###### **Slicing and Dicing Lists**
+##### **Slicing and Dicing Lists**
 * This is equal as selecting multiple elements from your list.  
 * It is equivalent to indexing an item in a list, only this time you are giving a certain range where the ***starting*** value will be included but the ***ending value*** won't.  
 * Take a following example:  
 
-```python
-  list_example = ["Item 1", "Item 2", "Item 3", 4, 5, 6, 7]
-  sliced_list = list_example[2:6]
-  print(sliced_list)
-  
-  
-  ["Item 3", 4, 5, 6]
+```{python}
+
+
+some_random_list = ["Item 1", "Item 2", "Item 3", 4, 5, 6, 7]
+
+
+sliced_list = some_random_list[2:6]
+
+
+print(sliced_list)
+
+
+
 ```  
   
 * The printed `sliced_list` displays element 3 to 6, excluding the element number seven which was put as a boundary for the slicing through zero indexing.   
@@ -987,129 +1722,199 @@ Some of the most popular methods in the string library are:
 
 For example:  
 
-```python
->>> family = ["John Smiths", "Adam Smiths", "Jerry Smiths", "Anna Smiths", "Aden Smiths"]
->>> children_in_the_family = family[ :3]
->>> parents_of_the_family = family[3: ]
->>> print("Children of the Smiths' family are: ", children_in_the_family)
->>> print("Parents in the Smiths' family are: ", parents_of_the_family)
-```
+```{python}
+
+family = ["John Smiths", "Adam Smiths", "Jerry Smiths", "Anna Smiths", "Aden Smiths"]
+
+
+children_in_the_family = family[ :3]
+
+
+parents_of_the_family = family[3: ]
+
+
+print("Children of the Smiths' family are: ", children_in_the_family)
+
+
+
+print("Parents in the Smiths' family are: ", parents_of_the_family)
+
+
 
 ```
-Children of the Smiths' family are: "John Smiths", "Adam Smiths", "Jerry Smiths"
 
-Parents in the Smiths' family are: "Anna Smiths", "Aden Smiths"
-``` 
 
-###### **Indexing the Items of a list within a list**
+
+##### **Indexing the Items of a list within a list**
 
 * Done using the following format:  
-`a_list[Item in the fist list][Item in the list inside the first list]`  
+
+```
+
+a_list[Item in the fist list][Item in the list inside the first list]
+
+```  
 
 For example:  
 
-```python
-  >>> random_list = [["a", "b", "c"], ["d", "e", "f"], ["g", "h", "i"]]
-  >>> print(random_list[2][2])
-  'e'
-  
-  >>> print(random_list[2][:2])
-  ['d', 'e']
-  
+```{python}
+random_list = [["a", "b", "c"], ["d", "e", "f"], ["g", "h", "i"]]
+
+
+print(random_list[1][2])
+
+
+
+print(random_list[2][:2])
+
+
+
 ```
 
-###### **1. Changing an Element in A list**  
+##### **1. Changing an Element in A list**  
 * Can be done by indexing a list item and assigning a new value to it.  
 
 For example:  
 
-```python
-  >>> random_list = ["a", "b", "c", "d", "e"]
-  >>> random_list[3] = "Letter of my name"
-  >>> print(random_list)
-  
-  ["a", "b", "c", "Letter of my name", "e"]
+```{python}
+
+random_list = ["a", "b", "c", "d", "e"]
+
+
+random_list[3] = "Letter of my name"
+
+
+print(random_list)
+
+
 ```
 
-###### **2. Adding an Element**  
+
+##### **2. Adding an Element**  
 * Done by using the `+` sign.  
 
 For example:  
 
-```python
->>> possessions = ["Laptop", '2 Sofas', 'Working Table', 'Bed', 'Car', 'House', 'DVD Set']
->>> possessions = possessions + ['PlayStation 4', 'New Speaker System']
->>> print(possessions)
+```{python}
 
-['Laptop', '2 Sofas', 'Working Table', 'Bed', 'Car', 'House', 'DVD Set', 'Playstation 4', 'New Speaker System']
+possessions = ["Laptop", '2 Sofas', 'Working Table', 'Bed', 'Car', 'House', 'DVD Set']
+
+
+print(possessions)
+
+
+
+possessions = possessions + ['PlayStation 4', 'New Speaker System']
+
+
+print(possessions)
+
 
 ```
 
 
-###### **3. Deleting an Element**  
+##### **3. Deleting an Element**  
 
 * It is done by using the `del()` statement.  
 
 For example:  
 
-```python
->>> possessions = ["Laptop", "2 Sofas", "Working Table", "Bed", "Car", "House", "DVD Set", 'PlayStation 4']
->>> possessions_new = del(possessions[-2])
->>> print(possessions_new)
+```{python}
 
-["Laptop", "2 Sofas", "Working Table", "Bed", "Car", "House", "PlayStation 4"]
+possessions = ["Laptop", "2 Sofas", "Working Table", "Bed", "Car", "House", "DVD Set", 'PlayStation 4']
+
+
+del(possessions[-2])
+
+
+new_possessions = possessions
+
+
+print(new_possessions)
+
+
 
 ```
 
-###### **4. Copying a List**
+* Before you assign the new list to a variable, the `"del()"` function has to be run separately as shown in the code above. Anything else will throw an error.  
+
+
+
+
+##### **4. Copying a List**
 * Also serves the purpose of separating lists, lists copied in this way are tied to each other and changes made to the new list will affect the old list also.  
 * It is done using the indexing mechanism.  
 
 For example:  
 
-```python
->>> possessions = ["Laptop", "2 Sofas", "Working Table", "Bed", "Car", "House", "PlayStation 4"]
->>> of_david_possessions = possessions[:2]
->>> of_isaac_possessions = possessions[3:]
->>> print(of_isaac_possessions)
+```{python}
+possessions = ["Laptop", "2 Sofas", "Working Table", "Bed", "Car", "House", "PlayStation 4"]
 
-['Bed', 'Car', 'House', 'PlayStation 4']
+
+of_david_possessions = possessions[:3]
+
+
+of_isaac_possessions = possessions[3:]
+
+
+of_david_possessions[0] = "Desktop Computer"
+
+
+print(of_david_possessions)
+
+
 
 ```
 
 * The entire list can also be copied by using the `[:]` like so:  
 
-```python
+```{python}
 
->>> of_david_possessions_updated = of_david_possessions[:]  
->>> of_david_possessions_updated[0] = 'Desktop Computer'
->>> print(of_david_possessions_updated)
+possessions = ["Laptop", "2 Sofas", "Working Table", "Bed", "Car", "House", "PlayStation 4"]
 
-['Desktop Computer', '2 Sofas', 'A Working Table']
+
+of_david_possessions = possessions[:3]
+
+
+of_david_possessions_updated = of_david_possessions[:] + ["Desktop Computer"]
+
+
+print(of_david_possessions_updated)
+
+
 
 ```
 
 
 
-###### **4. Making a New List Out of An Old One**
+##### **4. Making a New List Out of An Old One**
 * Done by assigning an old list inside the `list()` function, making a list this way will untie the new list from the old one and changes made to the new list won't reflect on the old one.  
 
 An example:  
 
-```python
->>> possessions = ["Laptop", "2 Sofas", "Working Table", "Bed", "Car", "House", "PlayStation 4"]
->>> of_david_possessions = list(possessions[:3])
->>> of_isaac_possessions = list(possessions[3:])
->>> print(of_david_possessions)
-
-["Laptop", "2 Sofas", "Working Table"]
+```{python}
+possessions = ["Laptop", "2 Sofas", "Working Table", "Bed", "Car", "House", "PlayStation 4"]
 
 
->>> of_david_possessions[0] = 'Desktop Computer'
+of_david_possessions = list(possessions[:3])
 
->>> print(of_david_possessions_updated)
 
-['Desktop Computer', '2 Sofas', 'A Working Table']
+of_isaac_possessions = list(possessions[3:])
+
+
+print(of_david_possessions)
+
+
+
+of_david_possessions[0] = 'Desktop Computer'
+
+
+print(possessions)
+
+
+print(of_david_possessions)
+
+
 
 ```
 
@@ -1141,28 +1946,39 @@ Popular methods used on lists include:
 * First you need to import the Numpy package. [***Here***](some_link) is how you download and install a package in your system.  
 * Create a numpy array by doing the following:  
 
-  ```python
-    import numpy as np
-  
-    a_new_variable = np.array([A_List_goes_Here])
-  
-                    OR 
-                    
-    a_new_variable = np.array(a_variable_thats_a_list_goes_here)
-  ```
-
-
 ```python
-  # This is the height of family members in inches
-  import numpy as np
+import numpy as np
   
-  weight_of_family_members = np.array([59.0551, 63.3858, 69.291, 58.66, 67])
-  height of family_cm = np.array([170, 180, 182, 169, 180])
-  height_of_family_meters = height_of_family_cm * 0.01
-  bmi = weight_of_family_members / (height_of_family_meters)**2
-  print(bmi)
+a_new_variable = np.array([A_List_goes_Here])
   
-  [20.4, 19.6, 20.9, 20.5, 20.7]
+              #OR 
+                    
+a_new_variable = np.array(a_variable_thats_a_list_goes_here)
+
+```
+
+
+```{python}
+
+# This is the height of family members in inches
+
+import numpy as np
+  
+weight_of_family_members = np.array([59.1, 63, 69, 58.6, 67])
+
+
+height_of_family_cm = np.array([170, 180, 182, 169, 180])
+
+
+height_of_family_meters = height_of_family_cm * 0.01
+
+
+bmi = weight_of_family_members / (height_of_family_meters)**2
+
+
+print(bmi)
+
+
 
 ```
 
@@ -1194,17 +2010,19 @@ Popular methods used on lists include:
 * It uses labels to represent values. Values can be any python data type, be it a list, a panda series and so on.  
 * Labels are then used to identify the value later on in the program. For example:  
 
-  ```python
-    >>> purse = {
-            'PaperMoney' : 12,
-            'Bank Card' : 14, 
-            'Coins'] : 13,
-            'Bus Card' : 39,
-          }
+```{python}
+
+purse = {
+  'PaperMoney' : 12,
+  'Bank Card' : 14, 
+  'Coins' : 13,
+  'Bus Card' : 39
+  }
+  
           
-    >>> print(purse)
-    {'Money': 12, 'key': 14, 'perfume': 13, 'Bus Card': 39}
-  ```
+print(purse)
+
+```
   
   
 * In the code above, `purse` is a dictionary. "PaperMoney" and others are labels, and values are in the right-side of the column signs.  
@@ -1213,37 +2031,34 @@ Popular methods used on lists include:
 
 * Values and Keys are added like ***this***;  
   
-  ```python
-      variableName = {'Key': Value, 'Key': Value}
-  ```  
+```python
+    variableName = {'Key': Value, 'Key': Value}
+```  
   
   
   or like this:  
   
   
-  ```python
-      dict_name = {}
-      dict_name['key'] = Value
-      VariableName['key'] = Value
-  ```
+```python
+    dict_name = {}
+    dict_name['key'] = Value
+    VariableName['key'] = Value
+```
   
   
 
 
-#### Manipulating Dictionaries
-
-#### Looping Through Dictionaries  
-
-#### Common Applications of Dictionaries  
+##### Looping Through Dictionaries  
+##### Common Applications of Dictionaries  
 ##### Counting The Frequency  
 
 
 
 
-#### Data Structure 3: Pandas' Data Frames
+#### Data Structure 5: Pandas' Data Frames
 
 * Made using the Pandas package.  
-* It is a powerful statistical package that various data manipulation capabilities on data tables created using 2D Numpy arrays.  
+* It is a powerful statistical package that has various data manipulation capabilities on data tables created using 2D Numpy arrays.  
 * Data frames are created by first importing the pandas package and then putting a list or dictionary inside the `.DataFrame()` method.  
 For example:  
 
@@ -1257,26 +2072,26 @@ For example:
 * They can also be imported as external files .i.e csv, txt etc.  
 
 
-##### **Manipulating Data Frames**
 
-###### **Inspecting a Data Frame**
+##### **Inspecting a Data Frame**
 * First, print out a small part of your data frame to see what you are working with.  
 
 * This can be done using the `.head()` method on top of a data frame or the row indexing of 2D Numpy arrays. For ex:  
 
-  ```python
-    import pandas
+```{python}
+import pandas
     
-    some_df = pandas.read_csv("Some DataFrame")
+some_df = pandas.read_csv("Undernourishment.csv")
     
-    print(some_df.head())
+print(some_df.head())
     
             #OR
             
-    print(some_df[:6])
+print(some_df[:5])
 
-      # The result is the same.
-  ```
+    # The result is the same.
+    
+```
   
   
 * Check the general information about your data frame, such as the data types in your columns, the number of missing values and so on by using the `.info()` method for this.  
@@ -1291,7 +2106,7 @@ For example:
 
 
   
-###### **Selecting Few Columns of Interest**
+##### **Selecting Few Columns of Interest**
 
 * There are two ways of doing this;  
 
@@ -1315,13 +2130,16 @@ For example:
 
 * Apart from the standard column indexing using the square brackets, the `.loc` and `.iloc` attributes are very useful. Use them when you want to select a particular set of rows from a particular set of columns. For example:  
 
-  ```python
+```python
   
-    # Panda has been imported
+# Panda has been imported
     
-    new_df = old_df.loc[ ["Row_1", "Row_2"], ["Column_1", "Column_2"] ]
+new_df = old_df.loc[ 
+              ["Row_1", "Row_2"], 
+              ["Column_1", "Column_2"] 
+          ]
 
-  ```
+```
   
   
 * Use `.loc` with row and column labels and `.iloc` with row and column indexes. Replace the list of either rows or columns in the `.loc` or `.iloc` statement with ` : ` if the objective is to take all rows or columns for particular rows or columns.  
@@ -1352,13 +2170,17 @@ Example
 
 
 
-###### **Sorting a Data Frame**
+##### **Sorting a Data Frame**
 
 * Use the `.sort_values()` method to achieve this. For example:  
 
   ```python
-    
-    new_df = old_df.sort_values(subset = "sorting_column_goes_here", ascending = True / False)
+
+new_df = old_df.sort_values(
+            subset = "sorting_column_goes_here", 
+            ascending = #True / False
+          )
+                
   ```
 
 * Sort your data frame using two or more columns by putting both the values of the "`subset`" and `ascending` arguments in lists. For example:  
@@ -1405,9 +2227,12 @@ Example
 * You can count values in the data frame by using the method `.value_counts()`. Apply it on the column of your choice and pass the arguments `normalize = True` to show the proportion of each count and `sort = True` to make it such that the most occuring one is on-top.  
 
 
-###### **Pivot Tables**
+##### **Pivot Tables**
 
 * A great way to do summary statistics for more than two variables. Eg.  
+* It is a way of grouping two columns based on their mean values of another column.  
+
+Eg.  
 
 
 
@@ -1415,7 +2240,8 @@ Example
 
 
 
-###### **Subsetting Rows (Filtering)**
+
+##### **Subsetting Rows (Filtering)**
 
 * You first create a variable that represents the filtered dataframe, and then you write your code like this:  
 
@@ -1440,7 +2266,7 @@ Example
   ```
     
     
-###### **Filtering Rows Based on Categorical variables**  
+##### **Filtering Rows Based on Categorical variables**  
 
 * There are two ways you can do this:  
 
@@ -1489,7 +2315,7 @@ Ex.
   ```
   
 
-###### **Adding Columns on the Data Frame**
+##### **Adding Columns on the Data Frame**
 
 * Do this by doing the following:  
 
@@ -1538,14 +2364,6 @@ Ex.
 
 ## Python Grammar 
 
-### Importing Data Into Python
-
-
-
-
-
-
-
 
 * In this chapter, you will start to learn the basics of python through writing simple python programs. By the end of this course, you should have known the following:   
     * Likely sources of errors in your code  
@@ -1567,13 +2385,13 @@ Ex.
 
 Before we begin, I am necessitated to bring the following things to your attention, things that made my first codes not work. They are small things which can make your brain heat up when you don't notice them as the source of problems in your code.  
 
-##### 1. Capitalizing the command words..  
-* Don't capitalize command words, such as "if", "elif" etc. Your code will not work, the main reason being that the capitalized command words will be read as variable names instead of as commands.  
+#### 1. Capitalizing command words..  
+* Don't capitalize command words such as "if", "elif" etc. Your code will not work, the main reason being that the capitalized command words will be read as variable names instead of as commands.  
 
 * The sign for this is that, if you are using a programming text editor like Atom, the command words with capital letters won't be colored. If you notice that the command words are of the same color as the variable names then know that you didn't write them correctly.  
 * Don't even capitalize the first letter. Python wants to read the command statement like an "if" as "if ..." not "If..." :) :)  
 
-##### 2. Not Coercing The User-Input into Integers or Real Numbers When Using Comparison Operators Against Numerical Values.  
+#### 2. Not Coercing The User-Input into Integers or Real Numbers When Using Comparison Operators Against Numerical Values.  
 
 * Look at the following example:  
 
@@ -1598,7 +2416,7 @@ Before we begin, I am necessitated to bring the following things to your attenti
 * Notice now that the value that will be compared to 75 is a floated numerical value of the variable `xscr` from the first line.  
 
 
-##### 3. Putting an Instruction In Front of the "else" Statement.  
+#### 3. Putting an Instruction In Front of the "else" Statement.  
 
 * Look at the following code:  
 
@@ -1616,7 +2434,7 @@ Before we begin, I am necessitated to bring the following things to your attenti
 * The code will give the following error in the third line, at the 'else' statement:  
     `SyntaxError: invalid systax`  
 
-* This is because, although the programmer had a good intention of giving very specific instructions to python, python already knows that if you use the "else" statement, you already made up your mind that anything else that is different from the 'if' or 'elif' statements you made earlier should be executed by the else statement.  
+* This is because, although the programmer had a good intention of giving very specific instructions to python, python already knows that if you use the "else" statement, you've already made up your mind that anything else that is different from the 'if' or 'elif' statements you made earlier should be executed by the else statement.  
 
 * So, to avoid this problem, write your else statements like so:  
 
@@ -1630,7 +2448,7 @@ Before we begin, I am necessitated to bring the following things to your attenti
             print ("You have to repeat the entrance exam")  
     ```
 
-##### Post your problem in online forums.  
+#### Post your problem in online forums.  
 * Sometimes the only people that can see the problem in your code are anybody else but you :) :).  
 
 * This is usually because they are more experts or experienced than you :) :).  
@@ -1648,6 +2466,15 @@ Before we begin, I am necessitated to bring the following things to your attenti
 
 
 ### Program 1: Pay Calculator.
+
+
+#### Commenting in Python  
+* The symbol `#` is used for commenting in python. Everything that comes at the right side of this symbol is regarded as a comment in python and will thus not be executed.  
+* You can use this symbol to put instructions in your code, comments, or even store some code that you don't want executed.  
+* Commenting is useful, especially considering you'll be sharing your code with other people who have different coding styles or you will want to remind yourself why you were writing a particular line of code in the future.  
+* So comment in your code.  
+
+
 
 #### The "input("")" Function  
 * It is a programming function that instruct the program to pause and ask for a user input before using that input to continue executing the written code.  
@@ -1676,7 +2503,7 @@ In this code:
 
 ### Program 2: The Course Admission Checker  
 
-##### The Python Flow  
+#### The Python Flow  
 * This is the order in which Python executes the written code.  
 
 * There are three types of Python execution flow depending on the type of the ***python statements*** written. They are:  
@@ -1690,10 +2517,10 @@ In this code:
 
 * This nature of python execution flow depends solely on **indentation**.  
 
-##### Indentation
+#### Indentation
 * In python, indentation gives a signal to which code will be run first.  
 
-* Un-indented code lines are given the senior position by python and they are treated as a single instruction.  
+* Un-indented code lines are given a senior position by python and they are treated as a single instruction.  
 
 * An un-indented code line that is followed by several indented code lines is called a ***code chunk*** / ***code block***.  
 
@@ -1747,7 +2574,7 @@ In this code:
 
 * In this code, if the user's score is above 75, the second line of code with the instructions "Please repeat the course" will not be executed. If the grade is smaller that 75 then the third line of code with the instructions "Enter The Date Here: ") will not be executed.  
 
-##### 2. The "elif" and "else" statements  
+###### 2. The "elif" and "else" statements  
 
 * The word "elif" is a combination of "else" and "if".  
 * This statement is used to give more clarification on what should be done if the first condition created by using the "if" statement was not met.  
@@ -1770,11 +2597,11 @@ In this code:
 * If, for example, we didn't put any clarification of what should be done if the value entered is less than 75, then the program will not do anything as it won't execute the "If" line and there is nothing else after that.  
 
 
-#### Repeating/Loop Statements.
+##### Repeating/Loop Statements.
 
 * There are made by either using the 'while' statement or the 'for' statement.  
 
-##### 1. Indefinite Loops       
+###### 1. Indefinite Loops       
 * These are made by using the `while` statement.   
 * They essentially repeat the same thing until a specific condition/logic created by the programmer is met.  
 * The condition is known as the "iteration statement".  
@@ -1796,7 +2623,7 @@ In this code:
 * The output of the above code will be as following:  
 ![](C:\Users\David\Desktop\DS\1. Repository\Images_Python_Notes\Example_Images\Screenshot 2021-09-08 205528.png)  
 
-##### 1.1. Infinite Loops  
+###### 1.1. Infinite Loops  
 * These are 'while' statements with either no iteration statement or an iteration statement which always remains true.  
 * Consider the following example :  
 
@@ -1815,7 +2642,7 @@ In this code:
 
 * Therefore, it is important to make sure that the iteration statement written in a loop statement has an end.  
 
-##### 1.2. The 'break' statement.  
+###### 1.2. The 'break' statement.  
 * This is used to put another iteration statement within the 'while' statement.  
 * It basically tells python to "break" repetition and ***exit*** the 'while' statement if that second condition is met.  
 * Consider the following example :  
@@ -1836,7 +2663,7 @@ In this code:
 
 * In the code above, once the patient chooses 3, the 'else' statement won't be executed and instead python will "break" out of the while statement and move on to execute the variable name "pname".  
 
-##### 1.3. The 'continue' statement.  
+###### 1.3. The 'continue' statement.  
 * The 'continue' statement basically tells python to stop where it is at in the 'while' or 'for' statement and start again from the beginning of it.  
 * Like the 'break' statement, it also contains a specific condition that if met, the statement will instruct python to repeat the cycle of iteration by "continuing" to run the 'while' or 'for' statement.  
 * Take the following example:  
@@ -1856,7 +2683,7 @@ In this code:
 * So for example if we set empty answers in the survey to be "#", that line will be skipped whenever this code is run and instead python will go back up and ask the input as instructed in the variable "*line*"
 *
 
-#### 2. The Definite Loops  
+###### 2. The Definite Loops  
 * These are made by using the `for`  statement  
 * Usually used for values that are predefined by the programmer.  
 * This includes things as lists or lines in a file or characters in a string.  
@@ -1875,12 +2702,12 @@ In this code:
 * The 'for' statement is made more straightforward in that it is told specifically which values a variable will take and in which order.  
 * It is like an automated version of the 'while' statement, but one that is carefully made to outline what does what. :) :).  
 
-#### Loop Idioms  
+##### Loop Idioms  
 * It is another way of saying; ***Common uses of Loops***.  
 
 * They include the following:  
 
-##### 1. Finding The Largest / The Smallest Value In The Loop.   
+###### 1. Finding The Largest / The Smallest Value In The Loop.   
 * Can be done by using both the `for` and `while` statement, depending on the situation.  
 * The `for` statement is used when there is a particular set of values already outlined in the program.  
 * The `while` becomes useful when the values are not specifically outlined, like when the values are coming directly from the user input.
@@ -1945,7 +2772,7 @@ The code above also uses the `None` variable to establish a logic that:
   3. Then be the value which the other values are compared to and being replaced by any value that will be less than it in the list.  
   
   
-##### 2. Looping Through a Set.  
+###### 2. Looping Through a Set.  
 * This is basically when you instruct the program to print every value that is in the loop.  
 * This is useful when you have a certain set of values that are either generated by the program or being begotten somewhere and you want to display them to the user.  
 * For example, the following code will print numbers from 0 to 10..  
@@ -1958,7 +2785,7 @@ The code above also uses the `None` variable to establish a logic that:
 * The `range()` function is used here to set the boundaries of what we want to print. The formula for using the `range()` is like this: `range(start value, stop value [, step (how many numbers you want to skip per iteration) value])`. Be sure to put the comma signs as they have been placed in the formula.  
 
 
-##### 3. Counting, adding and finding the average in the values of a Loop  
+###### 3. Counting, adding and finding the average in the values of a Loop  
 * To count in a loop, we introduce a counting ***initial*** variable assigned to start at zero and add 1 to itself every time the loop runs.  
 * To add, we do the same thing with the initial comparison variable and we instruct it to add itself to the value of the iteration variable every time the repetition takes place.  
 * To find an average, we divide the comparison variable for summation over the comparison variable for counting.  
@@ -1985,7 +2812,7 @@ The code above also uses the `None` variable to establish a logic that:
 * The above code uses the `for` loop to count the number of values available, sum them and eventually find mean and standard deviation.  
 
 
-##### 4. Filtering in a loop.  
+###### 4. Filtering in a loop.  
 * Can be done for multitude of purposes.  
 * Maybe certain numbers from a range of numbers need to be shown to the user, filtering can be done to achieve this.  
 * Or a programmer might be in need of certain numbers in a loop, filtering can be used to catch these numbers as the loop runs.  
@@ -1999,7 +2826,7 @@ The code above also uses the `None` variable to establish a logic that:
   ```
   
 
-##### 5. Searching in a Loop.  
+###### 5. Searching in a Loop.  
 * This is done by using the **Boolean** variable.  
 * This variable has only two values: `True` / `False`.  
 * The values `True` or `False` should be entered with the first letter being **capital letter**. Otherwise it will not be read by python.  
